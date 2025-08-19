@@ -1,0 +1,10 @@
+load("@rules_python//python:defs.bzl", "py_library")
+
+package(default_visibility = ["//visibility:public"])
+
+# Root package for shared configuration and utilities
+py_library(
+    name = "eval_annotate_scale",
+    srcs = [],
+    deps = [],
+)

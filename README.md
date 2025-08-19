@@ -1,33 +1,70 @@
-### TODO: Update this README with your project details
+# Annotation at Scale
+
 <img src="https://chanzuckerberg.com/wp-content/themes/czi/img/logo.svg" alt="CZI Logo" title="CZI Logo" style="width: 100%; height: auto;">
 
 <br/><br/>
 
-# About {Project Name}
-{tagline}
+A production-ready annotation system for the Chan Zuckerberg Initiative's Education Evaluators team. This project provides scalable annotation workflows for educational AI evaluation using LangGraph, Bazel, and modern Python tooling.
 
-For complete setup instructions and usage examples, see the [Full Documentation](https://link-to-your-docs.com).
+## Technology Stack
 
-# Repository Contents
-{Intro Sentence}
+- **Build System**: Bazel 8.3+ with Bzlmod for modern, reproducible builds and dependency management
+- **Language**: Python 3.13.5 with type annotations
+- **Environment**: Anaconda/Conda for dependency management
+- **AI Framework**: LangGraph for stateful, multi-actor workflows
+- **Testing**: Pytest with coverage reporting
+- **Code Quality**: Black, Flake8, MyPy, and pre-commit hooks
+
+## Repository Contents
 
 | Path | Description |
 | ---- | ----------- |
-| `prompts/` | Example prompt files |
-| `data/` | Sample datasets (anonymized/demo) |
-| `scripts/` | Helper scripts for [describe purpose] |
-| `LICENSE` | Open source license details |
+| `src/` | Main source code with annotation, workflows, and utilities |
+| `tests/` | Comprehensive test suite |
+| `data/` | Sample datasets and annotation schemas |
+| `prompts/` | LangGraph prompts and templates |
+| `scripts/` | Development and deployment automation scripts |
+| `configs/` | Configuration files for different environments |
+| `tools/` | Code formatting and linting tools |
 
-👉 Full documentation and usage guides are available at: https://link-to-your-docs.com
+## Quick Start
 
-# Quick Start
+### Prerequisites
+- Python 3.13.5
+- Anaconda/Miniconda
+- Bazel 8.3+
 
-You can browse and download prompts and data directly from this repository.
+### Setup Development Environment
 
-To use the helper scripts:
+```bash
+# Clone the repository
+git clone <repository-url>
+cd eval_annotate_scale
+
+# Run setup script (creates conda environment and builds project)
+./scripts/setup_dev.sh
+
+# Activate the environment
+conda activate eval-annotate-scale
 ```
-# Example usage
-python scripts/example_script.py --input data/sample.json
+
+### Basic Usage
+
+```bash
+# Build the entire project
+bazel build //...
+
+# Run all tests
+bazel test //...
+
+# Run the main application
+bazel run //src:main -- --help
+
+# Format code
+bazel run //tools:format
+
+# Lint code  
+bazel run //tools:lint
 ```
 
 # Support & Feedback

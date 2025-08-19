@@ -1,0 +1,43 @@
+"""
+Bazel module configuration for eval_annotate_scale project.
+Using Bzlmod (Bazel 8.3+) for modern dependency management.
+"""
+
+module(
+    name = "eval_annotate_scale",
+    version = "0.1.0",
+)
+
+# Core Bazel dependencies
+bazel_dep(name = "rules_python", version = "0.40.0")
+bazel_dep(name = "rules_proto", version = "7.0.2")
+bazel_dep(name = "protobuf", version = "29.0")
+
+# Python toolchain configuration
+python = use_extension("@rules_python//python/extensions:python.bzl", "python")
+python.toolchain(
+    python_version = "3.13",
+    is_default = True,
+)
+
+# Python dependencies via pip
+pip = use_extension("@rules_python//python/extensions:pip.bzl", "pip")
+pip.parse(
+    hub_name = "eval_annotate_scale_deps",
+    python_version = "3.13",
+    requirements_lock = "//:requirements.txt",
+)
+use_repo(pip, "eval_annotate_scale_deps")
+
+# Linting and formatting tools
+bazel_dep(name = "aspect_rules_lint", version = "1.0.0")
+
+# Docker support for containerized deployments  
+bazel_dep(name = "rules_oci", version = "1.7.6")
+bazel_dep(name = "rules_pkg", version = "1.0.1")
+
+# Development and testing tools
+bazel_dep(name = "bazel_skylib", version = "1.7.1")
+
+# Optional: For JSON/YAML processing
+bazel_dep(name = "rules_jvm_external", version = "6.3", dev_dependency = True)

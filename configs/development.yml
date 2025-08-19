@@ -1,0 +1,48 @@
+# Development configuration for annotation system
+
+app:
+  name: "eval-annotate-scale"
+  version: "0.1.0"
+  environment: "development"
+  debug: true
+
+logging:
+  level: "DEBUG"
+  format: "json"
+  handlers:
+    - console
+    - file
+
+database:
+  url: "postgresql://localhost:5432/annotation_dev"
+  pool_size: 10
+  max_overflow: 20
+  echo: true
+
+redis:
+  url: "redis://localhost:6379/0"
+  max_connections: 10
+
+langgraph:
+  checkpoints:
+    type: "redis"
+    config:
+      url: "redis://localhost:6379/1"
+  
+  memory:
+    type: "redis" 
+    config:
+      url: "redis://localhost:6379/2"
+
+workflows:
+  max_concurrent: 5
+  timeout_seconds: 300
+  
+annotation:
+  batch_size: 10
+  max_retries: 3
+  
+monitoring:
+  enabled: true
+  metrics_port: 8080
+  health_check_port: 8081

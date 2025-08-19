@@ -1,0 +1,39 @@
+# Bazel configuration for eval_annotate_scale
+
+# Enable Bzlmod (modern module system)
+common --enable_bzlmod
+
+# Build optimizations
+build --symlink_prefix=bazel-
+build --experimental_reuse_sandbox_directories
+build --worker_multiplex
+
+# Python-specific settings - use Bzlmod toolchain
+build --incompatible_use_python_toolchains
+
+# Test configuration
+test --test_output=errors
+test --test_summary=detailed
+test --test_verbose_timeout_warnings
+
+# Remote caching (optional - configure as needed)
+# build --remote_cache=...
+
+# Development settings
+build:dev --compilation_mode=dbg
+build:dev --test_output=all
+
+# Production settings  
+build:prod --compilation_mode=opt
+build:prod --strip=always
+
+# Coverage collection
+coverage --combined_report=lcov
+coverage --experimental_cc_coverage
+
+# Convenience aliases
+build:fast --jobs=auto
+build:fast --loading_phase_threads=auto
+
+# Try importing user-specific configuration
+try-import %workspace%/.bazelrc.user

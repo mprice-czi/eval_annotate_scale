@@ -1,0 +1,16 @@
+name: eval-annotate-scale
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  # Python runtime
+  - python=3.13.5
+  
+  # Core scientific computing
+  - anaconda
+  
+  # Build tools
+  - bazel=8.3.*
+  
+  # Additional plugins and libraries
+  - langgraph

@@ -18,7 +18,7 @@ This directory contains the complete data infrastructure for the "Annotation @ S
 
 ```
 data/
-├── CLEAR.csv                           # Primary dataset (6.1MB, 13,203 records)
+├── CLEAR.csv                           # Primary dataset (6.1MB, 4,726 records)
 ├── README.md                           # This comprehensive documentation
 ├── BUILD.bazel                         # Bazel build targets and exports
 ├── schemas/                            # JSON Schema validation definitions
@@ -43,7 +43,7 @@ The **CLEAR** (Corpus of Linguistic and Educational Analysis Resources) dataset 
 
 - **Filename**: `CLEAR.csv`
 - **File Size**: 6.1MB (uncompressed)
-- **Total Records**: 13,203 text samples
+- **Total Records**: 4,726 text samples
 - **Source Format**: CSV with complex multi-line header structure
 - **Encoding**: UTF-8 with BOM (Byte Order Mark)
 - **Origin**: Primarily Project Gutenberg literature collection
@@ -53,22 +53,22 @@ The **CLEAR** (Corpus of Linguistic and Educational Analysis Resources) dataset 
 
 The CLEAR.csv file has a **non-standard CSV structure** that requires careful handling:
 
-#### Header Structure (Lines 1-8)
-The CSV header spans 8 lines due to column names containing newlines and special formatting. The complete header must be processed as a unit to correctly identify the 40 data columns.
+#### Header Structure (Line 1)
+The CSV header is contained in a single line with column names containing embedded newlines within quoted fields. The complete header must be processed as a unit to correctly identify the 40 data columns.
 
 ```
 Line 1: ﻿ID,Last Changed,Author,Title,Anthology,URL,Source,Pub Year,Category,Location,License,"MPAA
-Line 2: Max","MPAA 
-Line 3: #Max","MPAA
-Line 4: #Avg",Excerpt,"Google
-Line 5: WC","Joon
-Line 6: WC v1",British WC,British Words,"Sentence
-Line 7: Count v1","Sentence
-Line 8: Count v2",Paragraphs,[...continuing with readability metrics and predictions]
+Max","MPAA 
+#Max","MPAA
+#Avg",Excerpt,"Google
+WC","Joon
+WC v1",British WC,British Words,"Sentence
+Count v1","Sentence
+Count v2",Paragraphs,[...continuing with readability metrics and predictions]
 ```
 
-#### Data Records (Lines 9+)
-Actual data begins at line 9. Each record contains 40 fields, with several critical formatting considerations:
+#### Data Records (Lines 2+)
+Actual data begins at line 2. Each record contains 40 fields, with several critical formatting considerations:
 
 1. **Multi-line Text Fields**: The "Excerpt" field (column 15) contains multi-paragraph text with embedded newlines
 2. **Quoted Fields**: Text fields are properly quoted to handle commas and newlines
@@ -123,8 +123,8 @@ Actual data begins at line 9. Each record contains 40 fields, with several criti
 ### Data Quality and Characteristics
 
 #### Content Distribution
-- **Training Set**: ~11,000 records (Kaggle split = "Train")
-- **Test Set**: ~2,200 records (Kaggle split = "Test")
+- **Training Set**: ~3,781 records (Kaggle split = "Train")  
+- **Test Set**: ~945 records (Kaggle split = "Test")
 - **Text Length**: Excerpts range from ~50 to ~300 words
 - **Complexity Range**: Flesch scores from ~20 (very difficult) to ~90+ (very easy)
 - **Time Periods**: 19th-21st century literature with publication years 1800-2020+
@@ -680,14 +680,13 @@ with open('data/CLEAR.csv', 'r', encoding='utf-8-sig') as file:
 #### 2. Multi-line Header Processing
 ```python
 def extract_column_names(csv_path):
-    """Extract column names from complex 8-line header."""
+    """Extract column names from header with embedded newlines."""
     
     with open(csv_path, 'r', encoding='utf-8-sig') as file:
-        header_lines = [file.readline().strip() for _ in range(8)]
+        header_line = file.readline().strip()
     
-    # Join header lines and parse as single CSV row
-    header_text = ' '.join(header_lines)
-    header_reader = csv.reader([header_text])
+    # Parse header as CSV row to handle quoted fields with embedded newlines
+    header_reader = csv.reader([header_line])
     columns = next(header_reader)
     
     # Clean column names
@@ -706,15 +705,14 @@ def parse_data_with_multiline_fields(csv_path):
     """Parse CSV data handling quoted multi-line fields correctly."""
     
     with open(csv_path, 'r', encoding='utf-8-sig') as file:
-        # Skip 8-line header
-        for _ in range(8):
-            file.readline()
+        # Skip header
+        file.readline()
         
         # Use csv.reader to handle quoted multi-line fields
         csv_reader = csv.reader(file, quoting=csv.QUOTE_MINIMAL)
         records = []
         
-        for row_num, row in enumerate(csv_reader, start=9):
+        for row_num, row in enumerate(csv_reader, start=2):
             if len(row) == 40:  # Expected column count
                 records.append(row)
             else:
@@ -789,7 +787,7 @@ class CLEARParser:
                     self.validate_record(record)
                     structured_records.append(record)
                 except Exception as e:
-                    logger.error(f"Error processing row {i+9}: {e}")
+                    logger.error(f"Error processing row {i+2}: {e}")
                     continue
             
             logger.info(f"Successfully converted {len(structured_records)} valid records")
@@ -1001,7 +999,7 @@ def load_clear_as_dataframe() -> pd.DataFrame:
     """Load CLEAR records as pandas DataFrame for analysis."""
     
     # Method 1: Direct CSV loading (handles complex header automatically)
-    df = pd.read_csv('data/CLEAR.csv', skiprows=8, encoding='utf-8-sig')
+    df = pd.read_csv('data/CLEAR.csv', encoding='utf-8-sig')
     
     # Method 2: JSON-validated loading (recommended for production)
     with open('data/examples/clear_records_sample.json', 'r') as f:
@@ -1116,9 +1114,8 @@ py_binary(
 ```python
 # ✅ Correct approach
 with open('data/CLEAR.csv', 'r', encoding='utf-8-sig') as f:
-    # Skip 8-line header
-    for _ in range(8):
-        f.readline()
+    # Skip header
+    f.readline()
     
     # Use csv.reader for proper quoted field handling
     reader = csv.reader(f)
@@ -1152,8 +1149,7 @@ def process_clear_in_batches(csv_path: str, batch_size: int = 1000):
     
     with open(csv_path, 'r', encoding='utf-8-sig') as f:
         # Skip header
-        for _ in range(8):
-            f.readline()
+        f.readline()
         
         reader = csv.reader(f)
         batch = []

@@ -1,0 +1,6 @@
+package(default_visibility = ["//visibility:public"])
+
+# Export config files
+exports_files([
+    "preprocessing_config.yaml",
+], visibility = ["//visibility:public"])

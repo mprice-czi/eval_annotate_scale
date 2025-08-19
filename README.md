@@ -4,7 +4,7 @@
 
 <br/><br/>
 
-A production-ready annotation system for the Chan Zuckerberg Initiative's Education Evaluators team. This project provides scalable annotation workflows for educational AI evaluation using LangGraph, Bazel, and modern Python tooling.
+A production-ready annotation system for the Chan Zuckerberg Initiative's Education Evaluators team. This project provides intelligent passage preprocessing and annotation workflows for educational AI evaluation using LangGraph, Bazel, and modern Python tooling.
 
 ## Technology Stack
 
@@ -12,20 +12,18 @@ A production-ready annotation system for the Chan Zuckerberg Initiative's Educat
 - **Language**: Python 3.13.5 with type annotations
 - **Environment**: Anaconda/Conda for dependency management
 - **AI Framework**: LangGraph for stateful, multi-actor workflows
-- **Testing**: Pytest with coverage reporting
-- **Code Quality**: Black, Flake8, MyPy, and pre-commit hooks
+- **Configuration**: YAML-based configuration system
+- **Code Quality**: PEP 8 compliance with structured imports and best practices
 
 ## Repository Contents
 
 | Path | Description |
 | ---- | ----------- |
-| `src/` | Main source code with annotation, workflows, and utilities |
-| `tests/` | Comprehensive test suite |
-| `data/` | Sample datasets and annotation schemas |
-| `prompts/` | LangGraph prompts and templates |
-| `scripts/` | Development and deployment automation scripts |
-| `configs/` | Configuration files for different environments |
-| `tools/` | Code formatting and linting tools |
+| `src/` | Main source code including CLI application and config management |
+| `scripts/` | Intelligent preprocessing and environment validation scripts |
+| `data/` | CLEAR corpus dataset and annotation schemas |
+| `configs/` | YAML configuration files for preprocessing pipeline |
+| `tools/` | Development utilities and helper scripts |
 
 ## Quick Start
 
@@ -41,31 +39,60 @@ A production-ready annotation system for the Chan Zuckerberg Initiative's Educat
 git clone <repository-url>
 cd eval_annotate_scale
 
-# Run setup script (creates conda environment and builds project)
-./scripts/setup_dev.sh
-
-# Activate the environment
+# Create conda environment
+conda env create -f environment.yml
 conda activate eval-annotate-scale
+
+# Build the entire project
+bazel build //...
 ```
 
 ### Basic Usage
 
 ```bash
-# Build the entire project
+# Build the project
 bazel build //...
 
-# Run all tests
-bazel test //...
+# Run the simple CLI application
+bazel run //src:main -- --name "Developer"
 
-# Run the main application
-bazel run //src:main -- --help
+# Set up Bazel environment with API key (one-time setup)
+bazel run //scripts:setup_bazel_env
 
-# Format code
-bazel run //tools:format
+# Validate your environment setup
+bazel run //scripts:validate_environment
 
-# Lint code  
-bazel run //tools:lint
+# Run intelligent passage preprocessing with configuration
+bazel run //scripts:intelligent_preprocessing -- --config configs/preprocessing_config.yaml --output data/marginal_pairs.json
+
+# Alternative: Use custom configuration
+bazel run //scripts:intelligent_preprocessing -- --config my_custom_config.yaml --max-passages 50 --target-pairs 25
 ```
+
+## Intelligent Passage Preprocessing
+
+This project provides an AI-powered preprocessing pipeline that intelligently segments text passages and identifies marginally decidable pairs for vocabulary complexity annotation tasks.
+
+### Core Features
+- **Intelligent Segmentation**: Uses Gemini AI to segment CLEAR corpus passages into contextually complete, readable chunks optimized for 10-15 second reading time
+- **Marginality Assessment**: AI-driven evaluation to identify passage pairs that are marginally decidable for vocabulary complexity
+- **LangGraph Workflows**: Stateful, multi-step processing with proper error handling and batching
+- **YAML Configuration**: Comprehensive configuration system for all pipeline parameters
+
+### Configuration System
+The preprocessing pipeline uses `configs/preprocessing_config.yaml` to configure:
+- **Gemini API settings** (model, temperature, retries)
+- **Segmentation parameters** (target reading time, word count ranges)
+- **Marginality thresholds** (confidence levels, pair selection criteria)
+- **Processing limits** (batch sizes, API rate limiting)
+- **Quality controls** (context preservation, vocabulary requirements)
+
+### Pipeline Output
+The system generates JSON files containing:
+- Segmented passages with complexity estimates
+- Marginally decidable passage pairs with confidence scores
+- Metadata including processing parameters and statistics
+- Reasoning explanations for AI decisions
 
 # Support & Feedback
 We want to hear from you. For questions or feedback, please open an issue. 

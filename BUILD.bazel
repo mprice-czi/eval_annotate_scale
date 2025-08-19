@@ -8,3 +8,8 @@ py_library(
     srcs = [],
     deps = [],
 )
+
+# Export data files for use in other targets
+exports_files([
+    ".bazelrc.local",
+], visibility = ["//visibility:public"])

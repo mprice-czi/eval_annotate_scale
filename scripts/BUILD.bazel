@@ -1,0 +1,48 @@
+load("@rules_python//python:defs.bzl", "py_binary")
+
+# Intelligent preprocessing script
+py_binary(
+    name = "intelligent_preprocessing",
+    srcs = ["intelligent_passage_preprocessing.py"],
+    main = "intelligent_passage_preprocessing.py",
+    visibility = ["//visibility:public"],
+    data = [
+        "//data:CLEAR.csv",
+        "//configs:preprocessing_config.yaml",
+    ],
+    # Environment variables and Python packages from system conda environment
+)
+
+# Environment validation script
+py_binary(
+    name = "validate_environment",
+    srcs = ["validate_environment.py"],
+    main = "validate_environment.py",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//src:config_manager",
+    ],
+    data = [
+        "//data:CLEAR.csv",
+        "//configs:preprocessing_config.yaml",
+    ],
+)
+
+# Bazel environment setup script
+py_binary(
+    name = "setup_bazel_env",
+    srcs = ["setup_bazel_env.py"],
+    main = "setup_bazel_env.py",
+    visibility = ["//visibility:public"],
+)
+
+# Setup development environment script
+py_binary(
+    name = "setup_preprocessing",
+    srcs = ["setup_preprocessing.py"],
+    main = "setup_preprocessing.py",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//src:config_manager",
+    ],
+)

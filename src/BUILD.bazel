@@ -1,11 +1,22 @@
-load("@rules_python//python:defs.bzl", "py_binary")
+load("@rules_python//python:defs.bzl", "py_binary", "py_library")
 
+package(default_visibility = ["//visibility:public"])
+
+# Configuration management library
+py_library(
+    name = "config_manager",
+    srcs = ["config_manager.py"],
+    visibility = ["//visibility:public"],
+    # Uses system conda environment packages
+    deps = [],
+)
+
+# Main CLI application
 py_binary(
     name = "main",
     srcs = ["main.py"],
     main = "main.py",
     visibility = ["//visibility:public"],
-    deps = [
-        "@eval_annotate_scale_deps//click",
-    ],
+    # Uses system conda environment packages
+    deps = [],
 )

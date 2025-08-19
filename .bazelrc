@@ -8,8 +8,10 @@ build --symlink_prefix=bazel-
 build --experimental_reuse_sandbox_directories
 build --worker_multiplex
 
-# Python-specific settings - use Bzlmod toolchain
-build --incompatible_use_python_toolchains
+# Python-specific settings - use system Python with conda environment
+build --action_env=PATH
+build --action_env=CONDA_DEFAULT_ENV
+build --action_env=CONDA_PREFIX
 
 # Test configuration
 test --test_output=errors
@@ -37,3 +39,4 @@ build:fast --loading_phase_threads=auto
 
 # Try importing user-specific configuration
 try-import %workspace%/.bazelrc.user
+try-import %workspace%/.bazelrc.local

@@ -1,0 +1,50 @@
+# Configuration for Intelligent Passage Preprocessing Pipeline
+
+# Gemini API Configuration
+gemini:
+  model: "gemini-1.5-pro"
+  temperature: 0.3
+  max_retries: 3
+  timeout_seconds: 30
+
+# Passage Segmentation Settings
+segmentation:
+  target_reading_time_seconds: 12.5  # 10-15 second range midpoint
+  target_word_count_range: [50, 150]  # Approximate words for target reading time
+  words_per_minute: 200  # Average reading speed
+  preserve_context: true
+  min_segment_sentences: 1  # Don't break mid-sentence
+  
+# Marginality Assessment Settings  
+marginality:
+  confidence_threshold: 0.6  # Minimum confidence for pair inclusion
+  flesch_difference_range: [5, 25]  # Reasonable Flesch score difference for marginality
+  max_candidate_pairs: 100  # Limit for API cost management
+  target_marginal_pairs: 50  # Final output target
+
+# Pairing Strategy
+pairing:
+  within_category_pairs: 20  # Max pairs within same complexity bucket
+  adjacent_category_pairs: 15  # Max pairs between adjacent complexity levels
+  cross_category_skip: true  # Skip Easy-Hard pairs (too obvious)
+  random_seed: 42  # For reproducible sampling
+
+# Processing Limits (API Cost Management)
+limits:
+  max_passages_per_batch: 50
+  max_concurrent_requests: 5
+  delay_between_requests_ms: 100
+  daily_api_call_limit: 1000
+
+# Quality Control
+quality:
+  require_context_preservation: true
+  min_vocabulary_focus_words: 2
+  exclude_segments_with_errors: true
+  
+# Output Format
+output:
+  include_metadata: true
+  include_reasoning: true
+  sort_by_confidence: true
+  export_intermediate_results: false  # For debugging

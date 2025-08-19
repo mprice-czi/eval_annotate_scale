@@ -1,2 +1,12 @@
-# Minimal requirements for basic Python functionality
-click>=8.0.0
+# Core functionality
+click>=8.2.1
+
+# Data processing and analysis
+pandas>=2.3.1
+pyyaml>=6.0.2
+
+# AI and LangGraph integration
+langgraph>=0.6.5
+langchain-google-genai>=2.1.9
+langchain-core>=0.3.74
+pydantic>=2.11.7

@@ -1,0 +1,7 @@
+package(default_visibility = ["//visibility:public"])
+
+# Export data files
+exports_files([
+    "CLEAR.csv",
+    "README.md",
+], visibility = ["//visibility:public"])

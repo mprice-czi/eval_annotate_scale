@@ -5,3 +5,17 @@ exports_files([
     "CLEAR.csv",
     "README.md",
 ], visibility = ["//visibility:public"])
+
+# Export schemas directory
+filegroup(
+    name = "schemas",
+    srcs = glob(["schemas/*.json"]),
+    visibility = ["//visibility:public"],
+)
+
+# Export examples directory  
+filegroup(
+    name = "examples",
+    srcs = glob(["examples/*.json"]),
+    visibility = ["//visibility:public"],
+)

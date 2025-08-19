@@ -1,0 +1,46 @@
+[
+  {
+    "pair_id": "pair-001",
+    "passage_a": {
+      "segment_id": "400-seg-1",
+      "text": "When the young people returned to the ballroom, it presented a decidedly changed appearance. Instead of an interior scene, it was a winter landscape. The floor was covered with snow-white canvas, not laid on smoothly, but rumpled over bumps and hillocks, like a real snow field.",
+      "complexity_estimate": "Medium",
+      "flesch_score": 78.5,
+      "vocabulary_focus_words": ["decidedly", "interior", "landscape", "rumpled", "hillocks"]
+    },
+    "passage_b": {
+      "segment_id": "401-seg-1", 
+      "text": "All through dinner time, Mrs. Fayre was somewhat silent, her eyes resting on Dolly with a wistful, uncertain expression. She wanted to give the child the pleasure she craved, but she had hard work to bring herself to the point of overcoming her own objections.",
+      "complexity_estimate": "Medium",
+      "flesch_score": 68.9,
+      "vocabulary_focus_words": ["wistful", "uncertain", "expression", "craved", "overcoming", "objections"]
+    },
+    "marginality_confidence": 0.73,
+    "complexity_difference": 9.6,
+    "reasoning": "Both passages contain moderately complex vocabulary but differ in emotional versus descriptive language complexity. Passage A uses spatial/visual terms while Passage B uses psychological/emotional terminology. The Flesch score difference suggests marginal decidability for vocabulary complexity assessment.",
+    "target_annotation_time": 30,
+    "created_at": "2024-01-15T10:30:00Z"
+  },
+  {
+    "pair_id": "pair-002",
+    "passage_a": {
+      "segment_id": "400-seg-2",
+      "text": "The numerous palms and evergreens that had decorated the room, were powdered with flour and strewn with tufts of cotton, like snow. Also diamond dust had been lightly sprinkled on them, and glittering crystal icicles hung from the branches.",
+      "complexity_estimate": "Medium",
+      "flesch_score": 71.3,
+      "vocabulary_focus_words": ["numerous", "evergreens", "decorated", "strewn", "glittering", "crystal", "icicles"]
+    },
+    "passage_b": {
+      "segment_id": "401-seg-1",
+      "text": "All through dinner time, Mrs. Fayre was somewhat silent, her eyes resting on Dolly with a wistful, uncertain expression. She wanted to give the child the pleasure she craved, but she had hard work to bring herself to the point of overcoming her own objections.",
+      "complexity_estimate": "Medium", 
+      "flesch_score": 68.9,
+      "vocabulary_focus_words": ["wistful", "uncertain", "expression", "craved", "overcoming", "objections"]
+    },
+    "marginality_confidence": 0.68,
+    "complexity_difference": 2.4,
+    "reasoning": "Close Flesch scores make this pair marginally decidable. Passage A features concrete descriptive vocabulary while Passage B uses abstract emotional vocabulary. Both require similar reading comprehension but different vocabulary domains.",
+    "target_annotation_time": 30,
+    "created_at": "2024-01-15T10:35:00Z"
+  }
+]

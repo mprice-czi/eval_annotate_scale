@@ -1,0 +1,186 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "CLEAR Corpus Record",
+  "description": "Schema for individual records in the CLEAR (Corpus of Linguistic and Educational Analysis Resources) dataset",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "description": "Unique identifier for the text sample"
+    },
+    "last_changed": {
+      "type": ["string", "null"],
+      "description": "Last modification date (often empty)"
+    },
+    "author": {
+      "type": "string",
+      "description": "Text author name"
+    },
+    "title": {
+      "type": "string", 
+      "description": "Title of the work"
+    },
+    "anthology": {
+      "type": ["string", "null"],
+      "description": "Anthology name if applicable"
+    },
+    "url": {
+      "type": ["string", "null"],
+      "format": "uri",
+      "description": "Source URL (typically Project Gutenberg)"
+    },
+    "source": {
+      "type": "string",
+      "enum": ["gutenberg"],
+      "description": "Data source identifier"
+    },
+    "pub_year": {
+      "type": "integer",
+      "description": "Publication year"
+    },
+    "category": {
+      "type": "string",
+      "enum": ["Lit"],
+      "description": "Text category (Literature)"
+    },
+    "location": {
+      "type": "string",
+      "description": "Geographic/cultural context"
+    },
+    "license": {
+      "type": "string",
+      "enum": ["PD", "PG"],
+      "description": "License type (Public Domain, Project Gutenberg)"
+    },
+    "mpaa_max": {
+      "type": "string",
+      "description": "MPAA content rating maximum"
+    },
+    "mpaa_max_count": {
+      "type": "integer",
+      "description": "Count of maximum MPAA rating occurrences"
+    },
+    "mpaa_avg": {
+      "type": "number",
+      "description": "Average MPAA rating score"
+    },
+    "excerpt": {
+      "type": "string",
+      "description": "Text excerpt for analysis (may contain multiple paragraphs)"
+    },
+    "google_wc": {
+      "type": "integer",
+      "description": "Word count according to Google's algorithm"
+    },
+    "joon_wc_v1": {
+      "type": "integer", 
+      "description": "Word count using Joon's algorithm version 1"
+    },
+    "british_wc": {
+      "type": "integer",
+      "description": "British word count"
+    },
+    "british_words": {
+      "type": ["string", "null"],
+      "description": "List of British words found"
+    },
+    "sentence_count_v1": {
+      "type": "integer",
+      "description": "Sentence count using version 1 algorithm"
+    },
+    "sentence_count_v2": {
+      "type": "integer",
+      "description": "Sentence count using version 2 algorithm"
+    },
+    "paragraphs": {
+      "type": "integer",
+      "description": "Number of paragraphs"
+    },
+    "bt_easiness": {
+      "type": "number",
+      "description": "Bradley-Terry easiness score"
+    },
+    "bt_se": {
+      "type": "number",
+      "description": "Bradley-Terry standard error"
+    },
+    "flesch_reading_ease": {
+      "type": "number",
+      "description": "Flesch Reading Ease score"
+    },
+    "flesch_kincaid_grade_level": {
+      "type": "number",
+      "description": "Flesch-Kincaid Grade Level score"
+    },
+    "automated_readability_index": {
+      "type": "number",
+      "description": "Automated Readability Index score"
+    },
+    "smog_readability": {
+      "type": "integer",
+      "description": "SMOG Readability score"
+    },
+    "new_dale_chall": {
+      "type": "number",
+      "description": "New Dale-Chall Readability Formula score"
+    },
+    "carec": {
+      "type": "number",
+      "description": "CAREC complexity score"
+    },
+    "carec_m": {
+      "type": "number",
+      "description": "CAREC modified score"
+    },
+    "cares": {
+      "type": "number",
+      "description": "CARES complexity score"
+    },
+    "cml2ri": {
+      "type": "number",
+      "description": "CML2RI complexity index"
+    },
+    "first_place_pred": {
+      "type": "number",
+      "description": "ML model prediction for first place ranking"
+    },
+    "second_place_pred": {
+      "type": "number",
+      "description": "ML model prediction for second place ranking"
+    },
+    "third_place_pred": {
+      "type": "number", 
+      "description": "ML model prediction for third place ranking"
+    },
+    "fourth_place_pred": {
+      "type": "number",
+      "description": "ML model prediction for fourth place ranking"
+    },
+    "fifth_place_pred": {
+      "type": "number",
+      "description": "ML model prediction for fifth place ranking"
+    },
+    "sixth_place_pred": {
+      "type": "number",
+      "description": "ML model prediction for sixth place ranking"
+    },
+    "kaggle_split": {
+      "type": "string",
+      "enum": ["Train", "Test"],
+      "description": "Kaggle competition data split designation"
+    }
+  },
+  "required": [
+    "id",
+    "author",
+    "title", 
+    "source",
+    "pub_year",
+    "category",
+    "location",
+    "license",
+    "excerpt",
+    "kaggle_split"
+  ],
+  "additionalProperties": false
+}

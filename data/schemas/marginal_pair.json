@@ -1,0 +1,90 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Marginal Pair",
+  "description": "Schema for marginally decidable passage pairs used in vocabulary complexity annotation",
+  "type": "object",
+  "properties": {
+    "pair_id": {
+      "type": "string",
+      "description": "Unique identifier for this passage pair"
+    },
+    "passage_a": {
+      "$ref": "#/definitions/PassageReference",
+      "description": "First passage in the comparison pair"
+    },
+    "passage_b": {
+      "$ref": "#/definitions/PassageReference", 
+      "description": "Second passage in the comparison pair"
+    },
+    "marginality_confidence": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1,
+      "description": "AI confidence that this pair is marginally decidable"
+    },
+    "complexity_difference": {
+      "type": "number",
+      "description": "Estimated vocabulary complexity difference between passages"
+    },
+    "reasoning": {
+      "type": "string",
+      "description": "AI reasoning for why this pair is considered marginally decidable"
+    },
+    "target_annotation_time": {
+      "type": "number",
+      "minimum": 0,
+      "description": "Target annotation time in seconds"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When this pair was generated"
+    }
+  },
+  "definitions": {
+    "PassageReference": {
+      "type": "object",
+      "properties": {
+        "segment_id": {
+          "type": "string",
+          "description": "Reference to processed passage segment"
+        },
+        "text": {
+          "type": "string",
+          "description": "The actual passage text"
+        },
+        "complexity_estimate": {
+          "type": "string",
+          "enum": ["Easy", "Medium", "Hard", "Very Hard"],
+          "description": "Complexity level of this passage"
+        },
+        "flesch_score": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100,
+          "description": "Flesch Reading Ease score"
+        },
+        "vocabulary_focus_words": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Key vocabulary words for complexity assessment"
+        }
+      },
+      "required": ["segment_id", "text", "complexity_estimate", "flesch_score", "vocabulary_focus_words"],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "pair_id",
+    "passage_a",
+    "passage_b", 
+    "marginality_confidence",
+    "complexity_difference",
+    "reasoning",
+    "target_annotation_time",
+    "created_at"
+  ],
+  "additionalProperties": false
+}

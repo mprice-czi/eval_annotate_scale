@@ -1,0 +1,32 @@
+[
+  {
+    "original_id": "400",
+    "segment_id": "400-seg-1",
+    "text": "When the young people returned to the ballroom, it presented a decidedly changed appearance. Instead of an interior scene, it was a winter landscape. The floor was covered with snow-white canvas, not laid on smoothly, but rumpled over bumps and hillocks, like a real snow field.",
+    "estimated_reading_time": 12.8,
+    "flesch_score": 78.5,
+    "complexity_estimate": "Medium",
+    "context_preserved": true,
+    "vocabulary_focus_words": ["decidedly", "interior", "landscape", "rumpled", "hillocks"]
+  },
+  {
+    "original_id": "400",
+    "segment_id": "400-seg-2", 
+    "text": "The numerous palms and evergreens that had decorated the room, were powdered with flour and strewn with tufts of cotton, like snow. Also diamond dust had been lightly sprinkled on them, and glittering crystal icicles hung from the branches.",
+    "estimated_reading_time": 10.2,
+    "flesch_score": 71.3,
+    "complexity_estimate": "Medium",
+    "context_preserved": true,
+    "vocabulary_focus_words": ["numerous", "evergreens", "decorated", "strewn", "glittering", "crystal", "icicles"]
+  },
+  {
+    "original_id": "401",
+    "segment_id": "401-seg-1",
+    "text": "All through dinner time, Mrs. Fayre was somewhat silent, her eyes resting on Dolly with a wistful, uncertain expression. She wanted to give the child the pleasure she craved, but she had hard work to bring herself to the point of overcoming her own objections.",
+    "estimated_reading_time": 14.5,
+    "flesch_score": 68.9,
+    "complexity_estimate": "Medium", 
+    "context_preserved": true,
+    "vocabulary_focus_words": ["wistful", "uncertain", "expression", "craved", "overcoming", "objections"]
+  }
+]

@@ -11,6 +11,23 @@ py_library(
     deps = [],
 )
 
+# Bazel path resolution utilities
+py_library(
+    name = "bazel_utils",
+    srcs = ["bazel_utils.py"],
+    visibility = ["//visibility:public"],
+    deps = [],
+)
+
+# Bazel utils test binary
+py_binary(
+    name = "test_bazel_utils",
+    srcs = ["bazel_utils.py"],
+    main = "bazel_utils.py",
+    visibility = ["//visibility:public"],
+    deps = [],
+)
+
 # Main CLI application
 py_binary(
     name = "main",

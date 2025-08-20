@@ -6,9 +6,14 @@ This demonstrates the processed passage format for dress rehearsal.
 
 import json
 import pandas as pd
+import sys
 from dataclasses import dataclass, asdict
 from typing import List
 from pathlib import Path
+
+# Add project root to path for imports
+sys.path.insert(0, str(Path(__file__).parent.parent))
+from src.bazel_utils import resolve_workspace_path, ensure_output_directory
 
 
 @dataclass
@@ -38,8 +43,9 @@ class PassagePair:
 def create_demo_processed_passages(max_passages: int = 3) -> List[ProcessedPassage]:
     """Create demo processed passages from CLEAR data."""
     
-    # Load real CLEAR data
-    df = pd.read_csv('data/CLEAR.csv', encoding='utf-8-sig')
+    # Load real CLEAR data (workspace-relative path)
+    clear_csv_path = resolve_workspace_path('data/CLEAR.csv')
+    df = pd.read_csv(clear_csv_path, encoding='utf-8-sig')
     df_clean = df[df.iloc[:, 0].notnull()].head(max_passages)
     
     processed_passages = []
@@ -137,9 +143,8 @@ def main():
     print("🎭 DRESS REHEARSAL: Demo Processing Pipeline")
     print("=" * 50)
     
-    # Create output directory
-    output_dir = Path("data/outputs")
-    output_dir.mkdir(exist_ok=True)
+    # Create output directory (workspace-relative path)
+    output_dir = ensure_output_directory("data/outputs")
     
     # Generate demo processed passages
     print("🔄 Generating demo processed passages...")

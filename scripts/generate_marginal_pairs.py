@@ -43,6 +43,7 @@ from pydantic import BaseModel, Field
 # Add project root to path for imports
 sys.path.insert(0, str(Path(__file__).parent.parent))
 from src.config_manager import SecureConfigManager
+from src.bazel_utils import resolve_workspace_path, resolve_output_file
 
 # Configure logging
 logging.basicConfig(
@@ -345,10 +346,12 @@ Assess whether this pair is marginally decidable for vocabulary complexity compa
 
 def load_segmented_passages(input_path: Path) -> List[ProcessedPassage]:
     """Load segmented passages from Stage 1 output."""
-    logger.info(f"Loading segmented passages from {input_path}")
+    # Resolve input path relative to workspace root
+    resolved_input_path = resolve_workspace_path(input_path)
+    logger.info(f"Loading segmented passages from {resolved_input_path}")
     
     try:
-        with open(input_path, 'r') as f:
+        with open(resolved_input_path, 'r') as f:
             data = json.load(f)
         
         # Validate file format
@@ -369,6 +372,9 @@ def load_segmented_passages(input_path: Path) -> List[ProcessedPassage]:
 
 def save_marginal_pairs(pairs: List[MarginalPair], output_path: Path) -> None:
     """Save marginal pairs to JSON file."""
+    # Resolve output path relative to workspace root
+    resolved_output_path = resolve_output_file(output_path)
+    
     try:
         # Convert to serializable format
         output_data = {
@@ -397,13 +403,13 @@ def save_marginal_pairs(pairs: List[MarginalPair], output_path: Path) -> None:
             output_data["marginal_pairs"].append(pair_data)
         
         # Ensure output directory exists
-        output_path.parent.mkdir(parents=True, exist_ok=True)
+        resolved_output_path.parent.mkdir(parents=True, exist_ok=True)
         
         # Write to file
-        with open(output_path, 'w') as f:
+        with open(resolved_output_path, 'w') as f:
             json.dump(output_data, f, indent=2)
         
-        logger.info(f"✅ Saved {len(pairs)} marginal pairs to {output_path}")
+        logger.info(f"✅ Saved {len(pairs)} marginal pairs to {resolved_output_path}")
         
     except Exception as e:
         logger.error(f"Failed to save marginal pairs: {e}")

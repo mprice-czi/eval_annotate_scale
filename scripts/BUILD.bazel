@@ -64,6 +64,9 @@ py_binary(
     srcs = ["demo_processing.py"],
     main = "demo_processing.py",
     visibility = ["//visibility:public"],
+    deps = [
+        "//src:bazel_utils",
+    ],
     data = [
         "//data:CLEAR.csv",
     ],
@@ -77,6 +80,7 @@ py_binary(
     visibility = ["//visibility:public"],
     deps = [
         "//src:config_manager",
+        "//src:bazel_utils",
     ],
     data = [
         "//data:CLEAR.csv",
@@ -92,6 +96,7 @@ py_binary(
     visibility = ["//visibility:public"],
     deps = [
         "//src:config_manager",
+        "//src:bazel_utils",
     ],
     data = [
         "//configs:preprocessing_config.yaml",

@@ -43,6 +43,7 @@ from pydantic import BaseModel, Field
 # Add project root to path for imports
 sys.path.insert(0, str(Path(__file__).parent.parent))
 from src.config_manager import SecureConfigManager
+from src.bazel_utils import resolve_workspace_path, ensure_output_directory, resolve_output_file
 
 # Configure logging
 logging.basicConfig(
@@ -103,12 +104,14 @@ class PassageSegmenter:
         
     def setup_caching(self, output_path: Path) -> None:
         """Set up caching and progress tracking files."""
-        output_dir = output_path.parent
+        # Resolve output path relative to workspace root
+        resolved_output_path = resolve_output_file(output_path)
+        output_dir = resolved_output_path.parent
         output_dir.mkdir(parents=True, exist_ok=True)
         
         # Cache and progress files
-        cache_name = f"{output_path.stem}_cache.json"
-        progress_name = f"{output_path.stem}_progress.json"
+        cache_name = f"{resolved_output_path.stem}_cache.json"
+        progress_name = f"{resolved_output_path.stem}_progress.json"
         
         self.cache_file = output_dir / cache_name
         self.progress_file = output_dir / progress_name
@@ -432,10 +435,12 @@ Please segment this passage optimally for vocabulary complexity assessment. Retu
 
 def load_clear_data(csv_path: str) -> pd.DataFrame:
     """Load and validate CLEAR corpus data."""
-    logger.info(f"Loading CLEAR data from {csv_path}")
+    # Resolve path relative to workspace root
+    resolved_path = resolve_workspace_path(csv_path)
+    logger.info(f"Loading CLEAR data from {resolved_path}")
     
     try:
-        df = pd.read_csv(csv_path, encoding='utf-8-sig')
+        df = pd.read_csv(resolved_path, encoding='utf-8-sig')
         df = df.dropna(subset=['Excerpt', 'Flesch-Reading-Ease'])
         
         # Validate required columns
@@ -453,6 +458,9 @@ def load_clear_data(csv_path: str) -> pd.DataFrame:
 
 def save_segmented_passages(passages: List[ProcessedPassage], output_path: Path) -> None:
     """Save segmented passages to JSON file with validation."""
+    # Resolve output path relative to workspace root
+    resolved_output_path = resolve_output_file(output_path)
+    
     try:
         # Convert to serializable format
         output_data = {
@@ -465,13 +473,13 @@ def save_segmented_passages(passages: List[ProcessedPassage], output_path: Path)
         }
         
         # Ensure output directory exists
-        output_path.parent.mkdir(parents=True, exist_ok=True)
+        resolved_output_path.parent.mkdir(parents=True, exist_ok=True)
         
         # Write to file
-        with open(output_path, 'w') as f:
+        with open(resolved_output_path, 'w') as f:
             json.dump(output_data, f, indent=2)
         
-        logger.info(f"✅ Saved {len(passages)} segmented passages to {output_path}")
+        logger.info(f"✅ Saved {len(passages)} segmented passages to {resolved_output_path}")
         
     except Exception as e:
         logger.error(f"Failed to save segmented passages: {e}")

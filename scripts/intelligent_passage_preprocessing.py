@@ -341,22 +341,35 @@ class LangGraphPreprocessingWorkflow:
             candidates = []
             
             # Within-category pairs (should be more marginal)
+            # IMPORTANT: Only pair passages from different original sources
+            # This ensures annotation tasks are meaningful - subpassages from the same
+            # original passage would be too similar and provide poor annotation data
             for category_passages in [easy_passages, medium_passages, hard_passages]:
                 if len(category_passages) >= 2:
-                    category_pairs = list(combinations(category_passages, 2))
+                    category_pairs = [
+                        (p1, p2) for p1, p2 in combinations(category_passages, 2)
+                        if p1.original_id != p2.original_id  # Ensure different original passages
+                    ]
                     # Sample subset to avoid too many pairs
-                    sampled_pairs = random.sample(category_pairs, min(20, len(category_pairs)))
+                    sampled_pairs = random.sample(category_pairs, min(20, len(category_pairs))) if category_pairs else []
                     candidates.extend(sampled_pairs)
             
             # Adjacent-category pairs (Easy-Medium, Medium-Hard)
+            # IMPORTANT: Only pair passages from different original sources
             adjacent_pairs = []
             if easy_passages and medium_passages:
-                easy_medium = [(e, m) for e in easy_passages[:10] for m in medium_passages[:10]]
-                adjacent_pairs.extend(random.sample(easy_medium, min(15, len(easy_medium))))
+                easy_medium = [
+                    (e, m) for e in easy_passages[:10] for m in medium_passages[:10]
+                    if e.original_id != m.original_id  # Ensure different original passages
+                ]
+                adjacent_pairs.extend(random.sample(easy_medium, min(15, len(easy_medium))) if easy_medium else [])
             
             if medium_passages and hard_passages:
-                medium_hard = [(m, h) for m in medium_passages[:10] for h in hard_passages[:10]]
-                adjacent_pairs.extend(random.sample(medium_hard, min(15, len(medium_hard))))
+                medium_hard = [
+                    (m, h) for m in medium_passages[:10] for h in hard_passages[:10]
+                    if m.original_id != h.original_id  # Ensure different original passages
+                ]
+                adjacent_pairs.extend(random.sample(medium_hard, min(15, len(medium_hard))) if medium_hard else [])
             
             candidates.extend(adjacent_pairs)
             
@@ -364,7 +377,7 @@ class LangGraphPreprocessingWorkflow:
             random.shuffle(candidates)
             state.candidate_pairs = candidates[:100]  # Limit for API costs
             state.stage = "candidate_pairs"
-            logger.info(f"Generated {len(state.candidate_pairs)} candidate pairs")
+            logger.info(f"Generated {len(state.candidate_pairs)} candidate pairs (filtered to exclude same-original pairs)")
             return state
         
         async def assess_marginality_node(state: WorkflowState) -> WorkflowState:
@@ -426,7 +439,7 @@ async def main():
     """Main preprocessing pipeline."""
     parser = argparse.ArgumentParser(description='Intelligent passage preprocessing for SuperAnnotate')
     parser.add_argument('--clear-csv', default='data/CLEAR.csv', help='Path to CLEAR.csv')
-    parser.add_argument('--output', default='data/marginal_pairs_arm1a.json', help='Output JSON file')
+    parser.add_argument('--output', default='data/outputs/marginal_pairs_arm1a.json', help='Output JSON file')
     parser.add_argument('--config', default='configs/preprocessing_config.yaml', help='Path to configuration YAML file')
     parser.add_argument('--max-passages', type=int, default=100, help='Maximum passages to process')
     parser.add_argument('--target-pairs', type=int, default=50, help='Target number of marginal pairs')

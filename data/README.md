@@ -18,7 +18,7 @@ This directory contains the complete data infrastructure for the "Annotation @ S
 
 ```
 data/
-├── CLEAR.csv                           # Primary dataset (6.1MB, 4,726 records)
+├── CLEAR.csv                           # Primary dataset (6.1MB, 4,724 records)
 ├── README.md                           # This comprehensive documentation
 ├── BUILD.bazel                         # Bazel build targets and exports
 ├── schemas/                            # JSON Schema validation definitions
@@ -31,6 +31,11 @@ data/
 │   └── marginal_pairs_sample.json      # Annotation pair examples
 ├── fixtures/                           # Test data for automated testing (planned)
 └── outputs/                            # Generated processing results (gitignored)
+    ├── segmented_passages.json          # Stage 1 output: segmented passages
+    ├── segmented_passages_cache.json    # Stage 1 cache for resume capability
+    ├── segmented_passages_progress.json # Stage 1 progress tracking
+    ├── marginal_pairs.json              # Stage 2 output: final marginal pairs
+    └── *.log                            # Processing log files
 ```
 
 ## CLEAR Corpus Dataset
@@ -43,7 +48,7 @@ The **CLEAR** (Corpus of Linguistic and Educational Analysis Resources) dataset 
 
 - **Filename**: `CLEAR.csv`
 - **File Size**: 6.1MB (uncompressed)
-- **Total Records**: 4,726 text samples
+- **Total Records**: 4,724 text samples
 - **Source Format**: CSV with complex multi-line header structure
 - **Encoding**: UTF-8 with BOM (Byte Order Mark)
 - **Origin**: Primarily Project Gutenberg literature collection
@@ -52,6 +57,8 @@ The **CLEAR** (Corpus of Linguistic and Educational Analysis Resources) dataset 
 ### Critical CSV Structure Details
 
 The CLEAR.csv file has a **non-standard CSV structure** that requires careful handling:
+
+**Important**: The CSV file contains 4,726 total rows, but 2 rows at the end are empty/invalid, resulting in 4,724 valid records with complete data.
 
 #### Header Structure (Line 1)
 The CSV header is contained in a single line with column names containing embedded newlines within quoted fields. The complete header must be processed as a unit to correctly identify the 40 data columns.
@@ -528,11 +535,50 @@ def prepare_annotation_batch(marginal_pairs, batch_size=50):
 
 The complete data processing pipeline transforms raw CLEAR CSV data into annotation-ready passage pairs through multiple validated stages:
 
+**New Two-Stage Pipeline (Recommended):**
+```
+CLEAR.csv → Stage 1: Passage Segmentation → Stage 2: Marginal Pair Generation → SuperAnnotate Tasks
+```
+
+**Legacy Monolithic Pipeline:**
 ```
 CLEAR.csv → JSON Records → Processed Passages → Marginal Pairs → SuperAnnotate Tasks
 ```
 
-#### Stage 1: CSV to JSON Conversion
+### New Two-Stage Pipeline Architecture
+
+#### Stage 1: Passage Segmentation (`scripts/segment_passages.py`)
+**Input**: Raw CLEAR.csv  
+**Output**: `data/outputs/segmented_passages.json` with processed passage segments  
+**Key Features**:
+- AI-powered segmentation using Gemini 2.5 Pro
+- Caching system with `*_cache.json` and `*_progress.json` files
+- Resume capability for interrupted processing
+- Fallback handling for AI failures
+- Batch processing with rate limiting
+
+**Data Flow**:
+```
+CLEAR.csv → Load & Parse → AI Segmentation → Cached Results → segmented_passages.json
+```
+
+#### Stage 2: Marginal Pair Generation (`scripts/generate_marginal_pairs.py`)
+**Input**: `data/outputs/segmented_passages.json`  
+**Output**: `data/outputs/marginal_pairs.json` with marginally decidable pairs  
+**Key Features**:
+- Business rule-based candidate filtering
+- AI-powered marginality assessment
+- Multi-factor quality scoring
+- Stateless design for reliable re-execution
+
+**Data Flow**:
+```
+segmented_passages.json → Filter Candidates → AI Assessment → Quality Scoring → marginal_pairs.json
+```
+
+### Legacy Pipeline Stages
+
+#### CSV to JSON Conversion (Legacy)
 **Input**: Raw CLEAR.csv with complex header structure  
 **Output**: Validated JSON records conforming to `clear_record.json` schema  
 **Key Processes**:

@@ -46,3 +46,54 @@ py_binary(
         "//src:config_manager",
     ],
 )
+
+# CLEAR.csv record count verification script
+py_binary(
+    name = "verify_clear_count",
+    srcs = ["verify_clear_count.py"],
+    main = "verify_clear_count.py",
+    visibility = ["//visibility:public"],
+    data = [
+        "//data:CLEAR.csv",
+    ],
+)
+
+# Demo processing pipeline (no API calls)
+py_binary(
+    name = "demo_processing",
+    srcs = ["demo_processing.py"],
+    main = "demo_processing.py",
+    visibility = ["//visibility:public"],
+    data = [
+        "//data:CLEAR.csv",
+    ],
+)
+
+# Stage 1: Passage segmentation with caching and recovery
+py_binary(
+    name = "segment_passages",
+    srcs = ["segment_passages.py"],
+    main = "segment_passages.py",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//src:config_manager",
+    ],
+    data = [
+        "//data:CLEAR.csv",
+        "//configs:preprocessing_config.yaml",
+    ],
+)
+
+# Stage 2: Marginal pair generation
+py_binary(
+    name = "generate_marginal_pairs",
+    srcs = ["generate_marginal_pairs.py"],
+    main = "generate_marginal_pairs.py",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//src:config_manager",
+    ],
+    data = [
+        "//configs:preprocessing_config.yaml",
+    ],
+)

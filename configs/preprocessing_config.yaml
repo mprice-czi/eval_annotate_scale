@@ -2,7 +2,7 @@
 
 # Gemini API Configuration
 gemini:
-  model: "gemini-1.5-pro"
+  model: "gemini-2.5-pro"
   temperature: 0.3
   max_retries: 3
   timeout_seconds: 30
@@ -27,6 +27,7 @@ pairing:
   within_category_pairs: 20  # Max pairs within same complexity bucket
   adjacent_category_pairs: 15  # Max pairs between adjacent complexity levels
   cross_category_skip: true  # Skip Easy-Hard pairs (too obvious)
+  exclude_same_original: true  # CRITICAL: Never pair subpassages from same original passage
   random_seed: 42  # For reproducible sampling
 
 # Processing Limits (API Cost Management)

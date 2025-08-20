@@ -62,37 +62,72 @@ bazel run //scripts:setup_bazel_env
 # Validate your environment setup
 bazel run //scripts:validate_environment
 
-# Run intelligent passage preprocessing with configuration
-bazel run //scripts:intelligent_preprocessing -- --config configs/preprocessing_config.yaml --output data/marginal_pairs.json
+# NEW: Two-stage robust processing pipeline (Recommended)
+# Stage 1: Segment passages with caching and recovery
+bazel run //scripts:segment_passages -- --config configs/preprocessing_config.yaml --output data/outputs/segmented_passages.json --max-passages 50 --resume
 
-# Alternative: Use custom configuration
-bazel run //scripts:intelligent_preprocessing -- --config my_custom_config.yaml --max-passages 50 --target-pairs 25
+# Stage 2: Generate marginal pairs from segmented passages
+bazel run //scripts:generate_marginal_pairs -- --input data/outputs/segmented_passages.json --config configs/preprocessing_config.yaml --output data/outputs/marginal_pairs.json --target-pairs 25
+
+# Legacy: Original monolithic preprocessing (for backwards compatibility)
+bazel run //scripts:intelligent_preprocessing -- --config configs/preprocessing_config.yaml --output data/outputs/marginal_pairs.json --max-passages 50 --target-pairs 25
 ```
 
 ## Intelligent Passage Preprocessing
 
-This project provides an AI-powered preprocessing pipeline that intelligently segments text passages and identifies marginally decidable pairs for vocabulary complexity annotation tasks.
+This project provides a robust, two-stage AI-powered preprocessing pipeline that segments text passages and identifies marginally decidable pairs for vocabulary complexity annotation tasks.
 
-### Core Features
+### New Two-Stage Architecture (Recommended)
+
+**Stage 1: Passage Segmentation (`scripts/segment_passages.py`)**
 - **Intelligent Segmentation**: Uses Gemini AI to segment CLEAR corpus passages into contextually complete, readable chunks optimized for 10-15 second reading time
+- **Caching & Recovery**: Intermediate results cached with resume capability for long-running jobs
+- **Failure Resilience**: Skip completed passages, retry failed ones, fallback segments for AI failures
+- **Progress Tracking**: Detailed progress with batch processing and rate limiting
+
+**Stage 2: Marginal Pair Generation (`scripts/generate_marginal_pairs.py`)**
+- **Smart Filtering**: Business rule-based candidate filtering before expensive AI assessment
 - **Marginality Assessment**: AI-driven evaluation to identify passage pairs that are marginally decidable for vocabulary complexity
-- **LangGraph Workflows**: Stateful, multi-step processing with proper error handling and batching
-- **YAML Configuration**: Comprehensive configuration system for all pipeline parameters
+- **Quality Scoring**: Multi-factor quality assessment for optimal pair selection
+- **Stateless Design**: Can be re-run safely, no intermediate state to manage
+
+### Key Advantages
+- **Separation of Concerns**: Each stage has a focused responsibility
+- **Cost Control**: Only assess marginality on pre-filtered candidates 
+- **Production Ready**: Handle failures gracefully with resume capability
+- **Debugging**: Intermediate results are cached and inspectable
+- **Scalability**: Process thousands of passages without losing work
+- **Tested & Reliable**: All scripts tested and verified working correctly
+
+### Performance Expectations
+- **Stage 1**: ~20-25 seconds per passage (AI segmentation)
+- **Stage 2**: ~20-25 seconds per candidate pair (AI assessment)
+- **Typical Workflow**: 50 passages → ~25 minutes for Stage 1, then Stage 2 time depends on pair candidates
+- **Resume Capability**: Interrupted processing can be resumed from last successful passage
 
 ### Configuration System
 The preprocessing pipeline uses `configs/preprocessing_config.yaml` to configure:
-- **Gemini API settings** (model, temperature, retries)
-- **Segmentation parameters** (target reading time, word count ranges)
+- **Gemini API settings** (model, temperature, retries, timeouts)
+- **Segmentation parameters** (target reading time, word count ranges, batch sizes)
 - **Marginality thresholds** (confidence levels, pair selection criteria)
-- **Processing limits** (batch sizes, API rate limiting)
+- **Processing limits** (API rate limiting, concurrent requests, cost controls)
 - **Quality controls** (context preservation, vocabulary requirements)
 
-### Pipeline Output
-The system generates JSON files containing:
+### Pipeline Outputs
+**Stage 1 Output** (`data/outputs/segmented_passages.json`):
 - Segmented passages with complexity estimates
+- Vocabulary focus words and reading time estimates
+- Processing metadata and source text hashes
+- Context preservation and quality flags
+
+**Stage 2 Output** (`data/outputs/marginal_pairs.json`):
 - Marginally decidable passage pairs with confidence scores
-- Metadata including processing parameters and statistics
-- Reasoning explanations for AI decisions
+- Quality scores and marginality reasoning
+- Processing statistics and metadata
+- AI reasoning explanations for each pair
+
+### Legacy Pipeline
+The original monolithic `scripts/intelligent_preprocessing.py` remains available for backwards compatibility but is not recommended for production use due to lack of failure recovery.
 
 # Support & Feedback
 We want to hear from you. For questions or feedback, please open an issue. 

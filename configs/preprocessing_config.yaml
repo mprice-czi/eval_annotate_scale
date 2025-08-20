@@ -9,7 +9,7 @@ gemini:
 
 # Passage Segmentation Settings
 segmentation:
-  target_reading_time_seconds: 12.5  # 10-15 second range midpoint
+  target_reading_time_seconds: 15  # 10-15 second range
   target_word_count_range: [50, 150]  # Approximate words for target reading time
   words_per_minute: 200  # Average reading speed
   preserve_context: true

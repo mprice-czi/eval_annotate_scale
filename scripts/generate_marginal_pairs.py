@@ -100,6 +100,7 @@ class MarginalPairGenerator:
         self.gemini_config = config.get('gemini', {})
         self.marginality_config = config.get('marginality', {})
         self.pairing_config = config.get('pairing', {})
+        self.quality_config = config.get('quality', {})
         
         # Initialize LLM
         self.llm = ChatGoogleGenerativeAI(
@@ -125,50 +126,19 @@ class MarginalPairGenerator:
         self.last_api_call = time.time()
     
     def _filter_candidate_pairs(self, passages: List[ProcessedPassage]) -> List[Tuple[ProcessedPassage, ProcessedPassage]]:
-        """Filter passage pairs based on business rules."""
+        """Filter passage pairs based on business rules and strategic pairing."""
         
         logger.info(f"Filtering candidate pairs from {len(passages)} passages")
         
-        # Group passages by original document to avoid pairing from same source
-        doc_groups = {}
-        for passage in passages:
-            if passage.original_id not in doc_groups:
-                doc_groups[passage.original_id] = []
-            doc_groups[passage.original_id].append(passage)
+        # Apply quality filtering first
+        filtered_passages = self._apply_quality_filters(passages)
+        logger.info(f"After quality filtering: {len(filtered_passages)} passages")
         
-        candidates = []
-        flesch_range = self.marginality_config.get('flesch_difference_range', [5, 25])
-        min_diff, max_diff = flesch_range
+        # Group passages by complexity for strategic pairing
+        complexity_groups = self._group_by_complexity(filtered_passages)
         
-        # Generate all possible pairs from different documents
-        doc_ids = list(doc_groups.keys())
-        for i in range(len(doc_ids)):
-            for j in range(i + 1, len(doc_ids)):
-                # Get passages from different documents
-                passages_a = doc_groups[doc_ids[i]]
-                passages_b = doc_groups[doc_ids[j]]
-                
-                # Create pairs between documents
-                for passage_a in passages_a:
-                    for passage_b in passages_b:
-                        # Filter by Flesch score difference
-                        flesch_diff = abs(passage_a.flesch_score - passage_b.flesch_score)
-                        
-                        if min_diff <= flesch_diff <= max_diff:
-                            # Filter by complexity estimates (adjacent or same levels)
-                            complexity_levels = {"Easy": 1, "Medium": 2, "Hard": 3, "Very Hard": 4}
-                            level_a = complexity_levels.get(passage_a.complexity_estimate, 2)
-                            level_b = complexity_levels.get(passage_b.complexity_estimate, 2)
-                            
-                            if abs(level_a - level_b) <= 1:  # Same or adjacent levels
-                                # Filter by reading time (should be similar)
-                                time_diff = abs(passage_a.estimated_reading_time - passage_b.estimated_reading_time)
-                                if time_diff <= 10:  # Within 10 seconds
-                                    # Ensure both have context preserved (quality control)
-                                    if passage_a.context_preserved and passage_b.context_preserved:
-                                        candidates.append((passage_a, passage_b))
-        
-        logger.info(f"Found {len(candidates)} candidate pairs after filtering")
+        # Generate candidates based on pairing strategy
+        candidates = self._generate_strategic_pairs(complexity_groups)
         
         # Limit candidates for API cost management
         max_candidates = self.marginality_config.get('max_candidate_pairs', 100)
@@ -179,6 +149,151 @@ class MarginalPairGenerator:
             logger.info(f"Limited to top {max_candidates} candidates by Flesch score diversity")
         
         return candidates
+    
+    def _apply_quality_filters(self, passages: List[ProcessedPassage]) -> List[ProcessedPassage]:
+        """Apply quality control filters to passages."""
+        require_context = self.quality_config.get('require_context_preservation', True)
+        min_vocab_words = self.quality_config.get('min_vocabulary_focus_words', 2)
+        exclude_errors = self.quality_config.get('exclude_segments_with_errors', True)
+        
+        filtered = []
+        for passage in passages:
+            # Filter by context preservation
+            if require_context and not passage.context_preserved:
+                if exclude_errors:
+                    continue
+            
+            # Filter by vocabulary focus words
+            if len(passage.vocabulary_focus_words) < min_vocab_words:
+                if exclude_errors:
+                    continue
+            
+            filtered.append(passage)
+        
+        return filtered
+    
+    def _group_by_complexity(self, passages: List[ProcessedPassage]) -> Dict[str, List[ProcessedPassage]]:
+        """Group passages by complexity estimate."""
+        groups = {'Easy': [], 'Medium': [], 'Hard': [], 'Very Hard': []}
+        for passage in passages:
+            groups[passage.complexity_estimate].append(passage)
+        return groups
+    
+    def _generate_strategic_pairs(self, complexity_groups: Dict[str, List[ProcessedPassage]]) -> List[Tuple[ProcessedPassage, ProcessedPassage]]:
+        """Generate pairs based on configured pairing strategy."""
+        candidates = []
+        
+        # Get pairing configuration
+        within_category_max = self.pairing_config.get('within_category_pairs', 20)
+        adjacent_category_max = self.pairing_config.get('adjacent_category_pairs', 15)
+        cross_category_skip = self.pairing_config.get('cross_category_skip', True)
+        exclude_same_original = self.pairing_config.get('exclude_same_original', True)
+        
+        complexity_levels = ['Easy', 'Medium', 'Hard', 'Very Hard']
+        
+        # Within-category pairs
+        for level in complexity_levels:
+            pairs_in_category = self._generate_within_category_pairs(
+                complexity_groups[level], within_category_max, exclude_same_original
+            )
+            candidates.extend(pairs_in_category)
+            logger.debug(f"Generated {len(pairs_in_category)} within-category pairs for {level}")
+        
+        # Adjacent category pairs
+        for i in range(len(complexity_levels) - 1):
+            level_a = complexity_levels[i]
+            level_b = complexity_levels[i + 1]
+            adjacent_pairs = self._generate_cross_category_pairs(
+                complexity_groups[level_a], complexity_groups[level_b], 
+                adjacent_category_max, exclude_same_original
+            )
+            candidates.extend(adjacent_pairs)
+            logger.debug(f"Generated {len(adjacent_pairs)} adjacent pairs: {level_a} vs {level_b}")
+        
+        # Skip cross-category pairs if configured (e.g., Easy vs Hard)
+        if not cross_category_skip:
+            # Add Easy-Hard and Medium-Very Hard pairs
+            for (level_a, level_b) in [('Easy', 'Hard'), ('Medium', 'Very Hard')]:
+                cross_pairs = self._generate_cross_category_pairs(
+                    complexity_groups[level_a], complexity_groups[level_b], 
+                    10, exclude_same_original  # Fewer cross-category pairs
+                )
+                candidates.extend(cross_pairs)
+                logger.debug(f"Generated {len(cross_pairs)} cross-category pairs: {level_a} vs {level_b}")
+        
+        logger.info(f"Generated {len(candidates)} total candidate pairs using strategic pairing")
+        return candidates
+    
+    def _generate_within_category_pairs(self, passages: List[ProcessedPassage], max_pairs: int, exclude_same_original: bool) -> List[Tuple[ProcessedPassage, ProcessedPassage]]:
+        """Generate pairs within the same complexity category."""
+        if len(passages) < 2:
+            return []
+        
+        candidates = []
+        flesch_range = self.marginality_config.get('flesch_difference_range', [5, 25])
+        min_diff, max_diff = flesch_range
+        
+        # Group by original document if excluding same-original pairs
+        if exclude_same_original:
+            doc_groups = {}
+            for passage in passages:
+                doc_groups.setdefault(passage.original_id, []).append(passage)
+            
+            # Generate pairs between different documents
+            doc_ids = list(doc_groups.keys())
+            for i in range(len(doc_ids)):
+                for j in range(i + 1, len(doc_ids)):
+                    for passage_a in doc_groups[doc_ids[i]]:
+                        for passage_b in doc_groups[doc_ids[j]]:
+                            if self._passes_basic_filters(passage_a, passage_b, min_diff, max_diff):
+                                candidates.append((passage_a, passage_b))
+                                if len(candidates) >= max_pairs:
+                                    return candidates
+        else:
+            # Generate pairs from all passages
+            for passage_a, passage_b in combinations(passages, 2):
+                if self._passes_basic_filters(passage_a, passage_b, min_diff, max_diff):
+                    candidates.append((passage_a, passage_b))
+                    if len(candidates) >= max_pairs:
+                        return candidates
+        
+        return candidates
+    
+    def _generate_cross_category_pairs(self, passages_a: List[ProcessedPassage], passages_b: List[ProcessedPassage], max_pairs: int, exclude_same_original: bool) -> List[Tuple[ProcessedPassage, ProcessedPassage]]:
+        """Generate pairs between different complexity categories."""
+        if not passages_a or not passages_b:
+            return []
+        
+        candidates = []
+        flesch_range = self.marginality_config.get('flesch_difference_range', [5, 25])
+        min_diff, max_diff = flesch_range
+        
+        for passage_a in passages_a:
+            for passage_b in passages_b:
+                # Skip if from same original document and configured to exclude
+                if exclude_same_original and passage_a.original_id == passage_b.original_id:
+                    continue
+                
+                if self._passes_basic_filters(passage_a, passage_b, min_diff, max_diff):
+                    candidates.append((passage_a, passage_b))
+                    if len(candidates) >= max_pairs:
+                        return candidates
+        
+        return candidates
+    
+    def _passes_basic_filters(self, passage_a: ProcessedPassage, passage_b: ProcessedPassage, min_diff: float, max_diff: float) -> bool:
+        """Check if a pair passes basic filtering criteria."""
+        # Filter by Flesch score difference
+        flesch_diff = abs(passage_a.flesch_score - passage_b.flesch_score)
+        if not (min_diff <= flesch_diff <= max_diff):
+            return False
+        
+        # Filter by similar reading times
+        time_diff = abs(passage_a.estimated_reading_time - passage_b.estimated_reading_time)
+        if time_diff > 10:  # Within 10 seconds
+            return False
+        
+        return True
     
     async def _assess_marginality(self, passage_a: ProcessedPassage, passage_b: ProcessedPassage) -> Optional[MarginabilityAssessment]:
         """Use AI to assess if a passage pair is marginally decidable."""

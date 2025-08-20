@@ -195,6 +195,126 @@ class PassageSegmenter:
         """Create hash of text for cache invalidation."""
         return hashlib.md5(text.encode()).hexdigest()[:8]
     
+    def _validate_reading_time_constraints(self, segments: List[Dict], target_time: float, words_per_minute: int, min_words: int, max_words: int) -> List[Dict]:
+        """Validate and fix segments that exceed reading time constraints."""
+        validated_segments = []
+        
+        for segment_data in segments:
+            text = segment_data["text"]
+            actual_word_count = len(text.split())
+            
+            # Check if segment exceeds constraints
+            if actual_word_count > max_words:
+                logger.debug(f"Segment exceeds max words ({actual_word_count} > {max_words}), attempting to split")
+                
+                # Try to split the segment at sentence boundaries
+                split_segments = self._split_oversized_segment(
+                    text, max_words, min_words, 
+                    segment_data.get("vocabulary_focus_words", [])
+                )
+                
+                # Add split segments
+                for split_segment in split_segments:
+                    validated_segments.append(split_segment)
+                    
+            elif actual_word_count < min_words:
+                logger.debug(f"Segment below min words ({actual_word_count} < {min_words}), keeping as-is")
+                # Keep undersized segments - they might be important for context
+                segment_data["word_count"] = actual_word_count
+                validated_segments.append(segment_data)
+                
+            else:
+                # Segment is within constraints
+                segment_data["word_count"] = actual_word_count
+                validated_segments.append(segment_data)
+        
+        return validated_segments
+    
+    def _split_oversized_segment(self, text: str, max_words: int, min_words: int, vocab_words: List[str]) -> List[Dict]:
+        """Split an oversized segment at sentence boundaries."""
+        import re
+        
+        # Split into sentences
+        sentences = re.split(r'(?<=[.!?])\s+', text.strip())
+        
+        splits = []
+        current_segment = []
+        current_word_count = 0
+        
+        for sentence in sentences:
+            sentence = sentence.strip()
+            if not sentence:
+                continue
+                
+            sentence_words = len(sentence.split())
+            
+            # If adding this sentence would exceed max_words, finalize current segment
+            if current_word_count + sentence_words > max_words and current_segment:
+                segment_text = ' '.join(current_segment).strip()
+                if segment_text:
+                    splits.append({
+                        "text": segment_text,
+                        "word_count": current_word_count,
+                        "context_preserved": True,  # Assume context preserved for splits
+                        "vocabulary_focus_words": vocab_words[:2],  # Split vocab words
+                        "complexity_rationale": "Split from oversized segment"
+                    })
+                
+                # Start new segment
+                current_segment = [sentence]
+                current_word_count = sentence_words
+            else:
+                # Add sentence to current segment
+                current_segment.append(sentence)
+                current_word_count += sentence_words
+        
+        # Add final segment if it exists
+        if current_segment:
+            segment_text = ' '.join(current_segment).strip()
+            if segment_text:
+                splits.append({
+                    "text": segment_text,
+                    "word_count": current_word_count,
+                    "context_preserved": True,
+                    "vocabulary_focus_words": vocab_words[2:] if len(vocab_words) > 2 else vocab_words,
+                    "complexity_rationale": "Final split from oversized segment"
+                })
+        
+        # If no valid splits were created, return truncated version
+        if not splits:
+            words = text.split()
+            truncated_text = ' '.join(words[:max_words])
+            splits.append({
+                "text": truncated_text,
+                "word_count": min(len(words), max_words),
+                "context_preserved": False,  # Context compromised by truncation
+                "vocabulary_focus_words": vocab_words,
+                "complexity_rationale": "Truncated oversized segment"
+            })
+        
+        logger.debug(f"Split oversized segment into {len(splits)} parts")
+        return splits
+    
+    def _log_reading_time_compliance(self, segments: List[ProcessedPassage], target_time: float) -> None:
+        """Log summary of reading time compliance."""
+        if not segments:
+            return
+            
+        reading_times = [s.estimated_reading_time for s in segments]
+        compliant_segments = [t for t in reading_times if t <= target_time + 2]  # Allow 2 second tolerance
+        
+        avg_time = sum(reading_times) / len(reading_times)
+        min_time = min(reading_times)
+        max_time = max(reading_times)
+        compliance_rate = len(compliant_segments) / len(reading_times) * 100
+        
+        logger.info(f"📊 Reading Time Compliance Summary:")
+        logger.info(f"   Target: {target_time:.1f}s | Avg: {avg_time:.1f}s | Range: {min_time:.1f}s - {max_time:.1f}s")
+        logger.info(f"   Compliance: {compliance_rate:.1f}% ({len(compliant_segments)}/{len(reading_times)} segments ≤ {target_time + 2:.1f}s)")
+        
+        if compliance_rate < 80:
+            logger.warning("⚠️  Low reading time compliance - consider adjusting configuration or prompts")
+    
     async def _rate_limit(self) -> None:
         """Apply rate limiting between API calls."""
         elapsed = time.time() - self.last_api_call
@@ -210,19 +330,29 @@ class PassageSegmenter:
         target_time = seg_config.get('target_reading_time_seconds', 12.5)
         word_range = seg_config.get('target_word_count_range', [50, 150])
         min_words, max_words = word_range
+        words_per_minute = seg_config.get('words_per_minute', 200)
+        preserve_context = seg_config.get('preserve_context', True)
+        min_segment_sentences = seg_config.get('min_segment_sentences', 1)
         
         segmentation_prompt = ChatPromptTemplate.from_messages([
             SystemMessage(content=f"""You are an expert in educational content analysis. Your task is to segment text passages into smaller chunks that:
 
-1. Can be read in approximately {target_time} seconds (roughly {min_words}-{max_words} words)
-2. Maintain complete contextual content for vocabulary complexity assessment
+1. MUST be readable in {target_time} seconds or less (STRICT LIMIT: {min_words}-{max_words} words)
+2. Maintain complete contextual content for vocabulary complexity assessment{' - this is CRITICAL' if preserve_context else ''}
 3. Preserve semantic coherence - don't break mid-sentence or mid-thought
-4. Each segment should be independently assessable for vocabulary complexity
-5. Identify key vocabulary words that indicate complexity in each segment
+4. Each segment must contain at least {min_segment_sentences} complete sentence(s)
+5. Each segment should be independently assessable for vocabulary complexity
+6. Identify key vocabulary words that indicate complexity in each segment
+
+CRITICAL CONSTRAINTS:
+- Word count MUST be within {min_words}-{max_words} range
+- If a natural break exceeds {max_words} words, split it further
+- Prefer shorter segments over longer ones when in doubt
+- Reading time target is {target_time} seconds at {words_per_minute} words per minute
 
 For each segment, provide:
 - The text of the segment (complete sentences only)
-- Estimated word count
+- Estimated word count (must be accurate)
 - Whether context is preserved (true/false)
 - List of 3-5 key vocabulary words that indicate complexity level
 - Brief justification for the segmentation points
@@ -262,10 +392,15 @@ Please segment this passage optimally for vocabulary complexity assessment. Retu
             text_hash = self._create_text_hash(text)
             timestamp = pd.Timestamp.now().isoformat()
             
-            for i, segment_data in enumerate(result["segments"]):
-                # Calculate estimated reading time (average 200 words per minute)
+            # Validate and fix segments that exceed reading time constraints
+            validated_segments = self._validate_reading_time_constraints(
+                result["segments"], target_time, words_per_minute, min_words, max_words
+            )
+            
+            for i, segment_data in enumerate(validated_segments):
+                # Calculate estimated reading time using configured words per minute
                 word_count = segment_data.get("word_count", len(segment_data["text"].split()))
-                reading_time = word_count / 200 * 60  # seconds
+                reading_time = word_count / words_per_minute * 60  # seconds
                 
                 # Estimate complexity based on Flesch score and vocabulary words
                 complexity_estimate = self._estimate_complexity(flesch_score, segment_data.get("vocabulary_focus_words", []))
@@ -294,6 +429,7 @@ Please segment this passage optimally for vocabulary complexity assessment. Retu
     
     def _create_fallback_segment(self, original_id: str, text: str, flesch_score: float) -> ProcessedPassage:
         """Create a fallback segment when AI processing fails."""
+        seg_config = self.config.get('segmentation', {})
         words = text.split()
         truncated_text = ' '.join(words[:150]) + ('...' if len(words) > 150 else '')
         
@@ -301,7 +437,7 @@ Please segment this passage optimally for vocabulary complexity assessment. Retu
             original_id=original_id,
             segment_id=f"{original_id}-seg-1",
             text=truncated_text,
-            estimated_reading_time=min(15.0, len(words[:150]) / 200 * 60),
+            estimated_reading_time=min(15.0, len(words[:150]) / seg_config.get('words_per_minute', 200) * 60),
             flesch_score=flesch_score,
             complexity_estimate=self._estimate_complexity_from_flesch(flesch_score),
             context_preserved=False,  # Mark as compromised
@@ -345,6 +481,33 @@ Please segment this passage optimally for vocabulary complexity assessment. Retu
         else:
             return "Very Hard"
     
+    def _validate_segments_quality(self, segments: List[ProcessedPassage]) -> List[ProcessedPassage]:
+        """Filter segments based on quality control settings."""
+        quality_config = self.config.get('quality', {})
+        require_context = quality_config.get('require_context_preservation', True)
+        min_vocab_words = quality_config.get('min_vocabulary_focus_words', 2)
+        exclude_errors = quality_config.get('exclude_segments_with_errors', True)
+        
+        filtered_segments = []
+        for segment in segments:
+            # Filter by context preservation requirement
+            if require_context and not segment.context_preserved:
+                logger.debug(f"Filtering segment {segment.segment_id}: context not preserved")
+                continue
+            
+            # Filter by minimum vocabulary focus words
+            if len(segment.vocabulary_focus_words) < min_vocab_words:
+                logger.debug(f"Filtering segment {segment.segment_id}: insufficient vocabulary words ({len(segment.vocabulary_focus_words)} < {min_vocab_words})")
+                if exclude_errors:
+                    continue
+            
+            filtered_segments.append(segment)
+        
+        if len(filtered_segments) < len(segments):
+            logger.info(f"Quality filtering: {len(segments)} -> {len(filtered_segments)} segments")
+        
+        return filtered_segments
+
     async def process_passages(self, df: pd.DataFrame, max_passages: int = None, resume: bool = False) -> List[ProcessedPassage]:
         """Process multiple passages with progress tracking and error recovery."""
         
@@ -398,8 +561,12 @@ Please segment this passage optimally for vocabulary complexity assessment. Retu
                     
                     # Process the passage
                     segments = await self.segment_passage(original_id, text, flesch_score)
-                    self.processed_passages.extend(segments)
-                    batch_results.extend(segments)
+                    
+                    # Apply quality filtering
+                    filtered_segments = self._validate_segments_quality(segments)
+                    
+                    self.processed_passages.extend(filtered_segments)
+                    batch_results.extend(filtered_segments)
                     
                     # Update progress
                     progress["completed_ids"].append(original_id)
@@ -429,6 +596,11 @@ Please segment this passage optimally for vocabulary complexity assessment. Retu
         # Final save
         self.save_progress(progress)
         self.save_cached_results(self.processed_passages)
+        
+        # Log reading time compliance summary
+        seg_config = self.config.get('segmentation', {})
+        target_time = seg_config.get('target_reading_time_seconds', 12.5)
+        self._log_reading_time_compliance(self.processed_passages, target_time)
         
         logger.info(f"✅ Processing complete: {len(self.processed_passages)} total segments")
         return self.processed_passages

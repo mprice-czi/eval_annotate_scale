@@ -1,5 +1,7 @@
 # Passage Segmentation Guide - Stage 1 Processing
 
+> **Navigation**: [📄 Main README](../README.md) | [📊 Data Guide](../data/README.md) | [⚙️ Configuration Guide](configuration_guide.md) | [🎯 Stage 2 Guide](generate_marginal_pairs_guide.md) | [👨‍💻 Development Guide](../CLAUDE.md)
+
 This guide covers the `scripts/segment_passages.py` script, which is Stage 1 of the robust two-stage preprocessing pipeline.
 
 ## Overview
@@ -234,3 +236,13 @@ This separation allows for:
 - Easier debugging of pipeline issues
 - Flexible processing of different datasets
 - Better resource utilization and cost control
+
+---
+
+## Related Documentation
+
+- [📄 Main README](../README.md) - Project overview and quick start
+- [📊 Data Directory Guide](../data/README.md) - Complete data format reference
+- [⚙️ Configuration Guide](configuration_guide.md) - Complete configuration reference
+- [🎯 Stage 2: Marginal Pairs Guide](generate_marginal_pairs_guide.md) - Next stage in the pipeline
+- [👨‍💻 Development Guide (CLAUDE.md)](../CLAUDE.md) - Complete developer reference

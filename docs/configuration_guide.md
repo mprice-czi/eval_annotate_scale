@@ -1,10 +1,12 @@
 # Configuration Guide
 
-This guide explains all configuration options for the preprocessing pipeline, covering both the new two-stage architecture and legacy settings.
+> **Navigation**: [📄 Main README](../README.md) | [📊 Data Guide](../data/README.md) | [🔧 Stage 1 Guide](segment_passages_guide.md) | [🎯 Stage 2 Guide](generate_marginal_pairs_guide.md) | [👨‍💻 Development Guide](../CLAUDE.md)
+
+This comprehensive guide explains all configuration options for the preprocessing pipeline, covering both the two-stage architecture and unified orchestrator settings.
 
 ## Configuration File Structure
 
-The main configuration file is `configs/preprocessing_config.yaml`. It contains settings for both stages of the pipeline and can be used with legacy scripts as well.
+The main configuration file is `configs/preprocessing_config.yaml`. It contains settings for both stages of the pipeline and can be used with the unified orchestrator script as well.
 
 ## Configuration Sections
 
@@ -309,3 +311,13 @@ bazel run //scripts:generate_marginal_pairs -- \
 - Monitor API usage through configuration telemetry
 
 This comprehensive configuration system allows fine-tuned control over every aspect of the preprocessing pipeline while maintaining reasonable defaults for common use cases.
+
+---
+
+## Related Documentation
+
+- [📄 Main README](../README.md) - Project overview and quick start
+- [📊 Data Directory Guide](../data/README.md) - Complete data format reference  
+- [🔧 Stage 1: Passage Segmentation Guide](segment_passages_guide.md) - Detailed segmentation script guide
+- [🎯 Stage 2: Marginal Pairs Guide](generate_marginal_pairs_guide.md) - Detailed pair generation guide
+- [👨‍💻 Development Guide (CLAUDE.md)](../CLAUDE.md) - Complete developer reference

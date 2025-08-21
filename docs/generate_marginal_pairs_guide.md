@@ -1,5 +1,7 @@
 # Marginal Pair Generation Guide - Stage 2 Processing
 
+> **Navigation**: [📄 Main README](../README.md) | [📊 Data Guide](../data/README.md) | [⚙️ Configuration Guide](configuration_guide.md) | [🔧 Stage 1 Guide](segment_passages_guide.md) | [👨‍💻 Development Guide](../CLAUDE.md)
+
 This guide covers the `scripts/generate_marginal_pairs.py` script, which is Stage 2 of the robust two-stage preprocessing pipeline.
 
 ## Overview
@@ -288,3 +290,13 @@ bazel run //scripts:generate_marginal_pairs -- \
 4. **Annotation Testing**: Trial annotation of sample pairs
 
 This systematic approach ensures high-quality marginal pairs suitable for productive annotation tasks.
+
+---
+
+## Related Documentation
+
+- [📄 Main README](../README.md) - Project overview and quick start
+- [📊 Data Directory Guide](../data/README.md) - Complete data format reference
+- [⚙️ Configuration Guide](configuration_guide.md) - Complete configuration reference
+- [🔧 Stage 1: Passage Segmentation Guide](segment_passages_guide.md) - Previous stage in the pipeline
+- [👨‍💻 Development Guide (CLAUDE.md)](../CLAUDE.md) - Complete developer reference

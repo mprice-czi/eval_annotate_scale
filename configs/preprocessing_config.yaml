@@ -9,11 +9,14 @@ gemini:
 
 # Passage Segmentation Settings
 segmentation:
-  target_reading_time_seconds: 15  # 10-15 second range
-  target_word_count_range: [50, 150]  # Approximate words for target reading time
+  target_reading_time_seconds: 12.5  # Target reading time (center of range)
+  reading_time_flexibility_percent: 20  # ±20% flexibility (10-15s range for 12.5s target)
   words_per_minute: 200  # Average reading speed
   preserve_context: true
   min_segment_sentences: 1  # Don't break mid-sentence
+  allow_overlap: true  # Enable strategic overlapping for better time compliance
+  max_overlap_percent: 50  # Maximum overlap between adjacent segments
+  assess_vocabulary_complexity_per_segment: true  # Individual segment vocabulary assessment
   
 # Marginality Assessment Settings  
 marginality:

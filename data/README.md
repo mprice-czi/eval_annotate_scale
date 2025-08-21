@@ -1,5 +1,7 @@
 # CLEAR Corpus Data Directory
 
+> **Navigation**: [📄 Main README](../README.md) | [⚙️ Configuration Guide](../docs/configuration_guide.md) | [🔧 Stage 1 Guide](../docs/segment_passages_guide.md) | [🎯 Stage 2 Guide](../docs/generate_marginal_pairs_guide.md) | [👨‍💻 Development Guide](../CLAUDE.md)
+
 This directory contains the complete data infrastructure for the "Annotation @ Scale (Vocabulary)" experiment, including the CLEAR corpus dataset, JSON validation schemas, and comprehensive examples. This document provides a complete, self-contained guide to understanding, accessing, and working with all data components.
 
 ## Table of Contents
@@ -540,12 +542,12 @@ The complete data processing pipeline transforms raw CLEAR CSV data into annotat
 CLEAR.csv → Stage 1: Passage Segmentation → Stage 2: Marginal Pair Generation → SuperAnnotate Tasks
 ```
 
-**Legacy Monolithic Pipeline:**
+**Unified Orchestrator Pipeline:**
 ```
-CLEAR.csv → JSON Records → Processed Passages → Marginal Pairs → SuperAnnotate Tasks
+CLEAR.csv → Stage 1: Segmentation → Stage 2: Pair Generation → SuperAnnotate Tasks
 ```
 
-### New Two-Stage Pipeline Architecture
+### Two-Stage Pipeline Architecture
 
 #### Stage 1: Passage Segmentation (`scripts/segment_passages.py`)
 **Input**: Raw CLEAR.csv  
@@ -576,7 +578,7 @@ CLEAR.csv → Load & Parse → AI Segmentation → Cached Results → segmented_
 segmented_passages.json → Filter Candidates → AI Assessment → Quality Scoring → marginal_pairs.json
 ```
 
-### Legacy Pipeline Stages
+### Pipeline Implementation Details
 
 #### CSV to JSON Conversion (Legacy)
 **Input**: Raw CLEAR.csv with complex header structure  

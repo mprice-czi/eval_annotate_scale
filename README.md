@@ -17,17 +17,26 @@ A production-ready annotation system for the Chan Zuckerberg Initiative's Educat
 
 ## Repository Contents
 
-| Path | Description |
-| ---- | ----------- |
-| `src/` | Main source code including CLI application and config management |
-| `scripts/` | Intelligent preprocessing and environment validation scripts |
-| `data/` | CLEAR corpus dataset and annotation schemas |
-| `configs/` | YAML configuration files for preprocessing pipeline |
-| `tools/` | Development utilities and helper scripts |
+| Path | Description | Key Files |
+| ---- | ----------- | --------- |
+| `src/` | Main source code including CLI application and config management | [`config_manager.py`](src/config_manager.py), [`bazel_utils.py`](src/bazel_utils.py) |
+| `scripts/` | Intelligent preprocessing and environment validation scripts | [`segment_passages.py`](scripts/segment_passages.py), [`generate_marginal_pairs.py`](scripts/generate_marginal_pairs.py) |
+| `data/` | CLEAR corpus dataset and annotation schemas | [`CLEAR.csv`](data/CLEAR.csv), [`README.md`](data/README.md) |
+| `configs/` | YAML configuration files for preprocessing pipeline | [`preprocessing_config.yaml`](configs/preprocessing_config.yaml) |
+| `docs/` | Detailed guides and documentation | [`configuration_guide.md`](docs/configuration_guide.md), [`segment_passages_guide.md`](docs/segment_passages_guide.md) |
+
+## 📚 Documentation
+
+- **[Configuration Guide](docs/configuration_guide.md)** - Complete configuration reference for all pipeline settings
+- **[Stage 1: Passage Segmentation Guide](docs/segment_passages_guide.md)** - Detailed guide for the segmentation script
+- **[Stage 2: Marginal Pairs Guide](docs/generate_marginal_pairs_guide.md)** - Detailed guide for pair generation
+- **[Data Directory Guide](data/README.md)** - Comprehensive data format and schema documentation
+- **[Development Guide (CLAUDE.md)](CLAUDE.md)** - Complete developer reference for Claude Code users
 
 ## Quick Start
 
 ### Prerequisites
+
 - Python 3.13.5
 - Anaconda/Miniconda
 - Bazel 8.3+
@@ -82,7 +91,7 @@ bazel run //scripts:segment_passages -- --config configs/preprocessing_config.ya
 # Stage 2: Generate marginal pairs from segmented passages
 bazel run //scripts:generate_marginal_pairs -- --input data/outputs/segmented_passages.json --config configs/preprocessing_config.yaml --output data/outputs/marginal_pairs.json --target-pairs 25
 
-# Legacy: Original monolithic preprocessing (for backwards compatibility)
+# Unified: Complete pipeline in single command (orchestrates both stages)
 bazel run //scripts:intelligent_preprocessing -- --config configs/preprocessing_config.yaml --output data/outputs/marginal_pairs.json --max-passages 50 --target-pairs 25
 ```
 
@@ -111,7 +120,7 @@ python scripts/generate_marginal_pairs.py --input data/outputs/segmented_passage
 
 This project provides a robust, two-stage AI-powered preprocessing pipeline that segments text passages and identifies marginally decidable pairs for vocabulary complexity annotation tasks.
 
-### New Two-Stage Architecture (Recommended)
+### Two-Stage Pipeline (Recommended for debugging/development)
 
 **Stage 1: Passage Segmentation (`scripts/segment_passages.py`)**
 - **Intelligent Segmentation**: Uses Gemini AI to segment CLEAR corpus passages into contextually complete, readable chunks optimized for 10-15 second reading time
@@ -165,8 +174,8 @@ The preprocessing pipeline uses `configs/preprocessing_config.yaml` to configure
 - Processing statistics and metadata
 - AI reasoning explanations for each pair
 
-### Legacy Pipeline
-The original monolithic `scripts/intelligent_preprocessing.py` remains available for backwards compatibility but is not recommended for production use due to lack of failure recovery.
+### Unified Pipeline
+The `scripts/intelligent_preprocessing.py` orchestrator provides a single-command interface that runs both stages sequentially. It benefits from the same robustness features as the individual stages while offering convenience for automated workflows and one-shot processing.
 
 ## Development
 

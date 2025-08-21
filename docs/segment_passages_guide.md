@@ -81,13 +81,17 @@ gemini:
 # Segmentation Settings
 segmentation:
   target_reading_time_seconds: 12.5
-  target_word_count_range: [50, 150]
+  reading_time_flexibility_percent: 20  # ±20% flexibility (10-15s range)
+  words_per_minute: 200
   preserve_context: true
   min_segment_sentences: 1
+  allow_overlap: true
+  max_overlap_percent: 50
+  assess_vocabulary_complexity_per_segment: true
 
 # Processing Limits
 limits:
-  max_passages_per_batch: 10
+  max_passages_per_batch: 50
   delay_between_requests_ms: 100
   max_concurrent_requests: 5
 ```
@@ -176,12 +180,12 @@ bazel run //scripts:segment_passages -- \
 ## Performance Optimization
 
 ### For Large Datasets
-- Use `max_passages_per_batch: 5` for better memory management
-- Increase `delay_between_requests_ms` to avoid rate limits
+- Use `max_passages_per_batch: 20` for better memory management (reduce from default 50)
+- Increase `delay_between_requests_ms` to avoid rate limits  
 - Monitor cache file growth and disk space
 
 ### For Development/Testing
-- Set `max_passages: 20` for quick iterations
+- Set `--max-passages 20` for quick iterations
 - Use higher `temperature: 0.5` for more creative segmentation
 - Enable debug logging in configuration
 

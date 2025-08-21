@@ -76,7 +76,7 @@ pairing:
   within_category_pairs: 20        # Max pairs within same complexity bucket
   adjacent_category_pairs: 15      # Max pairs between adjacent levels
   cross_category_skip: true        # Skip Easy-Hard pairs (too obvious)
-  exclude_same_original: true      # CRITICAL: No pairs from same source
+  exclude_same_original: true      # CRITICAL: No pairs from same original passage
   random_seed: 42                  # For reproducible sampling
 
 # Processing Limits (API Cost Management)
@@ -84,6 +84,12 @@ limits:
   max_concurrent_requests: 5
   delay_between_requests_ms: 100
   daily_api_call_limit: 1000
+
+# Quality Control
+quality:
+  require_context_preservation: true   # Only use context-preserved segments
+  min_vocabulary_focus_words: 2        # Minimum complexity indicators
+  exclude_segments_with_errors: true   # Skip problematic segments
 ```
 
 ## Candidate Filtering Logic

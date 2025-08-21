@@ -34,10 +34,13 @@ Controls how passages are broken down into segments:
 ```yaml
 segmentation:
   target_reading_time_seconds: 12.5    # Target reading time per segment
-  target_word_count_range: [50, 150]   # Approximate word count bounds
-  words_per_minute: 200               # Reading speed assumption
-  preserve_context: true              # Maintain semantic coherence
-  min_segment_sentences: 1            # Minimum sentences per segment
+  reading_time_flexibility_percent: 20 # ±20% flexibility (10-15s range for 12.5s target)
+  words_per_minute: 200                # Reading speed assumption
+  preserve_context: true               # Maintain semantic coherence
+  min_segment_sentences: 1             # Minimum sentences per segment
+  allow_overlap: true                  # Enable strategic overlapping for time compliance
+  max_overlap_percent: 50              # Maximum overlap between adjacent segments
+  assess_vocabulary_complexity_per_segment: true  # Individual segment vocabulary assessment
 ```
 
 **Key Parameters:**
@@ -45,15 +48,20 @@ segmentation:
 | Parameter | Purpose | Typical Values | Impact |
 |-----------|---------|----------------|---------|
 | `target_reading_time_seconds` | Optimal reading time | 10-15 seconds | Affects annotation task difficulty |
-| `target_word_count_range` | Word count bounds | [50, 150] | Balances readability vs. context |
+| `reading_time_flexibility_percent` | Time range flexibility | 20% (±2.5s for 12.5s target) | Balances consistency vs. quality |
 | `preserve_context` | Semantic coherence | `true` | Critical for quality |
 | `min_segment_sentences` | Sentence completeness | 1-2 | Prevents mid-sentence breaks |
+| `allow_overlap` | Strategic overlapping | `true` | Improves time compliance |
+| `max_overlap_percent` | Overlap limit | 50% | Controls segment independence |
+| `assess_vocabulary_complexity_per_segment` | Individual analysis | `true` | Enables per-segment quality scoring |
 
 **Tuning Guidelines:**
-- **Shorter segments** (8-10s): For novice annotators or complex texts
-- **Longer segments** (15-20s): For expert annotators or simpler texts  
-- **Narrow word range** [60, 120]: More consistent segment lengths
-- **Wide word range** [40, 200]: More flexible segmentation
+- **Shorter segments** (8-10s): For novice annotators or complex texts - reduce `target_reading_time_seconds` to 10.0
+- **Longer segments** (15-20s): For expert annotators or simpler texts - increase `target_reading_time_seconds` to 17.5
+- **Stricter timing** (narrow range): Reduce `reading_time_flexibility_percent` to 10% for more consistent lengths
+- **Flexible timing** (wide range): Increase `reading_time_flexibility_percent` to 30% for better context preservation
+- **No overlap**: Set `allow_overlap: false` for completely independent segments
+- **High overlap**: Increase `max_overlap_percent` to 75% for better continuity
 
 ### Stage 2: Marginality Assessment Settings
 
@@ -165,6 +173,7 @@ gemini:
 
 segmentation:
   target_reading_time_seconds: 10.0  # Shorter for faster processing
+  reading_time_flexibility_percent: 30  # More flexible for testing
 
 marginality:
   confidence_threshold: 0.5  # Lower bar to see more candidates
@@ -216,7 +225,8 @@ gemini:
   timeout_seconds: 45  # Allow for variable response times
 
 segmentation:
-  target_word_count_range: [60, 120]  # Tighter range for consistency
+  reading_time_flexibility_percent: 15  # Tighter range for consistency
+  allow_overlap: false  # Faster processing, no overlap calculations
 
 marginality:
   max_candidate_pairs: 200  # Better selection from larger pool

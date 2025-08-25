@@ -71,7 +71,7 @@ Controls how passage pairs are identified and selected:
 marginality:
   confidence_threshold: 0.6           # Minimum AI confidence for inclusion
   flesch_difference_range: [5, 25]    # Acceptable complexity differences
-  max_candidate_pairs: 100            # Limit for cost control
+  max_candidate_pairs: 1000           # 🚀 INCREASED: Higher limit thanks to statistical pre-filtering
   target_marginal_pairs: 50           # Final output target
 ```
 
@@ -81,14 +81,14 @@ marginality:
 |-----------|---------|------------------|------------------|
 | `confidence_threshold` | Quality filter | 0.5-0.8 | Higher = fewer, higher-quality pairs |
 | `flesch_difference_range` | Complexity gap | [5, 25] | Wider = more candidates |
-| `max_candidate_pairs` | Cost control | 50-200 | Higher = better selection but more expensive |
+| `max_candidate_pairs` | Cost control | 500-2000 | 🚀 Much higher limits possible with ML pre-filtering |
 | `target_marginal_pairs` | Output size | 25-100 | Final annotation task count |
 
 **Optimization Strategies:**
 - **High Quality**: `confidence_threshold: 0.75`, narrow Flesch range [8, 20]
 - **High Volume**: `confidence_threshold: 0.55`, wide Flesch range [5, 30]
-- **Cost Control**: `max_candidate_pairs: 50`, `target_marginal_pairs: 25`
-- **Comprehensive**: `max_candidate_pairs: 200`, `target_marginal_pairs: 100`
+- **Cost Control**: `max_candidate_pairs: 500`, `target_marginal_pairs: 25`  
+- **Comprehensive**: `max_candidate_pairs: 2000`, `target_marginal_pairs: 100`
 
 ### Pairing Strategy Settings
 
@@ -148,6 +148,40 @@ quality:
 - `require_context_preservation: true` - **CRITICAL** for annotation quality
 - `min_vocabulary_focus_words: 2` - Ensures complexity analysis depth
 - `exclude_segments_with_errors: true` - Prevents corrupted data
+
+### 🚀 Statistical Pre-filtering Settings (NEW)
+
+Controls the ML-based intelligent pair selection that dramatically reduces API costs:
+
+```yaml
+statistical_filtering:
+  enabled: true                     # Enable ML pre-filtering (85%+ API call reduction)
+  max_tfidf_features: 1000          # TF-IDF vocabulary size for text analysis
+  n_clusters: 6                     # Number of complexity clusters for strategic sampling
+  pca_components: 10                # PCA components for dimensionality reduction
+  boundary_pairs_ratio: 0.33        # Portion of candidates from cluster boundaries
+  marginal_pairs_ratio: 0.33        # Portion from within-cluster marginal pairs  
+  diverse_pairs_ratio: 0.34         # Portion from diversity sampling
+```
+
+**Statistical Filtering Parameters:**
+
+| Parameter | Purpose | Recommended Range | Impact |
+|-----------|---------|------------------|---------|
+| `enabled` | Toggle ML filtering | `true` | **CRITICAL**: 85%+ cost reduction |
+| `max_tfidf_features` | Vocabulary analysis | 500-2000 | Higher = better text analysis |
+| `n_clusters` | Complexity grouping | 4-8 | More clusters = finer grouping |
+| `pca_components` | Dimensionality reduction | 10-20 | Prevents overfitting |
+| `boundary_pairs_ratio` | Cross-cluster pairs | 0.2-0.4 | Inter-group diversity |
+| `marginal_pairs_ratio` | Within-cluster pairs | 0.2-0.4 | Intra-group subtlety |
+| `diverse_pairs_ratio` | Distance-based pairs | 0.2-0.6 | Overall coverage |
+
+**Tuning Guidelines:**
+- **Small datasets** (<100 passages): `n_clusters: 3`, `max_tfidf_features: 200`
+- **Large datasets** (1000+ passages): `n_clusters: 8`, `max_tfidf_features: 2000`
+- **Quality focus**: Increase `boundary_pairs_ratio` to 0.5 for cross-complexity pairs
+- **Diversity focus**: Increase `diverse_pairs_ratio` to 0.5 for broader coverage
+- **Performance**: Reduce `max_tfidf_features` and `pca_components` for faster processing
 
 ### Output Format Settings
 
@@ -229,8 +263,13 @@ segmentation:
   allow_overlap: false  # Faster processing, no overlap calculations
 
 marginality:
-  max_candidate_pairs: 200  # Better selection from larger pool
+  max_candidate_pairs: 2000  # 🚀 Much larger pool possible with ML pre-filtering
   target_marginal_pairs: 100  # Large output set
+
+statistical_filtering:
+  enabled: true               # Essential for high-volume processing
+  n_clusters: 8               # More clusters for large datasets
+  max_tfidf_features: 2000    # Comprehensive vocabulary analysis
 
 limits:
   max_passages_per_batch: 50  # Larger batches

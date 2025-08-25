@@ -97,8 +97,27 @@ py_binary(
     deps = [
         "//src:config_manager",
         "//src:bazel_utils",
+        "//src:statistical_pair_filter",
     ],
     data = [
         "//configs:preprocessing_config.yaml",
     ],
+)
+
+# Test script for statistical filtering
+py_binary(
+    name = "test_statistical_filtering",
+    srcs = ["test_statistical_filtering.py"],
+    main = "test_statistical_filtering.py", 
+    visibility = ["//visibility:public"],
+    deps = ["//src:statistical_pair_filter"],
+)
+
+# Scalability test for statistical filtering
+py_binary(
+    name = "test_scalability",
+    srcs = ["test_scalability.py"],
+    main = "test_scalability.py",
+    visibility = ["//visibility:public"],
+    deps = ["//src:statistical_pair_filter"],
 )

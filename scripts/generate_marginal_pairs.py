@@ -45,6 +45,7 @@ from pydantic import BaseModel, Field
 sys.path.insert(0, str(Path(__file__).parent.parent))
 from src.bazel_utils import resolve_output_file, resolve_workspace_path
 from src.config_manager import SecureConfigManager
+from src.statistical_pair_filter import StatisticalPairFilter
 
 # Configure logging
 logging.basicConfig(
@@ -131,6 +132,10 @@ class MarginalPairGenerator:
 
         # Set random seed for reproducible sampling
         random.seed(self.pairing_config.get("random_seed", 42))
+
+        # Statistical pre-filtering
+        self.statistical_filter = StatisticalPairFilter(config)
+        self.use_statistical_filtering = config.get("statistical_filtering", {}).get("enabled", True)
 
         # Processing state for caching
         self.processed_pairs: List[MarginalPair] = []
@@ -271,7 +276,7 @@ class MarginalPairGenerator:
     def _filter_candidate_pairs(
         self, passages: List[ProcessedPassage]
     ) -> List[Tuple[ProcessedPassage, ProcessedPassage]]:
-        """Filter passage pairs based on business rules and strategic pairing."""
+        """Filter passage pairs using statistical pre-filtering or traditional methods."""
 
         logger.info(f"Filtering candidate pairs from {len(passages)} passages")
 
@@ -279,23 +284,30 @@ class MarginalPairGenerator:
         filtered_passages = self._apply_quality_filters(passages)
         logger.info(f"After quality filtering: {len(filtered_passages)} passages")
 
-        # Group passages by complexity for strategic pairing
-        complexity_groups = self._group_by_complexity(filtered_passages)
-
-        # Generate candidates based on pairing strategy
-        candidates = self._generate_strategic_pairs(complexity_groups)
-
-        # Limit candidates for API cost management
-        max_candidates = self.marginality_config.get("max_candidate_pairs", 100)
-        if len(candidates) > max_candidates:
-            # Prioritize pairs with more diverse complexity differences
-            candidates.sort(
-                key=lambda x: abs(x[0].flesch_score - x[1].flesch_score), reverse=True
+        # Choose filtering approach
+        max_candidates = self.marginality_config.get("max_candidate_pairs", 1000)
+        
+        if self.use_statistical_filtering and len(filtered_passages) > 20:
+            logger.info("Using statistical pre-filtering for intelligent pair selection")
+            candidates = self.statistical_filter.filter_candidate_pairs(
+                filtered_passages, max_candidates=max_candidates
             )
-            candidates = candidates[:max_candidates]
-            logger.info(
-                f"Limited to top {max_candidates} candidates by Flesch score diversity"
-            )
+        else:
+            logger.info("Using traditional strategic pairing approach")
+            # Fallback to original approach
+            complexity_groups = self._group_by_complexity(filtered_passages)
+            candidates = self._generate_strategic_pairs(complexity_groups)
+            
+            # Limit candidates for API cost management
+            if len(candidates) > max_candidates:
+                # Prioritize pairs with more diverse complexity differences
+                candidates.sort(
+                    key=lambda x: abs(x[0].flesch_score - x[1].flesch_score), reverse=True
+                )
+                candidates = candidates[:max_candidates]
+                logger.info(
+                    f"Limited to top {max_candidates} candidates by Flesch score diversity"
+                )
 
         return candidates
 

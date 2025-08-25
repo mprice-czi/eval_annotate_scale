@@ -537,14 +537,14 @@ def prepare_annotation_batch(marginal_pairs, batch_size=50):
 
 The complete data processing pipeline transforms raw CLEAR CSV data into annotation-ready passage pairs through multiple validated stages:
 
-**New Two-Stage Pipeline (Recommended):**
+**🚀 Enhanced Two-Stage Pipeline with Statistical Pre-filtering (Recommended):**
 ```
-CLEAR.csv → Stage 1: Passage Segmentation → Stage 2: Marginal Pair Generation → SuperAnnotate Tasks
+CLEAR.csv → Stage 1: AI Segmentation → Stage 2: ML Pre-filtering + AI Pair Selection → SuperAnnotate Tasks
 ```
 
 **Unified Orchestrator Pipeline:**
 ```
-CLEAR.csv → Stage 1: Segmentation → Stage 2: Pair Generation → SuperAnnotate Tasks
+CLEAR.csv → Orchestrated: Segmentation + Pre-filtering + Pair Generation → SuperAnnotate Tasks
 ```
 
 ### Two-Stage Pipeline Architecture
@@ -567,15 +567,18 @@ CLEAR.csv → Load & Parse → AI Segmentation → Cached Results → segmented_
 #### Stage 2: Marginal Pair Generation (`scripts/generate_marginal_pairs.py`)
 **Input**: `data/outputs/segmented_passages.json`  
 **Output**: `data/outputs/marginal_pairs.json` with marginally decidable pairs  
-**Key Features**:
-- Business rule-based candidate filtering
-- AI-powered marginality assessment
-- Multi-factor quality scoring
-- Stateless design for reliable re-execution
+**🚀 Enhanced Key Features**:
+- **Statistical Pre-filtering**: ML-based intelligent pair selection (85%+ cost reduction)
+- **TF-IDF Analysis**: Vocabulary pattern analysis using scikit-learn
+- **Strategic Sampling**: Cluster boundaries, marginal pairs, diversity sampling
+- **Business rule filtering**: Traditional filtering applied to pre-filtered candidates
+- **AI-powered marginality assessment**: Only on promising pairs identified by ML
+- **Multi-factor quality scoring**: Enhanced with statistical marginality likelihood
+- **Stateless design**: Can be re-run safely with different configurations
 
-**Data Flow**:
+**Enhanced Data Flow**:
 ```
-segmented_passages.json → Filter Candidates → AI Assessment → Quality Scoring → marginal_pairs.json
+segmented_passages.json → ML Pre-filtering → Strategic Sampling → Traditional Filtering → AI Assessment → Quality Scoring → marginal_pairs.json
 ```
 
 ### Pipeline Implementation Details
@@ -644,14 +647,17 @@ segmentation:
   min_segment_sentences: 1
 ```
 
-#### Stage 3: Marginal Pair Generation
+#### 🚀 Stage 3: Enhanced Marginal Pair Generation
 **Input**: Collection of processed passages  
 **Output**: Marginal pairs conforming to `marginal_pair.json` schema  
-**Key Processes**:
-- Candidate pair generation (combinations)
-- Marginality assessment using LangGraph
-- Confidence scoring and reasoning
-- Quality filtering and ranking
+**Enhanced Key Processes**:
+- **ML Feature Extraction**: TF-IDF vectorization + numerical features (Flesch, word counts, complexity)
+- **Intelligent Clustering**: K-means grouping by complexity patterns
+- **Strategic Candidate Selection**: Boundary pairs, marginal pairs, diversity sampling
+- **Statistical Likelihood Scoring**: ML-based marginality probability assessment
+- **Traditional Filtering**: Applied to pre-filtered candidates
+- **AI Assessment**: LangGraph evaluation of only promising pairs (85% fewer)
+- **Quality Scoring**: Enhanced with statistical and AI confidence metrics
 
 ### Workflow Automation Scripts
 

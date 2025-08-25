@@ -19,6 +19,14 @@ py_library(
     deps = [],
 )
 
+# Statistical pair filtering library
+py_library(
+    name = "statistical_pair_filter",
+    srcs = ["statistical_pair_filter.py"],
+    visibility = ["//visibility:public"],
+    deps = [],
+)
+
 # Bazel utils test binary
 py_binary(
     name = "test_bazel_utils",

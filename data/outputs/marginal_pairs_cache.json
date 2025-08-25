@@ -1,0 +1,2121 @@
+[
+  {
+    "pair_id": "pair-001",
+    "passage_a": {
+      "original_id": "404",
+      "segment_id": "404-seg-2",
+      "text": "For the rich south-west wind fed them, till pear grew ripe on pear, fig on fig, and grape on grape, all the winter and the spring.",
+      "estimated_reading_time": 7.800000000000001,
+      "flesch_score": 68.07,
+      "complexity_estimate": "Low-Medium",
+      "context_preserved": true,
+      "vocabulary_focus_words": [
+        "fed them",
+        "ripe on pear",
+        "south-west"
+      ],
+      "processing_timestamp": "2025-08-21T13:37:26.124928",
+      "source_text_hash": "e2a171fc"
+    },
+    "passage_b": {
+      "original_id": "400",
+      "segment_id": "400-seg-2",
+      "text": "The numerous palms and evergreens that had decorated the room, were powdered with flour and strewn with tufts of cotton, like snow. Also diamond dust had been lightly sprinkled on them, and glittering crystal icicles hung from the branches.",
+      "estimated_reading_time": 11.700000000000001,
+      "flesch_score": 81.7,
+      "complexity_estimate": "Low",
+      "context_preserved": true,
+      "vocabulary_focus_words": [
+        "numerous",
+        "evergreens",
+        "strewn",
+        "glittering"
+      ],
+      "processing_timestamp": "2025-08-21T13:33:58.089335",
+      "source_text_hash": "7db8587a"
+    },
+    "marginality_confidence": 0.9,
+    "complexity_difference": 13.63000000000001,
+    "reasoning": "This pair is an excellent example of a marginally decidable case. The difference in complexity is not immediately obvious and requires a specific focus on word choice over sentence structure or topic. Passage B is more complex, but this conclusion requires careful consideration. The Flesch scores are misleading (suggesting B is simpler), which forces an annotator to rely on their own lexical judgment. Passage A uses very common, concrete vocabulary, while Passage B introduces several less frequent, more descriptive Tier 2 words. The difference is subtle enough to require a second look but clear enough for a definitive answer, fitting the 30-60 second annotation window perfectly.",
+    "target_annotation_time": 45.0,
+    "pair_quality_score": 1.0,
+    "generation_timestamp": "2025-08-25T09:52:54.093708"
+  },
+  {
+    "pair_id": "pair-002",
+    "passage_a": {
+      "original_id": "404",
+      "segment_id": "404-seg-2",
+      "text": "For the rich south-west wind fed them, till pear grew ripe on pear, fig on fig, and grape on grape, all the winter and the spring.",
+      "estimated_reading_time": 7.800000000000001,
+      "flesch_score": 68.07,
+      "complexity_estimate": "Low-Medium",
+      "context_preserved": true,
+      "vocabulary_focus_words": [
+        "fed them",
+        "ripe on pear",
+        "south-west"
+      ],
+      "processing_timestamp": "2025-08-21T13:37:26.124928",
+      "source_text_hash": "e2a171fc"
+    },
+    "passage_b": {
+      "original_id": "409",
+      "segment_id": "409-seg-1",
+      "text": "The boys left the capitol and made their way down the long hill to the main business part of the town. As they struck onto the main business street, Garry noticed the familiar blue bell sign of the telephone company.",
+      "estimated_reading_time": 12.0,
+      "flesch_score": 79.22,
+      "complexity_estimate": "Low",
+      "context_preserved": true,
+      "vocabulary_focus_words": [
+        "capitol",
+        "business part",
+        "struck onto",
+        "familiar"
+      ],
+      "processing_timestamp": "2025-08-21T13:40:51.334764",
+      "source_text_hash": "c80ce9fb"
+    },
+    "marginality_confidence": 0.9,
+    "complexity_difference": 11.150000000000006,
+    "reasoning": "This pair is an excellent example of being marginally decidable. At first glance, Passage A's poetic and slightly archaic phrasing ('till pear grew ripe on pear') might suggest higher complexity. However, its core vocabulary is very simple and concrete (wind, pear, fig, grape, ripe). In contrast, Passage B uses a more modern and straightforward sentence structure but contains more abstract and specific Tier 2 vocabulary, such as 'capitol' and 'familiar'. The Flesch scores are misleading (suggesting B is simpler), which forces an annotator to perform a deeper analysis of the word choices rather than relying on surface-level metrics. The decision requires weighing the stylistic complexity of A against the lexical complexity of B, making the difference clear but subtle and not immediately obvious.",
+    "target_annotation_time": 45.0,
+    "pair_quality_score": 1.0,
+    "generation_timestamp": "2025-08-25T09:53:14.789789"
+  },
+  {
+    "pair_id": "pair-003",
+    "passage_a": {
+      "original_id": "404",
+      "segment_id": "404-seg-5",
+      "text": "And beside him stood Arete, his wise and lovely queen, and leaned against a pillar as she spun her golden threads.",
+      "estimated_reading_time": 6.3,
+      "flesch_score": 68.07,
+      "complexity_estimate": "Medium",
+      "context_preserved": true,
+      "vocabulary_focus_words": [
+        "Arete",
+        "pillar",
+        "spun",
+        "threads"
+      ],
+      "processing_timestamp": "2025-08-21T13:37:26.124928",
+      "source_text_hash": "e2a171fc"
+    },
+    "passage_b": {
+      "original_id": "400",
+      "segment_id": "400-seg-2",
+      "text": "The numerous palms and evergreens that had decorated the room, were powdered with flour and strewn with tufts of cotton, like snow. Also diamond dust had been lightly sprinkled on them, and glittering crystal icicles hung from the branches.",
+      "estimated_reading_time": 11.700000000000001,
+      "flesch_score": 81.7,
+      "complexity_estimate": "Low",
+      "context_preserved": true,
+      "vocabulary_focus_words": [
+        "numerous",
+        "evergreens",
+        "strewn",
+        "glittering"
+      ],
+      "processing_timestamp": "2025-08-21T13:33:58.089335",
+      "source_text_hash": "7db8587a"
+    },
+    "marginality_confidence": 0.9,
+    "complexity_difference": 13.63000000000001,
+    "reasoning": "This pair is an excellent example of a marginally decidable case. The decision is not immediately obvious and requires careful consideration of different types of vocabulary complexity. Passage A's difficulty hinges almost entirely on a single proper noun, 'Arete', which requires specific cultural or literary knowledge. The rest of its vocabulary ('pillar', 'spun', 'threads') is quite common. In contrast, Passage B's complexity is distributed across several Tier 2 vocabulary words ('numerous', 'strewn', 'glittering') that are more indicative of general lexical sophistication. An annotator must weigh the difficulty of one obscure, domain-specific word against a cluster of moderately advanced, general-purpose words. This creates a subtle but clear distinction, making it a non-obvious but definitively answerable comparison that fits well within the 30-60 second timeframe.",
+    "target_annotation_time": 40.0,
+    "pair_quality_score": 1.0,
+    "generation_timestamp": "2025-08-25T09:53:39.977576"
+  },
+  {
+    "pair_id": "pair-004",
+    "passage_a": {
+      "original_id": "406",
+      "segment_id": "406-seg-1",
+      "text": "Hal and Chester found ample time to take an inventory of the general's car.",
+      "estimated_reading_time": 4.2,
+      "flesch_score": 59.67,
+      "complexity_estimate": "Hard",
+      "context_preserved": true,
+      "vocabulary_focus_words": [
+        "inventory",
+        "luxuriously"
+      ],
+      "processing_timestamp": "2025-08-21T13:38:29.127370",
+      "source_text_hash": "27f2005c"
+    },
+    "passage_b": {
+      "original_id": "409",
+      "segment_id": "409-seg-1",
+      "text": "The boys left the capitol and made their way down the long hill to the main business part of the town. As they struck onto the main business street, Garry noticed the familiar blue bell sign of the telephone company.",
+      "estimated_reading_time": 12.0,
+      "flesch_score": 79.22,
+      "complexity_estimate": "Low",
+      "context_preserved": true,
+      "vocabulary_focus_words": [
+        "capitol",
+        "business part",
+        "struck onto",
+        "familiar"
+      ],
+      "processing_timestamp": "2025-08-21T13:40:51.334764",
+      "source_text_hash": "c80ce9fb"
+    },
+    "marginality_confidence": 0.95,
+    "complexity_difference": 19.549999999999997,
+    "reasoning": "This pair is an excellent example of a marginally decidable case. The complexity difference is subtle yet definitive, requiring careful consideration rather than an immediate judgment. Passage A's complexity stems from a higher overall lexical register, using more formal and less frequent words like 'ample' and 'inventory' to describe a situation. 'Inventory' in this context is a conceptually more abstract word than any in Passage B. Passage B is longer and uses mostly simple, high-frequency words, but its complexity is anchored by the single Tier 3 word 'capitol', a specific piece of world knowledge that might trip up some readers. This creates a compelling trade-off for an annotator: is the passage with generally more sophisticated vocabulary (A) more complex than the passage with one specific, potentially difficult noun (B)? The decision is not obvious, but a reasoned analysis leads to the conclusion that Passage A's vocabulary is more consistently complex. The time required to weigh these competing factors falls squarely within the 30-60 second range.",
+    "target_annotation_time": 40.0,
+    "pair_quality_score": 1.0,
+    "generation_timestamp": "2025-08-25T09:54:04.907457"
+  },
+  {
+    "pair_id": "pair-005",
+    "passage_a": {
+      "original_id": "413",
+      "segment_id": "413-seg-4",
+      "text": "His patron was Bishop Fonseca. Whatever qualities he might possess for the important work about to be devolved upon him would be developed later.",
+      "estimated_reading_time": 7.199999999999999,
+      "flesch_score": 66.89,
+      "complexity_estimate": "Medium",
+      "context_preserved": true,
+      "vocabulary_focus_words": [
+        "patron",
+        "possess",
+        "devolved"
+      ],
+      "processing_timestamp": "2025-08-21T13:43:48.809259",
+      "source_text_hash": "f73ab8d7"
+    },
+    "passage_b": {
+      "original_id": "409",
+      "segment_id": "409-seg-1",
+      "text": "The boys left the capitol and made their way down the long hill to the main business part of the town. As they struck onto the main business street, Garry noticed the familiar blue bell sign of the telephone company.",
+      "estimated_reading_time": 12.0,
+      "flesch_score": 79.22,
+      "complexity_estimate": "Low",
+      "context_preserved": true,
+      "vocabulary_focus_words": [
+        "capitol",
+        "business part",
+        "struck onto",
+        "familiar"
+      ],
+      "processing_timestamp": "2025-08-21T13:40:51.334764",
+      "source_text_hash": "c80ce9fb"
+    },
+    "marginality_confidence": 0.95,
+    "complexity_difference": 12.329999999999998,
+    "reasoning": "This pair is an excellent example of a marginally decidable case. The difference in vocabulary complexity is clear but requires careful reading. Passage A's complexity is driven by formal, lower-frequency words like 'patron', 'possess', and especially 'devolved'. The word 'devolved' is a significant differentiator, being a Tier 3 vocabulary item that is far more abstract and less common than any word in Passage B. Passage B uses common, concrete vocabulary ('capitol', 'business part', 'familiar') that is easily accessible. The difference is not immediately obvious at a glance because both passages are short and syntactically simple, but a direct comparison of the focus words reveals a definitive gap in lexical sophistication. This subtlety makes it a good test case, as it avoids being trivially easy or impossibly similar.",
+    "target_annotation_time": 40.0,
+    "pair_quality_score": 1.0,
+    "generation_timestamp": "2025-08-25T09:54:26.048851"
+  },
+  {
+    "pair_id": "pair-006",
+    "passage_a": {
+      "original_id": "414",
+      "segment_id": "414-seg-5",
+      "text": "By the door was stationed a young officer in the uniform of the Fifth Regiment of the infantry of the line.",
+      "estimated_reading_time": 6.3,
+      "flesch_score": 59.99,
+      "complexity_estimate": "Medium",
+      "context_preserved": true,
+      "vocabulary_focus_words": [
+        "stationed",
+        "regiment",
+        "infantry"
+      ],
+      "processing_timestamp": "2025-08-21T13:44:46.745246",
+      "source_text_hash": "a6618464"
+    },
+    "passage_b": {
+      "original_id": "409",
+      "segment_id": "409-seg-1",
+      "text": "The boys left the capitol and made their way down the long hill to the main business part of the town. As they struck onto the main business street, Garry noticed the familiar blue bell sign of the telephone company.",
+      "estimated_reading_time": 12.0,
+      "flesch_score": 79.22,
+      "complexity_estimate": "Low",
+      "context_preserved": true,
+      "vocabulary_focus_words": [
+        "capitol",
+        "business part",
+        "struck onto",
+        "familiar"
+      ],
+      "processing_timestamp": "2025-08-21T13:40:51.334764",
+      "source_text_hash": "c80ce9fb"
+    },
+    "marginality_confidence": 0.9,
+    "complexity_difference": 19.229999999999997,
+    "reasoning": "This pair is a good example of a marginally decidable case. The complexity difference is clear but requires careful consideration. Passage A's difficulty stems from a cluster of domain-specific, Tier 3 vocabulary ('regiment', 'infantry') within a military context. These words are low-frequency and require specific background knowledge. Passage B, while longer and containing two sentences, relies on more common Tier 1 and Tier 2 vocabulary. Its most challenging words ('capitol', 'familiar') are significantly more frequent than those in Passage A. The phrasal verb 'struck onto' adds a slight idiomatic challenge to B, but it doesn't outweigh the specialized nouns in A. An annotator must weigh the concentrated, domain-specific difficulty of A against the more generally accessible vocabulary of B, making the decision non-obvious at a glance but definitive upon analysis.",
+    "target_annotation_time": 40.0,
+    "pair_quality_score": 1.0,
+    "generation_timestamp": "2025-08-25T09:54:51.529817"
+  },
+  {
+    "pair_id": "pair-007",
+    "passage_a": {
+      "original_id": "420",
+      "segment_id": "420-seg-5",
+      "text": "He was a little sorry at first that he had not put on his best clothes, but he soon forgot to think about that.",
+      "estimated_reading_time": 7.199999999999999,
+      "flesch_score": 70.02,
+      "complexity_estimate": "Low",
+      "context_preserved": true,
+      "vocabulary_focus_words": [
+        "sorry",
+        "first",
+        "forgot",
+        "clothes"
+      ],
+      "processing_timestamp": "2025-08-21T13:46:36.260347",
+      "source_text_hash": "d142c72d"
+    },
+    "passage_b": {
+      "original_id": "400",
+      "segment_id": "400-seg-2",
+      "text": "The numerous palms and evergreens that had decorated the room, were powdered with flour and strewn with tufts of cotton, like snow. Also diamond dust had been lightly sprinkled on them, and glittering crystal icicles hung from the branches.",
+      "estimated_reading_time": 11.700000000000001,
+      "flesch_score": 81.7,
+      "complexity_estimate": "Low",
+      "context_preserved": true,
+      "vocabulary_focus_words": [
+        "numerous",
+        "evergreens",
+        "strewn",
+        "glittering"
+      ],
+      "processing_timestamp": "2025-08-21T13:33:58.089335",
+      "source_text_hash": "7db8587a"
+    },
+    "marginality_confidence": 0.9,
+    "complexity_difference": 11.680000000000007,
+    "reasoning": "This pair is an excellent example of a marginally decidable case. The difference in vocabulary complexity is clear but not immediately obvious. Passage A exclusively uses high-frequency, Tier 1 words that are common in everyday conversation. Passage B, while still accessible, introduces several less frequent, more descriptive Tier 2 words ('numerous', 'strewn', 'glittering'). The complexity difference is not so vast as to be trivial, but it is significant and definitive upon careful reading. An annotator would need to move beyond a surface-level reading and compare the specific word choices to make a judgment, which fits the 30-60 second timeframe. The misleading Flesch score (which rates B as easier) further ensures that an annotator cannot rely on simple metrics and must engage in genuine lexical analysis, making it a strong 'marginally decidable' pair.",
+    "target_annotation_time": 40.0,
+    "pair_quality_score": 1.0,
+    "generation_timestamp": "2025-08-25T09:55:16.622928"
+  },
+  {
+    "pair_id": "pair-008",
+    "passage_a": {
+      "original_id": "400",
+      "segment_id": "400-seg-5",
+      "text": "This would have been an easy matter, but each traveller was obliged to wear snowshoes.",
+      "estimated_reading_time": 4.5,
+      "flesch_score": 81.7,
+      "complexity_estimate": "Medium",
+      "context_preserved": true,
+      "vocabulary_focus_words": [
+        "matter",
+        "traveller",
+        "obliged",
+        "snowshoes"
+      ],
+      "processing_timestamp": "2025-08-21T13:33:58.089335",
+      "source_text_hash": "7db8587a"
+    },
+    "passage_b": {
+      "original_id": "414",
+      "segment_id": "414-seg-2",
+      "text": "At one end stood a group of officers of high rank in rich uniforms whose brilliance was shrouded by heavy cloaks falling from their shoulders and gathered about them, for the air was raw and chill, despite a great fire burning in a huge open fireplace.",
+      "estimated_reading_time": 13.8,
+      "flesch_score": 59.99,
+      "complexity_estimate": "Medium-High",
+      "context_preserved": true,
+      "vocabulary_focus_words": [
+        "brilliance",
+        "shrouded",
+        "raw",
+        "chill"
+      ],
+      "processing_timestamp": "2025-08-21T13:44:46.745246",
+      "source_text_hash": "a6618464"
+    },
+    "marginality_confidence": 0.9,
+    "complexity_difference": 21.71,
+    "reasoning": "This pair is an excellent example of a marginally decidable case. Passage B is definitively more complex, but the difference is not immediately obvious, requiring careful consideration. Passage A is not trivially simple; it contains the formal, Tier 2 word 'obliged,' which elevates its vocabulary beyond a basic level. An annotator cannot dismiss it at a glance. However, Passage B presents a cluster of more sophisticated and evocative vocabulary ('brilliance,' 'shrouded,' 'raw,' 'chill'). The word 'shrouded' in particular is significantly less frequent and more literary than any word in Passage A. The comparison requires an annotator to weigh the single complex word in A against the group of more advanced words in B, a task that fits perfectly within the 30-60 second timeframe. While Passage B also has a more complex sentence structure, the difference in vocabulary is substantial and a primary driver of the complexity gap.",
+    "target_annotation_time": 40.0,
+    "pair_quality_score": 1.0,
+    "generation_timestamp": "2025-08-25T09:56:05.537432"
+  },
+  {
+    "pair_id": "pair-009",
+    "passage_a": {
+      "original_id": "404",
+      "segment_id": "404-seg-2",
+      "text": "For the rich south-west wind fed them, till pear grew ripe on pear, fig on fig, and grape on grape, all the winter and the spring.",
+      "estimated_reading_time": 7.800000000000001,
+      "flesch_score": 68.07,
+      "complexity_estimate": "Low-Medium",
+      "context_preserved": true,
+      "vocabulary_focus_words": [
+        "fed them",
+        "ripe on pear",
+        "south-west"
+      ],
+      "processing_timestamp": "2025-08-21T13:37:26.124928",
+      "source_text_hash": "e2a171fc"
+    },
+    "passage_b": {
+      "original_id": "406",
+      "segment_id": "406-seg-2",
+      "text": "It was a huge machine, and besides being fitted up luxuriously was also furnished as an office, that the general might still be at work while he hurried from one part of the field to another when events demanded his immediate presence.",
+      "estimated_reading_time": 12.6,
+      "flesch_score": 59.67,
+      "complexity_estimate": "Hard",
+      "context_preserved": true,
+      "vocabulary_focus_words": [
+        "furnished",
+        "demanded",
+        "presence"
+      ],
+      "processing_timestamp": "2025-08-21T13:38:29.127370",
+      "source_text_hash": "27f2005c"
+    },
+    "marginality_confidence": 0.9,
+    "complexity_difference": 8.399999999999991,
+    "reasoning": "This pair is a good example of a marginally decidable comparison. Passage B is definitively more complex, but the difference is subtle enough to require careful thought. The complexity in Passage A comes from its slightly poetic structure, but its vocabulary is very concrete and high-frequency ('pear', 'fig', 'grape', 'ripe', 'wind'). In contrast, Passage B uses more formal and abstract (Tier 2) vocabulary that requires a greater degree of lexical knowledge. Words like 'luxuriously', 'furnished', 'demanded', and 'presence' are less common and represent more complex concepts than the simple, tangible words in Passage A. While Passage B also has a more complex sentence structure, the difference in vocabulary is a primary and significant driver of the overall complexity gap. The decision is not immediately obvious because the words in B are not exceptionally rare, but a direct comparison reveals a clear step up in sophistication, making it a well-suited marginal pair.",
+    "target_annotation_time": 40.0,
+    "pair_quality_score": 1.0,
+    "generation_timestamp": "2025-08-25T09:56:49.713604"
+  },
+  {
+    "pair_id": "pair-010",
+    "passage_a": {
+      "original_id": "404",
+      "segment_id": "404-seg-2",
+      "text": "For the rich south-west wind fed them, till pear grew ripe on pear, fig on fig, and grape on grape, all the winter and the spring.",
+      "estimated_reading_time": 7.800000000000001,
+      "flesch_score": 68.07,
+      "complexity_estimate": "Low-Medium",
+      "context_preserved": true,
+      "vocabulary_focus_words": [
+        "fed them",
+        "ripe on pear",
+        "south-west"
+      ],
+      "processing_timestamp": "2025-08-21T13:37:26.124928",
+      "source_text_hash": "e2a171fc"
+    },
+    "passage_b": {
+      "original_id": "414",
+      "segment_id": "414-seg-2",
+      "text": "At one end stood a group of officers of high rank in rich uniforms whose brilliance was shrouded by heavy cloaks falling from their shoulders and gathered about them, for the air was raw and chill, despite a great fire burning in a huge open fireplace.",
+      "estimated_reading_time": 13.8,
+      "flesch_score": 59.99,
+      "complexity_estimate": "Medium-High",
+      "context_preserved": true,
+      "vocabulary_focus_words": [
+        "brilliance",
+        "shrouded",
+        "raw",
+        "chill"
+      ],
+      "processing_timestamp": "2025-08-21T13:44:46.745246",
+      "source_text_hash": "a6618464"
+    },
+    "marginality_confidence": 0.9,
+    "complexity_difference": 8.079999999999991,
+    "reasoning": "This pair is an excellent example of a marginally decidable case. The difference in complexity is not immediately obvious, as both are single, descriptive sentences from literary contexts. However, a careful reading reveals a clear distinction in vocabulary sophistication. Passage A uses common, concrete words ('pear', 'fig', 'grape', 'ripe'). Its focus words ('fed them', 'ripe on pear', 'south-west') are high-frequency and straightforward. In contrast, Passage B employs more nuanced and lower-frequency vocabulary. The focus words 'shrouded' and 'brilliance' are significantly more complex than any word in Passage A. 'Shrouded' implies concealment with a specific connotation, and 'brilliance' is a more abstract noun. The use of 'raw' and 'chill' to describe the atmosphere is also more sophisticated. The difference is subtle enough to require a moment of comparison but clear enough for a definitive judgment, fitting the 'marginally decidable' criteria perfectly.",
+    "target_annotation_time": 40.0,
+    "pair_quality_score": 1.0,
+    "generation_timestamp": "2025-08-25T09:57:19.843436"
+  },
+  {
+    "pair_id": "pair-011",
+    "passage_a": {
+      "original_id": "404",
+      "segment_id": "404-seg-2",
+      "text": "For the rich south-west wind fed them, till pear grew ripe on pear, fig on fig, and grape on grape, all the winter and the spring.",
+      "estimated_reading_time": 7.800000000000001,
+      "flesch_score": 68.07,
+      "complexity_estimate": "Low-Medium",
+      "context_preserved": true,
+      "vocabulary_focus_words": [
+        "fed them",
+        "ripe on pear",
+        "south-west"
+      ],
+      "processing_timestamp": "2025-08-21T13:37:26.124928",
+      "source_text_hash": "e2a171fc"
+    },
+    "passage_b": {
+      "original_id": "414",
+      "segment_id": "414-seg-4",
+      "text": "In their bearing no less than in their faces was expressed a certain unwonted fierce resentment, which flamed up and became more evident when the Emperor turned his back in his short, restless march to and fro, but which subsided as suddenly when he had them under observation.",
+      "estimated_reading_time": 14.399999999999999,
+      "flesch_score": 59.99,
+      "complexity_estimate": "High",
+      "context_preserved": true,
+      "vocabulary_focus_words": [
+        "bearing",
+        "unwonted",
+        "resentment",
+        "subsided"
+      ],
+      "processing_timestamp": "2025-08-21T13:44:46.745246",
+      "source_text_hash": "a6618464"
+    },
+    "marginality_confidence": 0.85,
+    "complexity_difference": 8.079999999999991,
+    "reasoning": "This pair is a good example of a marginally decidable case. The vocabulary difference is clear and definitive, but it requires a quick analysis rather than being immediately obvious. Passage A uses uniformly simple, concrete, and high-frequency words (Tier 1). Passage B, while containing some simple words, is distinguished by several low-frequency, abstract (Tier 2/3) words: 'unwonted', 'resentment', 'subsided', and the specific meaning of 'bearing' as demeanor. An annotator would quickly read Passage A, then upon reading Passage B, would likely pause on these specific words to confirm the complexity difference. The decision is not difficult, but it is based on identifying and weighing these key lexical items, which is the core of the task. It successfully avoids being too similar while not being so different that the comparison is trivial.",
+    "target_annotation_time": 30.0,
+    "pair_quality_score": 0.9616500000000001,
+    "generation_timestamp": "2025-08-25T09:57:46.456866"
+  },
+  {
+    "pair_id": "pair-012",
+    "passage_a": {
+      "original_id": "404",
+      "segment_id": "404-seg-2",
+      "text": "For the rich south-west wind fed them, till pear grew ripe on pear, fig on fig, and grape on grape, all the winter and the spring.",
+      "estimated_reading_time": 7.800000000000001,
+      "flesch_score": 68.07,
+      "complexity_estimate": "Low-Medium",
+      "context_preserved": true,
+      "vocabulary_focus_words": [
+        "fed them",
+        "ripe on pear",
+        "south-west"
+      ],
+      "processing_timestamp": "2025-08-21T13:37:26.124928",
+      "source_text_hash": "e2a171fc"
+    },
+    "passage_b": {
+      "original_id": "431",
+      "segment_id": "431-seg-2",
+      "text": "Until now her acquaintance with an aeroplane had been wholly theoretical; it was her first flight; yet so thoroughly did she understand every part of her air vehicle\u2014what it was for and how to use it\u2014that she had implicit confidence in herself and in her machine.",
+      "estimated_reading_time": 13.8,
+      "flesch_score": 54.24,
+      "complexity_estimate": "Hard",
+      "context_preserved": true,
+      "vocabulary_focus_words": [
+        "theoretical",
+        "thoroughly",
+        "implicit confidence"
+      ],
+      "processing_timestamp": "2025-08-22T11:43:08.030203",
+      "source_text_hash": "f25f20a3"
+    },
+    "marginality_confidence": 0.95,
+    "complexity_difference": 13.829999999999991,
+    "reasoning": "This pair is an excellent example of a marginally decidable case. The difference in vocabulary complexity is clear and definitive, but not so extreme as to be immediately obvious. Passage A uses very concrete, high-frequency words related to nature ('pear', 'fig', 'grape', 'wind'). Passage B, in contrast, uses more abstract, academic, and lower-frequency words to describe a cognitive and emotional state ('acquaintance', 'theoretical', 'thoroughly', 'implicit confidence'). An annotator must read both passages carefully to appreciate this shift from concrete sensory language to abstract conceptual language. The decision isn't trivial, but a clear conclusion can be reached within the target time frame, making it ideal for assessment.",
+    "target_annotation_time": 40.0,
+    "pair_quality_score": 1.0,
+    "generation_timestamp": "2025-08-25T09:58:06.075440"
+  },
+  {
+    "pair_id": "pair-013",
+    "passage_a": {
+      "original_id": "404",
+      "segment_id": "404-seg-5",
+      "text": "And beside him stood Arete, his wise and lovely queen, and leaned against a pillar as she spun her golden threads.",
+      "estimated_reading_time": 6.3,
+      "flesch_score": 68.07,
+      "complexity_estimate": "Medium",
+      "context_preserved": true,
+      "vocabulary_focus_words": [
+        "Arete",
+        "pillar",
+        "spun",
+        "threads"
+      ],
+      "processing_timestamp": "2025-08-21T13:37:26.124928",
+      "source_text_hash": "e2a171fc"
+    },
+    "passage_b": {
+      "original_id": "406",
+      "segment_id": "406-seg-2",
+      "text": "It was a huge machine, and besides being fitted up luxuriously was also furnished as an office, that the general might still be at work while he hurried from one part of the field to another when events demanded his immediate presence.",
+      "estimated_reading_time": 12.6,
+      "flesch_score": 59.67,
+      "complexity_estimate": "Hard",
+      "context_preserved": true,
+      "vocabulary_focus_words": [
+        "furnished",
+        "demanded",
+        "presence"
+      ],
+      "processing_timestamp": "2025-08-21T13:38:29.127370",
+      "source_text_hash": "27f2005c"
+    },
+    "marginality_confidence": 0.9,
+    "complexity_difference": 8.399999999999991,
+    "reasoning": "This pair is an excellent example of a marginally decidable case. The difference in vocabulary complexity is clear upon inspection but not immediately obvious. Passage B uses a cluster of more formal, abstract, and less frequent (Tier 2) words like 'luxuriously', 'furnished', 'demanded', and 'presence'. Passage A's vocabulary is generally simpler and more concrete ('pillar', 'spun', 'threads'), with the primary point of difficulty being the proper noun 'Arete'. This creates a subtle trade-off for an annotator to consider: is the specific, knowledge-based difficulty of a single proper noun ('Arete') more or less complex than the general academic vocabulary used in Passage B? The consensus would favor Passage B as more complex due to the density of these more sophisticated words. The decision requires a moment of thought to weigh these different types of lexical challenges, making it a perfect marginal case rather than an obvious one.",
+    "target_annotation_time": 40.0,
+    "pair_quality_score": 1.0,
+    "generation_timestamp": "2025-08-25T09:58:32.986762"
+  },
+  {
+    "pair_id": "pair-014",
+    "passage_a": {
+      "original_id": "404",
+      "segment_id": "404-seg-5",
+      "text": "And beside him stood Arete, his wise and lovely queen, and leaned against a pillar as she spun her golden threads.",
+      "estimated_reading_time": 6.3,
+      "flesch_score": 68.07,
+      "complexity_estimate": "Medium",
+      "context_preserved": true,
+      "vocabulary_focus_words": [
+        "Arete",
+        "pillar",
+        "spun",
+        "threads"
+      ],
+      "processing_timestamp": "2025-08-21T13:37:26.124928",
+      "source_text_hash": "e2a171fc"
+    },
+    "passage_b": {
+      "original_id": "414",
+      "segment_id": "414-seg-2",
+      "text": "At one end stood a group of officers of high rank in rich uniforms whose brilliance was shrouded by heavy cloaks falling from their shoulders and gathered about them, for the air was raw and chill, despite a great fire burning in a huge open fireplace.",
+      "estimated_reading_time": 13.8,
+      "flesch_score": 59.99,
+      "complexity_estimate": "Medium-High",
+      "context_preserved": true,
+      "vocabulary_focus_words": [
+        "brilliance",
+        "shrouded",
+        "raw",
+        "chill"
+      ],
+      "processing_timestamp": "2025-08-21T13:44:46.745246",
+      "source_text_hash": "a6618464"
+    },
+    "marginality_confidence": 0.9,
+    "complexity_difference": 8.079999999999991,
+    "reasoning": "This pair is a good example of a marginally decidable case. The difference in vocabulary complexity is clear upon careful reading but not so vast as to be immediately obvious. Passage B uses more sophisticated and evocative vocabulary ('shrouded', 'brilliance', 'raw', 'chill') that requires a deeper lexical knowledge than the more straightforward and concrete words in Passage A ('pillar', 'spun', 'threads'). While Passage B also has a more complex sentence structure, the difference in word choice is significant enough on its own to be a primary factor for comparison. An annotator would need to pause and consider the specific words used, rather than just the overall sentence length, to make an accurate judgment. This fits the criteria of requiring careful consideration within the 30-60 second timeframe.",
+    "target_annotation_time": 45.0,
+    "pair_quality_score": 1.0,
+    "generation_timestamp": "2025-08-25T09:58:57.967943"
+  },
+  {
+    "pair_id": "pair-015",
+    "passage_a": {
+      "original_id": "413",
+      "segment_id": "413-seg-4",
+      "text": "His patron was Bishop Fonseca. Whatever qualities he might possess for the important work about to be devolved upon him would be developed later.",
+      "estimated_reading_time": 7.199999999999999,
+      "flesch_score": 66.89,
+      "complexity_estimate": "Medium",
+      "context_preserved": true,
+      "vocabulary_focus_words": [
+        "patron",
+        "possess",
+        "devolved"
+      ],
+      "processing_timestamp": "2025-08-21T13:43:48.809259",
+      "source_text_hash": "f73ab8d7"
+    },
+    "passage_b": {
+      "original_id": "414",
+      "segment_id": "414-seg-2",
+      "text": "At one end stood a group of officers of high rank in rich uniforms whose brilliance was shrouded by heavy cloaks falling from their shoulders and gathered about them, for the air was raw and chill, despite a great fire burning in a huge open fireplace.",
+      "estimated_reading_time": 13.8,
+      "flesch_score": 59.99,
+      "complexity_estimate": "Medium-High",
+      "context_preserved": true,
+      "vocabulary_focus_words": [
+        "brilliance",
+        "shrouded",
+        "raw",
+        "chill"
+      ],
+      "processing_timestamp": "2025-08-21T13:44:46.745246",
+      "source_text_hash": "a6618464"
+    },
+    "marginality_confidence": 0.9,
+    "complexity_difference": 6.899999999999999,
+    "reasoning": "This pair is an excellent example of a marginally decidable case. The decision is not immediately obvious and requires careful comparison. Passage A's complexity is concentrated in a single, low-frequency, abstract word ('devolved'), which carries significant conceptual weight. In contrast, Passage B's complexity is distributed across several moderately difficult, descriptive words ('shrouded', 'brilliance', 'raw', 'chill') that are more literary and atmospheric. An annotator must weigh whether the single, abstract hurdle in A is more challenging than the cumulative effect of the descriptive vocabulary in B. The words in B are more concrete and better supported by context, making Passage A definitively, but subtly, more complex from a pure vocabulary standpoint. This nuance makes the pair ideal for testing fine-grained vocabulary assessment.",
+    "target_annotation_time": 45.0,
+    "pair_quality_score": 1.0,
+    "generation_timestamp": "2025-08-25T10:00:59.479111"
+  },
+  {
+    "pair_id": "pair-016",
+    "passage_a": {
+      "original_id": "413",
+      "segment_id": "413-seg-4",
+      "text": "His patron was Bishop Fonseca. Whatever qualities he might possess for the important work about to be devolved upon him would be developed later.",
+      "estimated_reading_time": 7.199999999999999,
+      "flesch_score": 66.89,
+      "complexity_estimate": "Medium",
+      "context_preserved": true,
+      "vocabulary_focus_words": [
+        "patron",
+        "possess",
+        "devolved"
+      ],
+      "processing_timestamp": "2025-08-21T13:43:48.809259",
+      "source_text_hash": "f73ab8d7"
+    },
+    "passage_b": {
+      "original_id": "431",
+      "segment_id": "431-seg-2",
+      "text": "Until now her acquaintance with an aeroplane had been wholly theoretical; it was her first flight; yet so thoroughly did she understand every part of her air vehicle\u2014what it was for and how to use it\u2014that she had implicit confidence in herself and in her machine.",
+      "estimated_reading_time": 13.8,
+      "flesch_score": 54.24,
+      "complexity_estimate": "Hard",
+      "context_preserved": true,
+      "vocabulary_focus_words": [
+        "theoretical",
+        "thoroughly",
+        "implicit confidence"
+      ],
+      "processing_timestamp": "2025-08-22T11:43:08.030203",
+      "source_text_hash": "f25f20a3"
+    },
+    "marginality_confidence": 0.95,
+    "complexity_difference": 12.649999999999999,
+    "reasoning": "This pair is an excellent example of a marginally decidable case. The decision is not immediately obvious and requires weighing two different types of vocabulary complexity. Passage A's difficulty hinges almost entirely on a single, low-frequency, formal word: 'devolved'. In contrast, Passage B's difficulty is more distributed across several moderately complex academic and abstract words ('theoretical', 'acquaintance', 'implicit'). An annotator must decide if one very difficult word makes a passage more complex than a passage with a higher density of moderately difficult words. This subtlety requires careful thought, fits the 30-60 second evaluation window, and has a clear, defensible answer (Passage B is more complex due to the sustained cognitive load of its vocabulary), making it a prime example of a marginally decidable pair.",
+    "target_annotation_time": 45.0,
+    "pair_quality_score": 1.0,
+    "generation_timestamp": "2025-08-25T10:01:30.402695"
+  },
+  {
+    "pair_id": "pair-017",
+    "passage_a": {
+      "original_id": "414",
+      "segment_id": "414-seg-5",
+      "text": "By the door was stationed a young officer in the uniform of the Fifth Regiment of the infantry of the line.",
+      "estimated_reading_time": 6.3,
+      "flesch_score": 59.99,
+      "complexity_estimate": "Medium",
+      "context_preserved": true,
+      "vocabulary_focus_words": [
+        "stationed",
+        "regiment",
+        "infantry"
+      ],
+      "processing_timestamp": "2025-08-21T13:44:46.745246",
+      "source_text_hash": "a6618464"
+    },
+    "passage_b": {
+      "original_id": "408",
+      "segment_id": "408-seg-2",
+      "text": "For months the opposing forces had battled to a draw from the North Sea to the boundary of Switzerland, until now, as the day waned, the hands of time drew closer to the hour that was to mark the opening of the most bitter and destructive battle of the war.",
+      "estimated_reading_time": 15.0,
+      "flesch_score": 68.79,
+      "complexity_estimate": "Medium",
+      "context_preserved": true,
+      "vocabulary_focus_words": [
+        "opposing forces",
+        "battled to a draw",
+        "waned",
+        "destructive"
+      ],
+      "processing_timestamp": "2025-08-21T13:40:20.888875",
+      "source_text_hash": "3b257668"
+    },
+    "marginality_confidence": 0.85,
+    "complexity_difference": 8.800000000000004,
+    "reasoning": "This pair is a good example of a marginally decidable case. The decision is not immediately obvious because the passages exhibit different types of vocabulary complexity. Passage A's complexity stems from domain-specific, Tier 3 nouns ('regiment', 'infantry'). These are precise terms that might be unfamiliar to a general audience but are concrete in their meaning. Passage B's complexity comes from more general, but less common and more abstract/literary, Tier 2 vocabulary ('waned') and an idiomatic phrase ('battled to a draw'). An annotator must weigh whether specific, technical terminology is more complex than nuanced, literary language. This requires careful consideration rather than an immediate judgment. The difference is definitive (Passage B is more complex due to the combination of abstractness and idiomatic language), but subtle enough to require the 30-60 second evaluation period. While Passage B also has a more complex sentence structure, the lexical differences are significant and distinct enough to be the primary focus of the comparison.",
+    "target_annotation_time": 45.0,
+    "pair_quality_score": 0.9633750000000001,
+    "generation_timestamp": "2025-08-25T10:02:00.226933"
+  },
+  {
+    "pair_id": "pair-018",
+    "passage_a": {
+      "original_id": "400",
+      "segment_id": "400-seg-5",
+      "text": "This would have been an easy matter, but each traveller was obliged to wear snowshoes.",
+      "estimated_reading_time": 4.5,
+      "flesch_score": 81.7,
+      "complexity_estimate": "Medium",
+      "context_preserved": true,
+      "vocabulary_focus_words": [
+        "matter",
+        "traveller",
+        "obliged",
+        "snowshoes"
+      ],
+      "processing_timestamp": "2025-08-21T13:33:58.089335",
+      "source_text_hash": "7db8587a"
+    },
+    "passage_b": {
+      "original_id": "404",
+      "segment_id": "404-seg-3",
+      "text": "And at the farther end gay flower-beds bloomed through all seasons of the year; and two fair fountains rose, and ran, one through the garden grounds, and one beneath the palace gate, to water all the town. Such noble gifts the heavens had given to Alcinous the wise.",
+      "estimated_reading_time": 14.399999999999999,
+      "flesch_score": 68.07,
+      "complexity_estimate": "Medium",
+      "context_preserved": true,
+      "vocabulary_focus_words": [
+        "farther",
+        "fountains",
+        "noble gifts",
+        "Alcinous"
+      ],
+      "processing_timestamp": "2025-08-21T13:37:26.124928",
+      "source_text_hash": "e2a171fc"
+    },
+    "marginality_confidence": 0.9,
+    "complexity_difference": 13.63000000000001,
+    "reasoning": "This pair is an excellent example of a marginally decidable case. The decision is not immediately obvious, requiring a careful weighing of different types of vocabulary complexity. Passage A's complexity rests on a single, strong Tier 2 word: 'obliged'. Passage B's complexity is more distributed, stemming from the Tier 2 adjective 'noble', the culturally specific proper noun 'Alcinous' (requiring background knowledge), and a generally more literary tone. An annotator must decide if the single difficult word in A is outweighed by the combination of moderately difficult and specific words in B. The answer is definitively yes, but it requires a moment of consideration, fitting the 30-60 second timeframe. The difference is primarily vocabulary-driven, although Passage B's sentence structure is also slightly more complex, the lexical differences are significant enough to be the core point of comparison.",
+    "target_annotation_time": 45.0,
+    "pair_quality_score": 1.0,
+    "generation_timestamp": "2025-08-25T10:04:22.626104"
+  },
+  {
+    "pair_id": "pair-019",
+    "passage_a": {
+      "original_id": "404",
+      "segment_id": "404-seg-2",
+      "text": "For the rich south-west wind fed them, till pear grew ripe on pear, fig on fig, and grape on grape, all the winter and the spring.",
+      "estimated_reading_time": 7.800000000000001,
+      "flesch_score": 68.07,
+      "complexity_estimate": "Low-Medium",
+      "context_preserved": true,
+      "vocabulary_focus_words": [
+        "fed them",
+        "ripe on pear",
+        "south-west"
+      ],
+      "processing_timestamp": "2025-08-21T13:37:26.124928",
+      "source_text_hash": "e2a171fc"
+    },
+    "passage_b": {
+      "original_id": "400",
+      "segment_id": "400-seg-1",
+      "text": "When the young people returned to the ballroom, it presented a decidedly changed appearance. Instead of an interior scene, it was a winter landscape. The floor was covered with snow-white canvas, not laid on smoothly, but rumpled over bumps and hillocks, like a real snow field.",
+      "estimated_reading_time": 13.8,
+      "flesch_score": 81.7,
+      "complexity_estimate": "Medium",
+      "context_preserved": true,
+      "vocabulary_focus_words": [
+        "decidedly",
+        "interior",
+        "rumpled",
+        "hillocks"
+      ],
+      "processing_timestamp": "2025-08-21T13:33:58.089335",
+      "source_text_hash": "7db8587a"
+    },
+    "marginality_confidence": 0.9,
+    "complexity_difference": 13.63000000000001,
+    "reasoning": "This pair is an excellent example of a marginally decidable case. The difference is not immediately obvious because both passages are descriptive and have a relatively smooth reading flow. However, a careful comparison reveals a clear distinction in lexical sophistication. Passage A uses common, high-frequency vocabulary (e.g., 'rich', 'fed', 'ripe', 'pear'). In contrast, Passage B employs several more precise and less frequent Tier 2 words, such as 'decidedly', 'interior', 'rumpled', and most notably, 'hillocks'. This difference requires the reader to pause and consider the specific word choices, making it a subtle but definitive judgment. The Flesch scores are misleading (suggesting B is easier), which further supports the need for careful human analysis focused on vocabulary rather than sentence length.",
+    "target_annotation_time": 40.0,
+    "pair_quality_score": 1.0,
+    "generation_timestamp": "2025-08-25T10:05:41.138002"
+  },
+  {
+    "pair_id": "pair-020",
+    "passage_a": {
+      "original_id": "404",
+      "segment_id": "404-seg-2",
+      "text": "For the rich south-west wind fed them, till pear grew ripe on pear, fig on fig, and grape on grape, all the winter and the spring.",
+      "estimated_reading_time": 7.800000000000001,
+      "flesch_score": 68.07,
+      "complexity_estimate": "Low-Medium",
+      "context_preserved": true,
+      "vocabulary_focus_words": [
+        "fed them",
+        "ripe on pear",
+        "south-west"
+      ],
+      "processing_timestamp": "2025-08-21T13:37:26.124928",
+      "source_text_hash": "e2a171fc"
+    },
+    "passage_b": {
+      "original_id": "401",
+      "segment_id": "401-seg-2",
+      "text": "At last, however, when the meal was nearly over, she smiled at her little daughter, and said, \"All right, Dolly, you may go.\" \"Oh, mother!\" Dolly cried, overwhelmed with sudden delight. \"Really? Oh, I am so glad! Are you sure you're willing?\"",
+      "estimated_reading_time": 12.6,
+      "flesch_score": 80.26,
+      "complexity_estimate": "Low",
+      "context_preserved": true,
+      "vocabulary_focus_words": [
+        "overwhelmed",
+        "sudden",
+        "delight",
+        "willing"
+      ],
+      "processing_timestamp": "2025-08-21T13:34:28.191089",
+      "source_text_hash": "ea650997"
+    },
+    "marginality_confidence": 0.9,
+    "complexity_difference": 12.190000000000012,
+    "reasoning": "This pair is an excellent example of being marginally decidable. At first glance, Passage A might seem more complex due to its single, long sentence with poetic, parallel phrasing ('pear on pear, fig on fig'). However, the vocabulary itself is very simple and concrete. In contrast, Passage B uses simple sentence structures typical of dialogue, which can make it seem easier. The crucial difference, which requires careful consideration, is the introduction of more abstract and emotionally nuanced vocabulary in Passage B. Words like 'overwhelmed' and 'delight' represent a higher level of vocabulary complexity than any word in Passage A. This discrepancy between syntactic complexity (higher in A) and lexical complexity (higher in B) makes the decision non-obvious and forces the annotator to focus specifically on word choice, fitting the definition of a marginally decidable pair perfectly.",
+    "target_annotation_time": 40.0,
+    "pair_quality_score": 1.0,
+    "generation_timestamp": "2025-08-25T10:06:22.697240"
+  },
+  {
+    "pair_id": "pair-021",
+    "passage_a": {
+      "original_id": "404",
+      "segment_id": "404-seg-2",
+      "text": "For the rich south-west wind fed them, till pear grew ripe on pear, fig on fig, and grape on grape, all the winter and the spring.",
+      "estimated_reading_time": 7.800000000000001,
+      "flesch_score": 68.07,
+      "complexity_estimate": "Low-Medium",
+      "context_preserved": true,
+      "vocabulary_focus_words": [
+        "fed them",
+        "ripe on pear",
+        "south-west"
+      ],
+      "processing_timestamp": "2025-08-21T13:37:26.124928",
+      "source_text_hash": "e2a171fc"
+    },
+    "passage_b": {
+      "original_id": "401",
+      "segment_id": "401-seg-4",
+      "text": "\"And, as you say, it would also keep Dotty at home, and so, altogether, I think I shall have to give in.\" \"Oh, you angel mother! You blessed lady! How good you are!\" And Dolly flew around the table and gave her mother a hug that nearly suffocated her.",
+      "estimated_reading_time": 14.7,
+      "flesch_score": 80.26,
+      "complexity_estimate": "Low",
+      "context_preserved": true,
+      "vocabulary_focus_words": [
+        "altogether",
+        "give in",
+        "blessed",
+        "suffocated"
+      ],
+      "processing_timestamp": "2025-08-21T13:34:28.191089",
+      "source_text_hash": "ea650997"
+    },
+    "marginality_confidence": 0.9,
+    "complexity_difference": 12.190000000000012,
+    "reasoning": "This pair is an excellent example of being marginally decidable. At first glance, Passage A might seem more complex due to its poetic, descriptive style and a single long sentence, which is reflected in its lower (more complex) Flesch score. However, a careful analysis of the vocabulary reveals that Passage B is more complex. Passage A uses very common, concrete words ('pear', 'fig', 'grape', 'wind'). In contrast, Passage B, despite its simple dialogue and sentence structure, contains the significantly more advanced and lower-frequency word 'suffocated'. It also includes the phrasal verb 'give in' and the adverb 'altogether', which are a step above the vocabulary in A. This discrepancy between syntactic complexity (higher in A) and lexical complexity (higher in B) forces the annotator to carefully consider the specific task of evaluating vocabulary, making the decision non-obvious but clear upon reflection.",
+    "target_annotation_time": 40.0,
+    "pair_quality_score": 1.0,
+    "generation_timestamp": "2025-08-25T10:06:44.826996"
+  },
+  {
+    "pair_id": "pair-022",
+    "passage_a": {
+      "original_id": "404",
+      "segment_id": "404-seg-2",
+      "text": "For the rich south-west wind fed them, till pear grew ripe on pear, fig on fig, and grape on grape, all the winter and the spring.",
+      "estimated_reading_time": 7.800000000000001,
+      "flesch_score": 68.07,
+      "complexity_estimate": "Low-Medium",
+      "context_preserved": true,
+      "vocabulary_focus_words": [
+        "fed them",
+        "ripe on pear",
+        "south-west"
+      ],
+      "processing_timestamp": "2025-08-21T13:37:26.124928",
+      "source_text_hash": "e2a171fc"
+    },
+    "passage_b": {
+      "original_id": "402",
+      "segment_id": "402-seg-1",
+      "text": "As Roger had predicted, the snow departed as quickly as it came, and two days after their sleigh ride there was scarcely a vestige of white on the ground. Tennis was again possible and a great game was in progress on the court at Pine Laurel.",
+      "estimated_reading_time": 13.8,
+      "flesch_score": 79.04,
+      "complexity_estimate": "Low-Medium",
+      "context_preserved": true,
+      "vocabulary_focus_words": [
+        "predicted",
+        "departed",
+        "scarcely",
+        "vestige",
+        "progress"
+      ],
+      "processing_timestamp": "2025-08-21T13:35:01.800336",
+      "source_text_hash": "20b8416f"
+    },
+    "marginality_confidence": 0.95,
+    "complexity_difference": 10.970000000000013,
+    "reasoning": "This pair is an excellent example of a marginally decidable case. At a glance, both passages describe simple, natural scenes and have similar readability scores, which might suggest they are of equal complexity. However, a careful analysis of the vocabulary reveals a clear, albeit subtle, distinction. The complexity difference is not immediately obvious but is definitive upon closer inspection. Passage B contains several Tier 2 vocabulary words ('predicted', 'departed', 'scarcely') and one clear low-frequency, more academic word ('vestige'). In contrast, Passage A's vocabulary is composed almost entirely of high-frequency, concrete words ('pear', 'fig', 'grape', 'wind'). The difference is almost exclusively lexical, as sentence structures and topics are simple in both. This requires an annotator to look past the surface-level simplicity and focus on the specific word choices, fitting the criteria for a marginal decision perfectly.",
+    "target_annotation_time": 40.0,
+    "pair_quality_score": 1.0,
+    "generation_timestamp": "2025-08-25T10:07:06.946027"
+  },
+  {
+    "pair_id": "pair-023",
+    "passage_a": {
+      "original_id": "404",
+      "segment_id": "404-seg-2",
+      "text": "For the rich south-west wind fed them, till pear grew ripe on pear, fig on fig, and grape on grape, all the winter and the spring.",
+      "estimated_reading_time": 7.800000000000001,
+      "flesch_score": 68.07,
+      "complexity_estimate": "Low-Medium",
+      "context_preserved": true,
+      "vocabulary_focus_words": [
+        "fed them",
+        "ripe on pear",
+        "south-west"
+      ],
+      "processing_timestamp": "2025-08-21T13:37:26.124928",
+      "source_text_hash": "e2a171fc"
+    },
+    "passage_b": {
+      "original_id": "406",
+      "segment_id": "406-seg-5",
+      "text": "General Joffre was out of the car before it came to a full stop, and Hal and Chester were at his heels. An orderly approached. \"My respects to General Tromp, and tell him I desire his presence immediately,\" ordered General Joffre.",
+      "estimated_reading_time": 12.299999999999999,
+      "flesch_score": 59.67,
+      "complexity_estimate": "Low-Medium",
+      "context_preserved": true,
+      "vocabulary_focus_words": [
+        "orderly",
+        "respects",
+        "desire",
+        "immediately"
+      ],
+      "processing_timestamp": "2025-08-21T13:38:29.127370",
+      "source_text_hash": "27f2005c"
+    },
+    "marginality_confidence": 0.95,
+    "complexity_difference": 8.399999999999991,
+    "reasoning": "This pair is an excellent example of a marginally decidable case. The Flesch scores are relatively close, suggesting the overall readability isn't drastically different. However, a closer look at the vocabulary reveals a clear, yet subtle, distinction. Passage A uses very common, concrete, and high-frequency words related to nature ('pear', 'fig', 'grape', 'ripe'). The phrasing is slightly poetic but the individual words are simple. In contrast, Passage B uses more formal, abstract, and context-specific vocabulary (Tier 2 words). Words like 'orderly', 'desire', and 'presence', along with the formal phrasing 'My respects to...', belong to a higher lexical register than anything in Passage A. The difference isn't immediately obvious because both passages are short and narratively straightforward, but the specific word choices in B make it definitively more complex from a vocabulary standpoint. This requires careful consideration rather than an instant judgment, fitting the criteria perfectly.",
+    "target_annotation_time": 45.0,
+    "pair_quality_score": 1.0,
+    "generation_timestamp": "2025-08-25T10:07:26.555133"
+  },
+  {
+    "pair_id": "pair-024",
+    "passage_a": {
+      "original_id": "404",
+      "segment_id": "404-seg-2",
+      "text": "For the rich south-west wind fed them, till pear grew ripe on pear, fig on fig, and grape on grape, all the winter and the spring.",
+      "estimated_reading_time": 7.800000000000001,
+      "flesch_score": 68.07,
+      "complexity_estimate": "Low-Medium",
+      "context_preserved": true,
+      "vocabulary_focus_words": [
+        "fed them",
+        "ripe on pear",
+        "south-west"
+      ],
+      "processing_timestamp": "2025-08-21T13:37:26.124928",
+      "source_text_hash": "e2a171fc"
+    },
+    "passage_b": {
+      "original_id": "407",
+      "segment_id": "407-seg-2",
+      "text": "In company with Major Raoul Derevaux, a Frenchman, and Captain Harry Anderson, an Englishman, they finally made their way into Belgium, where they arrived in time to take part in the heroic defense of Li\u00e9ge in the early stages of the war.",
+      "estimated_reading_time": 12.6,
+      "flesch_score": 60.87,
+      "complexity_estimate": "Medium",
+      "context_preserved": true,
+      "vocabulary_focus_words": [
+        "company",
+        "heroic",
+        "defense",
+        "Li\u00e9ge"
+      ],
+      "processing_timestamp": "2025-08-21T13:39:53.732051",
+      "source_text_hash": "ef800d7c"
+    },
+    "marginality_confidence": 0.9,
+    "complexity_difference": 7.199999999999996,
+    "reasoning": "This pair is an excellent example of a marginally decidable case. The difference in complexity is not immediately obvious because both passages are grammatically sound and relatively short. However, a careful comparison of the vocabulary reveals a clear, albeit subtle, distinction. Passage A uses common, concrete words related to nature and agriculture ('pear', 'fig', 'grape', 'wind', 'ripe'). Passage B, in contrast, employs more abstract and domain-specific vocabulary related to a military/historical context ('company', 'heroic', 'defense', 'stages'). The presence of specific proper nouns ('Li\u00e9ge') and titles ('Major', 'Captain') in Passage B also adds a layer of complexity that requires more background knowledge than the vocabulary in Passage A. The decision requires a moment of thought to compare the *type* of vocabulary used, making it a good test of an annotator's ability to discern nuanced differences.",
+    "target_annotation_time": 40.0,
+    "pair_quality_score": 1.0,
+    "generation_timestamp": "2025-08-25T10:07:47.869626"
+  },
+  {
+    "pair_id": "pair-025",
+    "passage_a": {
+      "original_id": "404",
+      "segment_id": "404-seg-5",
+      "text": "And beside him stood Arete, his wise and lovely queen, and leaned against a pillar as she spun her golden threads.",
+      "estimated_reading_time": 6.3,
+      "flesch_score": 68.07,
+      "complexity_estimate": "Medium",
+      "context_preserved": true,
+      "vocabulary_focus_words": [
+        "Arete",
+        "pillar",
+        "spun",
+        "threads"
+      ],
+      "processing_timestamp": "2025-08-21T13:37:26.124928",
+      "source_text_hash": "e2a171fc"
+    },
+    "passage_b": {
+      "original_id": "400",
+      "segment_id": "400-seg-1",
+      "text": "When the young people returned to the ballroom, it presented a decidedly changed appearance. Instead of an interior scene, it was a winter landscape. The floor was covered with snow-white canvas, not laid on smoothly, but rumpled over bumps and hillocks, like a real snow field.",
+      "estimated_reading_time": 13.8,
+      "flesch_score": 81.7,
+      "complexity_estimate": "Medium",
+      "context_preserved": true,
+      "vocabulary_focus_words": [
+        "decidedly",
+        "interior",
+        "rumpled",
+        "hillocks"
+      ],
+      "processing_timestamp": "2025-08-21T13:33:58.089335",
+      "source_text_hash": "7db8587a"
+    },
+    "marginality_confidence": 0.9,
+    "complexity_difference": 13.63000000000001,
+    "reasoning": "This pair is an excellent example of being marginally decidable. The difference is not immediately obvious, partly because Passage A contains a proper noun from mythology ('Arete') which can be perceived as complex. However, a careful vocabulary analysis reveals that Passage B consistently uses more sophisticated and less frequent descriptive words (Tier 2 vocabulary). The complexity in Passage B is distributed across several words ('decidedly', 'interior', 'rumpled', 'hillocks'), whereas the complexity in Passage A is concentrated in a single, domain-specific proper noun. The word 'hillocks' in Passage B is a particularly strong indicator of higher complexity compared to the relatively common vocabulary in A ('pillar', 'spun', 'threads'). The decision requires moving past the initial impression of the proper noun and evaluating the overall lexical richness, making it a subtle but clear distinction.",
+    "target_annotation_time": 40.0,
+    "pair_quality_score": 1.0,
+    "generation_timestamp": "2025-08-25T10:08:33.028801"
+  },
+  {
+    "pair_id": "pair-026",
+    "passage_a": {
+      "original_id": "404",
+      "segment_id": "404-seg-5",
+      "text": "And beside him stood Arete, his wise and lovely queen, and leaned against a pillar as she spun her golden threads.",
+      "estimated_reading_time": 6.3,
+      "flesch_score": 68.07,
+      "complexity_estimate": "Medium",
+      "context_preserved": true,
+      "vocabulary_focus_words": [
+        "Arete",
+        "pillar",
+        "spun",
+        "threads"
+      ],
+      "processing_timestamp": "2025-08-21T13:37:26.124928",
+      "source_text_hash": "e2a171fc"
+    },
+    "passage_b": {
+      "original_id": "401",
+      "segment_id": "401-seg-1",
+      "text": "All through dinner time, Mrs. Fayre was somewhat silent, her eyes resting on Dolly with a wistful, uncertain expression. She wanted to give the child the pleasure she craved, but she had hard work to bring herself to the point of overcoming her own objections.",
+      "estimated_reading_time": 13.5,
+      "flesch_score": 80.26,
+      "complexity_estimate": "Low-Medium",
+      "context_preserved": true,
+      "vocabulary_focus_words": [
+        "wistful",
+        "uncertain",
+        "craved",
+        "overcoming",
+        "objections"
+      ],
+      "processing_timestamp": "2025-08-21T13:34:28.191089",
+      "source_text_hash": "ea650997"
+    },
+    "marginality_confidence": 0.9,
+    "complexity_difference": 12.190000000000012,
+    "reasoning": "This pair is an excellent example of a marginally decidable case. The decision is not immediately obvious because Passage A has a classical, literary tone ('Arete', 'golden threads') which can be perceived as complex. However, a closer look at the vocabulary reveals that Passage B is more complex. The complexity in Passage B stems from a cluster of abstract, Tier 2 words describing internal states and concepts ('wistful', 'craved', 'overcoming', 'objections'). These words require a more nuanced understanding than the largely concrete vocabulary in Passage A ('pillar', 'spun', 'threads'). The proper noun 'Arete' in Passage A is a knowledge-based challenge, not a general vocabulary one. The difference is subtle enough to require careful comparison of the specific word choices, making it a good test of lexical assessment skills rather than a simple judgment based on tone or sentence length. The misleading Flesch scores (suggesting B is simpler) further confirm that this requires human judgment beyond simple metrics.",
+    "target_annotation_time": 45.0,
+    "pair_quality_score": 1.0,
+    "generation_timestamp": "2025-08-25T10:08:57.098494"
+  },
+  {
+    "pair_id": "pair-027",
+    "passage_a": {
+      "original_id": "404",
+      "segment_id": "404-seg-5",
+      "text": "And beside him stood Arete, his wise and lovely queen, and leaned against a pillar as she spun her golden threads.",
+      "estimated_reading_time": 6.3,
+      "flesch_score": 68.07,
+      "complexity_estimate": "Medium",
+      "context_preserved": true,
+      "vocabulary_focus_words": [
+        "Arete",
+        "pillar",
+        "spun",
+        "threads"
+      ],
+      "processing_timestamp": "2025-08-21T13:37:26.124928",
+      "source_text_hash": "e2a171fc"
+    },
+    "passage_b": {
+      "original_id": "401",
+      "segment_id": "401-seg-2",
+      "text": "At last, however, when the meal was nearly over, she smiled at her little daughter, and said, \"All right, Dolly, you may go.\" \"Oh, mother!\" Dolly cried, overwhelmed with sudden delight. \"Really? Oh, I am so glad! Are you sure you're willing?\"",
+      "estimated_reading_time": 12.6,
+      "flesch_score": 80.26,
+      "complexity_estimate": "Low",
+      "context_preserved": true,
+      "vocabulary_focus_words": [
+        "overwhelmed",
+        "sudden",
+        "delight",
+        "willing"
+      ],
+      "processing_timestamp": "2025-08-21T13:34:28.191089",
+      "source_text_hash": "ea650997"
+    },
+    "marginality_confidence": 0.9,
+    "complexity_difference": 12.190000000000012,
+    "reasoning": "This pair is an excellent example of a marginally decidable case. The decision is not immediately obvious because both passages contain vocabulary that elevates them beyond the simplest texts. Passage B includes strong Tier 2 emotional words like 'overwhelmed' and 'delight', which require a certain level of reading maturity. However, Passage A is ultimately more complex due to the inclusion of 'Arete', a proper noun from Greek mythology that requires specific background knowledge, making it a very low-frequency and context-specific term. The word 'pillar' is also less common than any word in Passage B. The comparison requires an annotator to weigh the complexity of general abstract emotional words against a specific, culturally-loaded proper noun. This nuance makes the decision subtle but definitive, fitting perfectly within the 30-60 second evaluation window.",
+    "target_annotation_time": 45.0,
+    "pair_quality_score": 1.0,
+    "generation_timestamp": "2025-08-25T10:09:34.215090"
+  },
+  {
+    "pair_id": "pair-028",
+    "passage_a": {
+      "original_id": "404",
+      "segment_id": "404-seg-5",
+      "text": "And beside him stood Arete, his wise and lovely queen, and leaned against a pillar as she spun her golden threads.",
+      "estimated_reading_time": 6.3,
+      "flesch_score": 68.07,
+      "complexity_estimate": "Medium",
+      "context_preserved": true,
+      "vocabulary_focus_words": [
+        "Arete",
+        "pillar",
+        "spun",
+        "threads"
+      ],
+      "processing_timestamp": "2025-08-21T13:37:26.124928",
+      "source_text_hash": "e2a171fc"
+    },
+    "passage_b": {
+      "original_id": "401",
+      "segment_id": "401-seg-4",
+      "text": "\"And, as you say, it would also keep Dotty at home, and so, altogether, I think I shall have to give in.\" \"Oh, you angel mother! You blessed lady! How good you are!\" And Dolly flew around the table and gave her mother a hug that nearly suffocated her.",
+      "estimated_reading_time": 14.7,
+      "flesch_score": 80.26,
+      "complexity_estimate": "Low",
+      "context_preserved": true,
+      "vocabulary_focus_words": [
+        "altogether",
+        "give in",
+        "blessed",
+        "suffocated"
+      ],
+      "processing_timestamp": "2025-08-21T13:34:28.191089",
+      "source_text_hash": "ea650997"
+    },
+    "marginality_confidence": 0.9,
+    "complexity_difference": 12.190000000000012,
+    "reasoning": "This pair is an excellent example of a marginally decidable case. The decision is not immediately obvious because Passage B contains the single most lexically complex word ('suffocated'). However, a careful assessment reveals that Passage A is more complex overall. Its complexity stems from a specific classical or mythological register, driven by the combination of the proper noun 'Arete' (which requires specific cultural knowledge), 'pillar', and the slightly archaic usage of 'spun her golden threads'. This creates a consistently elevated tone. In contrast, Passage B uses common, conversational vocabulary ('altogether', 'give in', 'blessed') with one more advanced word used in a common hyperbolic expression. An annotator must weigh the complexity of a single, generally advanced word against a cluster of words that create a more literary and context-specific register. This requires careful consideration but leads to a definitive answer, making the pair marginally decidable.",
+    "target_annotation_time": 45.0,
+    "pair_quality_score": 1.0,
+    "generation_timestamp": "2025-08-25T10:09:58.840977"
+  },
+  {
+    "pair_id": "pair-029",
+    "passage_a": {
+      "original_id": "404",
+      "segment_id": "404-seg-5",
+      "text": "And beside him stood Arete, his wise and lovely queen, and leaned against a pillar as she spun her golden threads.",
+      "estimated_reading_time": 6.3,
+      "flesch_score": 68.07,
+      "complexity_estimate": "Medium",
+      "context_preserved": true,
+      "vocabulary_focus_words": [
+        "Arete",
+        "pillar",
+        "spun",
+        "threads"
+      ],
+      "processing_timestamp": "2025-08-21T13:37:26.124928",
+      "source_text_hash": "e2a171fc"
+    },
+    "passage_b": {
+      "original_id": "402",
+      "segment_id": "402-seg-1",
+      "text": "As Roger had predicted, the snow departed as quickly as it came, and two days after their sleigh ride there was scarcely a vestige of white on the ground. Tennis was again possible and a great game was in progress on the court at Pine Laurel.",
+      "estimated_reading_time": 13.8,
+      "flesch_score": 79.04,
+      "complexity_estimate": "Low-Medium",
+      "context_preserved": true,
+      "vocabulary_focus_words": [
+        "predicted",
+        "departed",
+        "scarcely",
+        "vestige",
+        "progress"
+      ],
+      "processing_timestamp": "2025-08-21T13:35:01.800336",
+      "source_text_hash": "20b8416f"
+    },
+    "marginality_confidence": 0.9,
+    "complexity_difference": 10.970000000000013,
+    "reasoning": "This pair is an excellent example of a marginally decidable case. The decision is not immediately obvious because Passage A contains an uncommon proper noun ('Arete') from mythology, which can initially seem complex. However, the rest of its vocabulary ('pillar', 'spun', 'threads') is concrete and common. In contrast, Passage B uses a higher density of Tier 2 vocabulary ('predicted', 'departed', 'scarcely') and one clear, low-frequency Tier 3 word ('vestige'). The core task for an annotator is to weigh the complexity of a single, obscure proper noun against a collection of more advanced general academic words. An expert would correctly identify that understanding a word like 'vestige' demonstrates a higher level of general vocabulary command than recognizing a specific name. The difference is definitive but subtle enough to require careful thought, fitting the criteria perfectly.",
+    "target_annotation_time": 45.0,
+    "pair_quality_score": 1.0,
+    "generation_timestamp": "2025-08-25T10:10:22.674631"
+  },
+  {
+    "pair_id": "pair-030",
+    "passage_a": {
+      "original_id": "404",
+      "segment_id": "404-seg-5",
+      "text": "And beside him stood Arete, his wise and lovely queen, and leaned against a pillar as she spun her golden threads.",
+      "estimated_reading_time": 6.3,
+      "flesch_score": 68.07,
+      "complexity_estimate": "Medium",
+      "context_preserved": true,
+      "vocabulary_focus_words": [
+        "Arete",
+        "pillar",
+        "spun",
+        "threads"
+      ],
+      "processing_timestamp": "2025-08-21T13:37:26.124928",
+      "source_text_hash": "e2a171fc"
+    },
+    "passage_b": {
+      "original_id": "407",
+      "segment_id": "407-seg-4",
+      "text": "Following the first Belgian campaign, the two lads had seen service with the British troops on the continent, where they were attached to the staff of General Sir John French, in command of the English forces. Also they had won the respect and admiration of General Joffre, the French commander-in-chief.",
+      "estimated_reading_time": 15.0,
+      "flesch_score": 60.87,
+      "complexity_estimate": "High",
+      "context_preserved": true,
+      "vocabulary_focus_words": [
+        "campaign",
+        "continent",
+        "attached to the staff",
+        "admiration",
+        "commander-in-chief"
+      ],
+      "processing_timestamp": "2025-08-21T13:39:53.732051",
+      "source_text_hash": "ef800d7c"
+    },
+    "marginality_confidence": 0.9,
+    "complexity_difference": 7.199999999999996,
+    "reasoning": "This pair is an excellent example of a marginally decidable case. Passage B is definitively more complex, but the difference is subtle and requires careful consideration. Passage A uses simple, concrete vocabulary ('pillar', 'spun', 'threads') within a literary context. Its only potentially difficult word, 'Arete', is a proper noun, which tests prior knowledge rather than general vocabulary. In contrast, Passage B uses more abstract and domain-specific vocabulary related to military and political history ('campaign', 'continent', 'admiration'). It also includes complex multi-word lexical units with specific meanings ('attached to the staff', 'commander-in-chief'). The difference isn't immediately obvious because Passage A has a classic, literary feel, and Passage B doesn't use exceptionally rare words. An annotator must weigh the single challenging proper noun in A against the cluster of more advanced, abstract, and formal vocabulary in B, making it a thoughtful but clear decision.",
+    "target_annotation_time": 45.0,
+    "pair_quality_score": 1.0,
+    "generation_timestamp": "2025-08-25T10:10:45.336170"
+  },
+  {
+    "pair_id": "pair-031",
+    "passage_a": {
+      "original_id": "406",
+      "segment_id": "406-seg-1",
+      "text": "Hal and Chester found ample time to take an inventory of the general's car.",
+      "estimated_reading_time": 4.2,
+      "flesch_score": 59.67,
+      "complexity_estimate": "Hard",
+      "context_preserved": true,
+      "vocabulary_focus_words": [
+        "inventory",
+        "luxuriously"
+      ],
+      "processing_timestamp": "2025-08-21T13:38:29.127370",
+      "source_text_hash": "27f2005c"
+    },
+    "passage_b": {
+      "original_id": "400",
+      "segment_id": "400-seg-1",
+      "text": "When the young people returned to the ballroom, it presented a decidedly changed appearance. Instead of an interior scene, it was a winter landscape. The floor was covered with snow-white canvas, not laid on smoothly, but rumpled over bumps and hillocks, like a real snow field.",
+      "estimated_reading_time": 13.8,
+      "flesch_score": 81.7,
+      "complexity_estimate": "Medium",
+      "context_preserved": true,
+      "vocabulary_focus_words": [
+        "decidedly",
+        "interior",
+        "rumpled",
+        "hillocks"
+      ],
+      "processing_timestamp": "2025-08-21T13:33:58.089335",
+      "source_text_hash": "7db8587a"
+    },
+    "marginality_confidence": 0.9,
+    "complexity_difference": 22.03,
+    "reasoning": "This pair is an excellent example of a marginally decidable case. The decision requires weighing the impact of a single, relatively high-complexity word against a collection of several medium-complexity words. Passage A's complexity is almost entirely dependent on the word 'inventory'. Passage B, while longer, contains a cluster of descriptive and more nuanced vocabulary ('decidedly', 'interior', 'rumpled', 'hillocks'). An annotator cannot make an immediate judgment; they must pause to consider whether the single peak of difficulty in A outweighs the sustained, higher vocabulary baseline in B. The answer is definitively B, as the density and variety of Tier 2 words are greater, but arriving at this conclusion requires careful thought, fitting the criteria perfectly. The difference is not in topic or sentence structure alone, but in the distribution and type of vocabulary used.",
+    "target_annotation_time": 40.0,
+    "pair_quality_score": 1.0,
+    "generation_timestamp": "2025-08-25T10:11:12.909738"
+  },
+  {
+    "pair_id": "pair-032",
+    "passage_a": {
+      "original_id": "406",
+      "segment_id": "406-seg-1",
+      "text": "Hal and Chester found ample time to take an inventory of the general's car.",
+      "estimated_reading_time": 4.2,
+      "flesch_score": 59.67,
+      "complexity_estimate": "Hard",
+      "context_preserved": true,
+      "vocabulary_focus_words": [
+        "inventory",
+        "luxuriously"
+      ],
+      "processing_timestamp": "2025-08-21T13:38:29.127370",
+      "source_text_hash": "27f2005c"
+    },
+    "passage_b": {
+      "original_id": "401",
+      "segment_id": "401-seg-1",
+      "text": "All through dinner time, Mrs. Fayre was somewhat silent, her eyes resting on Dolly with a wistful, uncertain expression. She wanted to give the child the pleasure she craved, but she had hard work to bring herself to the point of overcoming her own objections.",
+      "estimated_reading_time": 13.5,
+      "flesch_score": 80.26,
+      "complexity_estimate": "Low-Medium",
+      "context_preserved": true,
+      "vocabulary_focus_words": [
+        "wistful",
+        "uncertain",
+        "craved",
+        "overcoming",
+        "objections"
+      ],
+      "processing_timestamp": "2025-08-21T13:34:28.191089",
+      "source_text_hash": "ea650997"
+    },
+    "marginality_confidence": 0.9,
+    "complexity_difference": 20.590000000000003,
+    "reasoning": "This pair is marginally decidable. Passage B is definitively more complex in its vocabulary, but the difference is subtle enough to require careful consideration. Passage A's complexity hinges on a single, formal Tier 2 word: 'inventory'. This word requires a specific understanding beyond its common meaning of a list of goods. In contrast, Passage B contains a cluster of nuanced, abstract, and emotionally descriptive Tier 2 words: 'wistful', 'craved', and 'objections'. The density and variety of challenging vocabulary are significantly higher in Passage B. The decision is not immediately obvious because the single strong word in A ('inventory') must be weighed against the collection of moderately complex words in B. An annotator must recognize that the cumulative effect and abstract nature of the vocabulary in B create a greater cognitive load. While Passage B also has a more complex sentence structure, the difference in vocabulary is a primary and significant driver of the complexity gap.",
+    "target_annotation_time": 45.0,
+    "pair_quality_score": 1.0,
+    "generation_timestamp": "2025-08-25T10:11:42.460946"
+  },
+  {
+    "pair_id": "pair-033",
+    "passage_a": {
+      "original_id": "406",
+      "segment_id": "406-seg-1",
+      "text": "Hal and Chester found ample time to take an inventory of the general's car.",
+      "estimated_reading_time": 4.2,
+      "flesch_score": 59.67,
+      "complexity_estimate": "Hard",
+      "context_preserved": true,
+      "vocabulary_focus_words": [
+        "inventory",
+        "luxuriously"
+      ],
+      "processing_timestamp": "2025-08-21T13:38:29.127370",
+      "source_text_hash": "27f2005c"
+    },
+    "passage_b": {
+      "original_id": "401",
+      "segment_id": "401-seg-2",
+      "text": "At last, however, when the meal was nearly over, she smiled at her little daughter, and said, \"All right, Dolly, you may go.\" \"Oh, mother!\" Dolly cried, overwhelmed with sudden delight. \"Really? Oh, I am so glad! Are you sure you're willing?\"",
+      "estimated_reading_time": 12.6,
+      "flesch_score": 80.26,
+      "complexity_estimate": "Low",
+      "context_preserved": true,
+      "vocabulary_focus_words": [
+        "overwhelmed",
+        "sudden",
+        "delight",
+        "willing"
+      ],
+      "processing_timestamp": "2025-08-21T13:34:28.191089",
+      "source_text_hash": "ea650997"
+    },
+    "marginality_confidence": 0.9,
+    "complexity_difference": 20.590000000000003,
+    "reasoning": "This pair is an excellent example of a marginally decidable case. The decision is not immediately obvious because the source of complexity differs between the two passages. Passage A's complexity is concentrated in a single, relatively infrequent, and formal Tier 2 word: 'inventory'. The rest of the passage is simple. Passage B, conversely, derives its complexity from a cluster of descriptive, emotional Tier 2 words ('overwhelmed', 'delight') which are more common in narrative contexts but still represent a higher level of vocabulary. An annotator must weigh the difficulty of a single, more academic word against multiple, less academic but still challenging words. This requires careful consideration and is not a straightforward decision, fitting perfectly within the 30-60 second timeframe for a nuanced judgment. The misleading Flesch scores (suggesting B is much easier) further highlight why human judgment is necessary, making this a prime example of a marginal pair.",
+    "target_annotation_time": 45.0,
+    "pair_quality_score": 1.0,
+    "generation_timestamp": "2025-08-25T10:12:10.906958"
+  },
+  {
+    "pair_id": "pair-034",
+    "passage_a": {
+      "original_id": "406",
+      "segment_id": "406-seg-1",
+      "text": "Hal and Chester found ample time to take an inventory of the general's car.",
+      "estimated_reading_time": 4.2,
+      "flesch_score": 59.67,
+      "complexity_estimate": "Hard",
+      "context_preserved": true,
+      "vocabulary_focus_words": [
+        "inventory",
+        "luxuriously"
+      ],
+      "processing_timestamp": "2025-08-21T13:38:29.127370",
+      "source_text_hash": "27f2005c"
+    },
+    "passage_b": {
+      "original_id": "402",
+      "segment_id": "402-seg-1",
+      "text": "As Roger had predicted, the snow departed as quickly as it came, and two days after their sleigh ride there was scarcely a vestige of white on the ground. Tennis was again possible and a great game was in progress on the court at Pine Laurel.",
+      "estimated_reading_time": 13.8,
+      "flesch_score": 79.04,
+      "complexity_estimate": "Low-Medium",
+      "context_preserved": true,
+      "vocabulary_focus_words": [
+        "predicted",
+        "departed",
+        "scarcely",
+        "vestige",
+        "progress"
+      ],
+      "processing_timestamp": "2025-08-21T13:35:01.800336",
+      "source_text_hash": "20b8416f"
+    },
+    "marginality_confidence": 0.9,
+    "complexity_difference": 19.370000000000005,
+    "reasoning": "This pair is an excellent example of a marginally decidable case. The decision requires careful weighing of different types of vocabulary complexity. Passage A is very short, and its complexity hinges almost entirely on a single, moderately difficult word: 'inventory'. Passage B is longer and contains a cluster of less common, more literary words ('departed', 'scarcely', 'vestige'). The key is comparing the isolated complexity of 'inventory' against the cumulative complexity of the vocabulary in B, particularly the low-frequency word 'vestige'. The decision is not immediately obvious; one must look past sentence length and topic to focus on the specific word choices. The misleading Flesch scores (which rate the shorter passage A as 'Harder') further challenge an annotator to rely on their own lexical judgment, making it a good test case. A definitive answer can be reached (Passage B is more complex due to 'vestige' and supporting words), but it requires a moment of deliberate thought.",
+    "target_annotation_time": 45.0,
+    "pair_quality_score": 1.0,
+    "generation_timestamp": "2025-08-25T10:12:36.434818"
+  },
+  {
+    "pair_id": "pair-035",
+    "passage_a": {
+      "original_id": "413",
+      "segment_id": "413-seg-4",
+      "text": "His patron was Bishop Fonseca. Whatever qualities he might possess for the important work about to be devolved upon him would be developed later.",
+      "estimated_reading_time": 7.199999999999999,
+      "flesch_score": 66.89,
+      "complexity_estimate": "Medium",
+      "context_preserved": true,
+      "vocabulary_focus_words": [
+        "patron",
+        "possess",
+        "devolved"
+      ],
+      "processing_timestamp": "2025-08-21T13:43:48.809259",
+      "source_text_hash": "f73ab8d7"
+    },
+    "passage_b": {
+      "original_id": "400",
+      "segment_id": "400-seg-1",
+      "text": "When the young people returned to the ballroom, it presented a decidedly changed appearance. Instead of an interior scene, it was a winter landscape. The floor was covered with snow-white canvas, not laid on smoothly, but rumpled over bumps and hillocks, like a real snow field.",
+      "estimated_reading_time": 13.8,
+      "flesch_score": 81.7,
+      "complexity_estimate": "Medium",
+      "context_preserved": true,
+      "vocabulary_focus_words": [
+        "decidedly",
+        "interior",
+        "rumpled",
+        "hillocks"
+      ],
+      "processing_timestamp": "2025-08-21T13:33:58.089335",
+      "source_text_hash": "7db8587a"
+    },
+    "marginality_confidence": 0.9,
+    "complexity_difference": 14.810000000000002,
+    "reasoning": "This pair is an excellent example of a marginally decidable case. The decision is not immediately obvious because both passages contain Tier 2 or Tier 3 vocabulary. Passage B is longer and uses several descriptive but uncommon words ('rumpled', 'hillocks'), which might initially seem more complex. However, a careful analysis reveals that the vocabulary in Passage A is of a higher complexity due to its abstract and formal nature. The word 'devolved' is significantly less frequent and more abstract than any word in Passage B. Similarly, 'patron' carries a specific, formal meaning. The complexity in Passage B is primarily descriptive and concrete ('hillocks' can be inferred from 'bumps'), while the complexity in Passage A is abstract and related to social or legal concepts. This subtle but clear distinction requires careful consideration, making it a perfect marginally decidable pair.",
+    "target_annotation_time": 45.0,
+    "pair_quality_score": 1.0,
+    "generation_timestamp": "2025-08-25T10:13:23.196202"
+  },
+  {
+    "pair_id": "pair-036",
+    "passage_a": {
+      "original_id": "413",
+      "segment_id": "413-seg-4",
+      "text": "His patron was Bishop Fonseca. Whatever qualities he might possess for the important work about to be devolved upon him would be developed later.",
+      "estimated_reading_time": 7.199999999999999,
+      "flesch_score": 66.89,
+      "complexity_estimate": "Medium",
+      "context_preserved": true,
+      "vocabulary_focus_words": [
+        "patron",
+        "possess",
+        "devolved"
+      ],
+      "processing_timestamp": "2025-08-21T13:43:48.809259",
+      "source_text_hash": "f73ab8d7"
+    },
+    "passage_b": {
+      "original_id": "401",
+      "segment_id": "401-seg-1",
+      "text": "All through dinner time, Mrs. Fayre was somewhat silent, her eyes resting on Dolly with a wistful, uncertain expression. She wanted to give the child the pleasure she craved, but she had hard work to bring herself to the point of overcoming her own objections.",
+      "estimated_reading_time": 13.5,
+      "flesch_score": 80.26,
+      "complexity_estimate": "Low-Medium",
+      "context_preserved": true,
+      "vocabulary_focus_words": [
+        "wistful",
+        "uncertain",
+        "craved",
+        "overcoming",
+        "objections"
+      ],
+      "processing_timestamp": "2025-08-21T13:34:28.191089",
+      "source_text_hash": "ea650997"
+    },
+    "marginality_confidence": 0.95,
+    "complexity_difference": 13.370000000000005,
+    "reasoning": "This is an excellent example of a marginally decidable pair. The decision requires weighing the impact of a single, very low-frequency, academic word against a cluster of moderately difficult descriptive words. Passage A's complexity is almost entirely driven by the word 'devolved', which is a significant lexical hurdle. Passage B, in contrast, uses several Tier 2 words ('wistful', 'craved', 'objections') that are less common than everyday language but are more frequent and accessible than 'devolved'. The Flesch scores are misleading (suggesting B is easier), which forces an annotator to perform a careful, vocabulary-focused analysis rather than relying on surface-level metrics. The comparison is not immediately obvious, but a definitive conclusion (A is more complex) can be reached after brief consideration, fitting the criteria perfectly.",
+    "target_annotation_time": 40.0,
+    "pair_quality_score": 1.0,
+    "generation_timestamp": "2025-08-25T10:13:44.688492"
+  },
+  {
+    "pair_id": "pair-037",
+    "passage_a": {
+      "original_id": "413",
+      "segment_id": "413-seg-4",
+      "text": "His patron was Bishop Fonseca. Whatever qualities he might possess for the important work about to be devolved upon him would be developed later.",
+      "estimated_reading_time": 7.199999999999999,
+      "flesch_score": 66.89,
+      "complexity_estimate": "Medium",
+      "context_preserved": true,
+      "vocabulary_focus_words": [
+        "patron",
+        "possess",
+        "devolved"
+      ],
+      "processing_timestamp": "2025-08-21T13:43:48.809259",
+      "source_text_hash": "f73ab8d7"
+    },
+    "passage_b": {
+      "original_id": "401",
+      "segment_id": "401-seg-4",
+      "text": "\"And, as you say, it would also keep Dotty at home, and so, altogether, I think I shall have to give in.\" \"Oh, you angel mother! You blessed lady! How good you are!\" And Dolly flew around the table and gave her mother a hug that nearly suffocated her.",
+      "estimated_reading_time": 14.7,
+      "flesch_score": 80.26,
+      "complexity_estimate": "Low",
+      "context_preserved": true,
+      "vocabulary_focus_words": [
+        "altogether",
+        "give in",
+        "blessed",
+        "suffocated"
+      ],
+      "processing_timestamp": "2025-08-21T13:34:28.191089",
+      "source_text_hash": "ea650997"
+    },
+    "marginality_confidence": 0.9,
+    "complexity_difference": 13.370000000000005,
+    "reasoning": "This pair is an excellent example of a marginally decidable case. The difference in vocabulary complexity is clear and definitive, but not so vast as to be immediately obvious. Passage A is clearly more complex due to its use of formal, lower-frequency words. The decision requires a moment of careful consideration, focusing on the contrast between specific word choices. An annotator would need to weigh the academic and formal nature of words like 'patron' and 'devolved' against the more common, albeit descriptive, vocabulary in Passage B, such as 'suffocated'. This comparison fits squarely within the 30-60 second timeframe and is primarily a lexical challenge, not a syntactic or thematic one.",
+    "target_annotation_time": 35.0,
+    "pair_quality_score": 1.0,
+    "generation_timestamp": "2025-08-25T10:14:34.806525"
+  },
+  {
+    "pair_id": "pair-038",
+    "passage_a": {
+      "original_id": "413",
+      "segment_id": "413-seg-4",
+      "text": "His patron was Bishop Fonseca. Whatever qualities he might possess for the important work about to be devolved upon him would be developed later.",
+      "estimated_reading_time": 7.199999999999999,
+      "flesch_score": 66.89,
+      "complexity_estimate": "Medium",
+      "context_preserved": true,
+      "vocabulary_focus_words": [
+        "patron",
+        "possess",
+        "devolved"
+      ],
+      "processing_timestamp": "2025-08-21T13:43:48.809259",
+      "source_text_hash": "f73ab8d7"
+    },
+    "passage_b": {
+      "original_id": "402",
+      "segment_id": "402-seg-1",
+      "text": "As Roger had predicted, the snow departed as quickly as it came, and two days after their sleigh ride there was scarcely a vestige of white on the ground. Tennis was again possible and a great game was in progress on the court at Pine Laurel.",
+      "estimated_reading_time": 13.8,
+      "flesch_score": 79.04,
+      "complexity_estimate": "Low-Medium",
+      "context_preserved": true,
+      "vocabulary_focus_words": [
+        "predicted",
+        "departed",
+        "scarcely",
+        "vestige",
+        "progress"
+      ],
+      "processing_timestamp": "2025-08-21T13:35:01.800336",
+      "source_text_hash": "20b8416f"
+    },
+    "marginality_confidence": 0.9,
+    "complexity_difference": 12.150000000000006,
+    "reasoning": "This pair is an excellent example of a marginally decidable case. The decision is not immediately obvious because both passages contain low-frequency, Tier 3 vocabulary ('devolved' in A, 'vestige' in B). However, a definitive judgment can be made with careful consideration. The complexity of Passage A is driven by 'devolved', a highly specific and abstract verb related to the transfer of power, which is less common and conceptually more difficult than 'vestige'. While Passage B has more focus words, including the challenging noun 'vestige', its meaning ('a trace') is more concrete and inferable from the context ('vestige of white on the ground'). The comparison requires an annotator to weigh the impact of one very difficult, abstract word against a slightly less difficult, more concrete word, making the difference subtle yet clear.",
+    "target_annotation_time": 40.0,
+    "pair_quality_score": 1.0,
+    "generation_timestamp": "2025-08-25T10:16:27.790502"
+  },
+  {
+    "pair_id": "pair-039",
+    "passage_a": {
+      "original_id": "414",
+      "segment_id": "414-seg-5",
+      "text": "By the door was stationed a young officer in the uniform of the Fifth Regiment of the infantry of the line.",
+      "estimated_reading_time": 6.3,
+      "flesch_score": 59.99,
+      "complexity_estimate": "Medium",
+      "context_preserved": true,
+      "vocabulary_focus_words": [
+        "stationed",
+        "regiment",
+        "infantry"
+      ],
+      "processing_timestamp": "2025-08-21T13:44:46.745246",
+      "source_text_hash": "a6618464"
+    },
+    "passage_b": {
+      "original_id": "400",
+      "segment_id": "400-seg-1",
+      "text": "When the young people returned to the ballroom, it presented a decidedly changed appearance. Instead of an interior scene, it was a winter landscape. The floor was covered with snow-white canvas, not laid on smoothly, but rumpled over bumps and hillocks, like a real snow field.",
+      "estimated_reading_time": 13.8,
+      "flesch_score": 81.7,
+      "complexity_estimate": "Medium",
+      "context_preserved": true,
+      "vocabulary_focus_words": [
+        "decidedly",
+        "interior",
+        "rumpled",
+        "hillocks"
+      ],
+      "processing_timestamp": "2025-08-21T13:33:58.089335",
+      "source_text_hash": "7db8587a"
+    },
+    "marginality_confidence": 0.9,
+    "complexity_difference": 21.71,
+    "reasoning": "This pair is an excellent example of a marginally decidable case. The decision is not immediately obvious because the passages differ in the *type* of vocabulary complexity. Passage A's complexity is concentrated in two domain-specific, Tier 3 nouns ('regiment', 'infantry') that require external knowledge of military structure. Passage B's complexity is distributed across several sophisticated, but more general, Tier 2 words ('decidedly', 'rumpled', 'hillocks') that are descriptive and literary. An annotator must weigh whether the barrier of specific, technical terms is greater than the challenge of multiple, less common descriptive words. This requires careful consideration beyond simple word frequency, making the decision subtle but definitive. Passage A is ultimately more complex due to the reliance on specialized knowledge, but the literary feel of Passage B makes it a strong competitor, fitting the 'marginally decidable' criteria perfectly.",
+    "target_annotation_time": 45.0,
+    "pair_quality_score": 1.0,
+    "generation_timestamp": "2025-08-25T10:16:49.180713"
+  },
+  {
+    "pair_id": "pair-040",
+    "passage_a": {
+      "original_id": "414",
+      "segment_id": "414-seg-5",
+      "text": "By the door was stationed a young officer in the uniform of the Fifth Regiment of the infantry of the line.",
+      "estimated_reading_time": 6.3,
+      "flesch_score": 59.99,
+      "complexity_estimate": "Medium",
+      "context_preserved": true,
+      "vocabulary_focus_words": [
+        "stationed",
+        "regiment",
+        "infantry"
+      ],
+      "processing_timestamp": "2025-08-21T13:44:46.745246",
+      "source_text_hash": "a6618464"
+    },
+    "passage_b": {
+      "original_id": "401",
+      "segment_id": "401-seg-1",
+      "text": "All through dinner time, Mrs. Fayre was somewhat silent, her eyes resting on Dolly with a wistful, uncertain expression. She wanted to give the child the pleasure she craved, but she had hard work to bring herself to the point of overcoming her own objections.",
+      "estimated_reading_time": 13.5,
+      "flesch_score": 80.26,
+      "complexity_estimate": "Low-Medium",
+      "context_preserved": true,
+      "vocabulary_focus_words": [
+        "wistful",
+        "uncertain",
+        "craved",
+        "overcoming",
+        "objections"
+      ],
+      "processing_timestamp": "2025-08-21T13:34:28.191089",
+      "source_text_hash": "ea650997"
+    },
+    "marginality_confidence": 0.9,
+    "complexity_difference": 20.270000000000003,
+    "reasoning": "This pair is an excellent example of a marginally decidable case because the complexity difference is qualitative rather than quantitative, requiring careful consideration. Passage A's complexity stems from formal, domain-specific vocabulary ('stationed', 'regiment', 'infantry'). These are Tier 3 words that require specific background knowledge (military context) and are likely unfamiliar to a general audience. Passage B's complexity comes from a cluster of nuanced, abstract, and emotional Tier 2 words ('wistful', 'craved', 'overcoming', 'objections'). While these words might be encountered more frequently in literature, they describe subtle internal states that require a degree of conceptual understanding. The decision is not obvious because it requires the annotator to weigh the difficulty of low-frequency, domain-specific terms against the difficulty of nuanced, abstract terms. A definitive conclusion can be reached (Passage A is slightly more complex due to the higher barrier of its specific terminology), but it requires a moment of deliberate analysis, fitting perfectly within the 30-60 second timeframe.",
+    "target_annotation_time": 45.0,
+    "pair_quality_score": 1.0,
+    "generation_timestamp": "2025-08-25T10:17:16.660189"
+  },
+  {
+    "pair_id": "pair-041",
+    "passage_a": {
+      "original_id": "414",
+      "segment_id": "414-seg-5",
+      "text": "By the door was stationed a young officer in the uniform of the Fifth Regiment of the infantry of the line.",
+      "estimated_reading_time": 6.3,
+      "flesch_score": 59.99,
+      "complexity_estimate": "Medium",
+      "context_preserved": true,
+      "vocabulary_focus_words": [
+        "stationed",
+        "regiment",
+        "infantry"
+      ],
+      "processing_timestamp": "2025-08-21T13:44:46.745246",
+      "source_text_hash": "a6618464"
+    },
+    "passage_b": {
+      "original_id": "401",
+      "segment_id": "401-seg-4",
+      "text": "\"And, as you say, it would also keep Dotty at home, and so, altogether, I think I shall have to give in.\" \"Oh, you angel mother! You blessed lady! How good you are!\" And Dolly flew around the table and gave her mother a hug that nearly suffocated her.",
+      "estimated_reading_time": 14.7,
+      "flesch_score": 80.26,
+      "complexity_estimate": "Low",
+      "context_preserved": true,
+      "vocabulary_focus_words": [
+        "altogether",
+        "give in",
+        "blessed",
+        "suffocated"
+      ],
+      "processing_timestamp": "2025-08-21T13:34:28.191089",
+      "source_text_hash": "ea650997"
+    },
+    "marginality_confidence": 0.9,
+    "complexity_difference": 20.270000000000003,
+    "reasoning": "This pair is an excellent example of a marginally decidable case. The decision is not immediately obvious because Passage B contains the word 'suffocated', which is a relatively complex, low-frequency verb. An annotator might initially be drawn to this single word. However, careful consideration reveals that Passage A's overall vocabulary is more complex. It contains a cluster of domain-specific (Tier 3) military terms: 'regiment' and 'infantry', in addition to the more formal verb 'stationed'. The complexity in A is systemic to its descriptive purpose, while the complexity in B hinges on a single, strong verb used in a common hyperbolic expression. This requires the annotator to weigh a single complex word against a group of specialized, formal words, a process that takes time and thought but leads to a definitive conclusion that A is more complex. The difference is primarily in vocabulary, not sentence structure, making it a good test case.",
+    "target_annotation_time": 45.0,
+    "pair_quality_score": 1.0,
+    "generation_timestamp": "2025-08-25T10:18:02.754581"
+  },
+  {
+    "pair_id": "pair-042",
+    "passage_a": {
+      "original_id": "414",
+      "segment_id": "414-seg-5",
+      "text": "By the door was stationed a young officer in the uniform of the Fifth Regiment of the infantry of the line.",
+      "estimated_reading_time": 6.3,
+      "flesch_score": 59.99,
+      "complexity_estimate": "Medium",
+      "context_preserved": true,
+      "vocabulary_focus_words": [
+        "stationed",
+        "regiment",
+        "infantry"
+      ],
+      "processing_timestamp": "2025-08-21T13:44:46.745246",
+      "source_text_hash": "a6618464"
+    },
+    "passage_b": {
+      "original_id": "402",
+      "segment_id": "402-seg-1",
+      "text": "As Roger had predicted, the snow departed as quickly as it came, and two days after their sleigh ride there was scarcely a vestige of white on the ground. Tennis was again possible and a great game was in progress on the court at Pine Laurel.",
+      "estimated_reading_time": 13.8,
+      "flesch_score": 79.04,
+      "complexity_estimate": "Low-Medium",
+      "context_preserved": true,
+      "vocabulary_focus_words": [
+        "predicted",
+        "departed",
+        "scarcely",
+        "vestige",
+        "progress"
+      ],
+      "processing_timestamp": "2025-08-21T13:35:01.800336",
+      "source_text_hash": "20b8416f"
+    },
+    "marginality_confidence": 0.95,
+    "complexity_difference": 19.050000000000004,
+    "reasoning": "This pair is an excellent example of a marginally decidable case. The complexity is not immediately obvious and requires careful consideration of different types of vocabulary difficulty. Passage A's complexity stems from a cluster of domain-specific, Tier 3 words ('regiment', 'infantry') related to the military. Passage B's complexity hinges almost entirely on a single, low-frequency, abstract, and literary Tier 3 word ('vestige'), while its other challenging words are more common Tier 2 vocabulary ('predicted', 'departed'). An annotator must weigh the cumulative difficulty of multiple specialized terms against the peak difficulty of a single, more generally academic word. This nuance makes the decision non-obvious but definitive upon reflection, fitting the criteria for a marginal pair perfectly. The conflicting Flesch scores (suggesting B is much easier) further highlight why this requires careful human judgment.",
+    "target_annotation_time": 45.0,
+    "pair_quality_score": 1.0,
+    "generation_timestamp": "2025-08-25T10:18:27.579998"
+  },
+  {
+    "pair_id": "pair-043",
+    "passage_a": {
+      "original_id": "414",
+      "segment_id": "414-seg-5",
+      "text": "By the door was stationed a young officer in the uniform of the Fifth Regiment of the infantry of the line.",
+      "estimated_reading_time": 6.3,
+      "flesch_score": 59.99,
+      "complexity_estimate": "Medium",
+      "context_preserved": true,
+      "vocabulary_focus_words": [
+        "stationed",
+        "regiment",
+        "infantry"
+      ],
+      "processing_timestamp": "2025-08-21T13:44:46.745246",
+      "source_text_hash": "a6618464"
+    },
+    "passage_b": {
+      "original_id": "404",
+      "segment_id": "404-seg-3",
+      "text": "And at the farther end gay flower-beds bloomed through all seasons of the year; and two fair fountains rose, and ran, one through the garden grounds, and one beneath the palace gate, to water all the town. Such noble gifts the heavens had given to Alcinous the wise.",
+      "estimated_reading_time": 14.399999999999999,
+      "flesch_score": 68.07,
+      "complexity_estimate": "Medium",
+      "context_preserved": true,
+      "vocabulary_focus_words": [
+        "farther",
+        "fountains",
+        "noble gifts",
+        "Alcinous"
+      ],
+      "processing_timestamp": "2025-08-21T13:37:26.124928",
+      "source_text_hash": "e2a171fc"
+    },
+    "marginality_confidence": 0.9,
+    "complexity_difference": 8.079999999999991,
+    "reasoning": "This is an excellent example of a marginally decidable pair. The decision is not immediately obvious, and requires weighing two different types of vocabulary complexity against each other. Passage A's complexity stems from a cluster of specific, domain-related military terms ('regiment', 'infantry'). Passage B's complexity comes from more literary language ('noble gifts') and a proper noun requiring specific cultural knowledge ('Alcinous'). An annotator must consider whether the technical vocabulary of A presents a greater challenge than the literary/cultural vocabulary of B. The Flesch scores are close and even suggest B is easier, which forces a deeper analysis beyond simple metrics. A definitive conclusion can be reached (Passage A is likely more complex due to the density of Tier 3 terms), but it requires careful thought, fitting the criteria perfectly.",
+    "target_annotation_time": 45.0,
+    "pair_quality_score": 1.0,
+    "generation_timestamp": "2025-08-25T10:18:53.489676"
+  },
+  {
+    "pair_id": "pair-044",
+    "passage_a": {
+      "original_id": "420",
+      "segment_id": "420-seg-5",
+      "text": "He was a little sorry at first that he had not put on his best clothes, but he soon forgot to think about that.",
+      "estimated_reading_time": 7.199999999999999,
+      "flesch_score": 70.02,
+      "complexity_estimate": "Low",
+      "context_preserved": true,
+      "vocabulary_focus_words": [
+        "sorry",
+        "first",
+        "forgot",
+        "clothes"
+      ],
+      "processing_timestamp": "2025-08-21T13:46:36.260347",
+      "source_text_hash": "d142c72d"
+    },
+    "passage_b": {
+      "original_id": "401",
+      "segment_id": "401-seg-1",
+      "text": "All through dinner time, Mrs. Fayre was somewhat silent, her eyes resting on Dolly with a wistful, uncertain expression. She wanted to give the child the pleasure she craved, but she had hard work to bring herself to the point of overcoming her own objections.",
+      "estimated_reading_time": 13.5,
+      "flesch_score": 80.26,
+      "complexity_estimate": "Low-Medium",
+      "context_preserved": true,
+      "vocabulary_focus_words": [
+        "wistful",
+        "uncertain",
+        "craved",
+        "overcoming",
+        "objections"
+      ],
+      "processing_timestamp": "2025-08-21T13:34:28.191089",
+      "source_text_hash": "ea650997"
+    },
+    "marginality_confidence": 0.95,
+    "complexity_difference": 10.240000000000009,
+    "reasoning": "This pair is an excellent example of a marginally decidable case. The difference is not immediately obvious from a surface-level glance, and the Flesch scores are even contradictory, suggesting Passage B is simpler, which is incorrect from a lexical standpoint. The core difference lies in the specificity and nuance of the vocabulary. Passage A uses very common, high-frequency words to describe a simple feeling ('sorry', 'forgot'). In contrast, Passage B uses more sophisticated, Tier 2 vocabulary ('wistful', 'craved', 'objections') to describe a more complex internal conflict. This difference is clear and definitive upon careful reading, but subtle enough that it requires a moment of consideration rather than an instant judgment. The task is focused on vocabulary, as sentence structures and topics are comparable.",
+    "target_annotation_time": 40.0,
+    "pair_quality_score": 1.0,
+    "generation_timestamp": "2025-08-25T10:19:35.338854"
+  },
+  {
+    "pair_id": "pair-045",
+    "passage_a": {
+      "original_id": "420",
+      "segment_id": "420-seg-5",
+      "text": "He was a little sorry at first that he had not put on his best clothes, but he soon forgot to think about that.",
+      "estimated_reading_time": 7.199999999999999,
+      "flesch_score": 70.02,
+      "complexity_estimate": "Low",
+      "context_preserved": true,
+      "vocabulary_focus_words": [
+        "sorry",
+        "first",
+        "forgot",
+        "clothes"
+      ],
+      "processing_timestamp": "2025-08-21T13:46:36.260347",
+      "source_text_hash": "d142c72d"
+    },
+    "passage_b": {
+      "original_id": "401",
+      "segment_id": "401-seg-2",
+      "text": "At last, however, when the meal was nearly over, she smiled at her little daughter, and said, \"All right, Dolly, you may go.\" \"Oh, mother!\" Dolly cried, overwhelmed with sudden delight. \"Really? Oh, I am so glad! Are you sure you're willing?\"",
+      "estimated_reading_time": 12.6,
+      "flesch_score": 80.26,
+      "complexity_estimate": "Low",
+      "context_preserved": true,
+      "vocabulary_focus_words": [
+        "overwhelmed",
+        "sudden",
+        "delight",
+        "willing"
+      ],
+      "processing_timestamp": "2025-08-21T13:34:28.191089",
+      "source_text_hash": "ea650997"
+    },
+    "marginality_confidence": 0.95,
+    "complexity_difference": 10.240000000000009,
+    "reasoning": "This pair is an excellent example of a marginally decidable case. Both passages are simple narratives with low overall complexity. However, a direct comparison of the vocabulary, particularly the focus words, reveals a clear but subtle difference. Passage B uses more sophisticated and emotionally nuanced words ('overwhelmed', 'delight') than the very high-frequency, basic vocabulary in Passage A ('sorry', 'forgot', 'clothes'). The difference is not immediately obvious because the surrounding text in Passage B is also simple, but it is definitive upon careful inspection. The counter-intuitive Flesch scores (suggesting B is simpler) further support its marginal nature, as it requires a human annotator to look past the surface-level metrics and focus on the lexical quality. The decision can be made confidently within the 30-60 second timeframe.",
+    "target_annotation_time": 40.0,
+    "pair_quality_score": 1.0,
+    "generation_timestamp": "2025-08-25T10:19:56.003086"
+  },
+  {
+    "pair_id": "pair-046",
+    "passage_a": {
+      "original_id": "420",
+      "segment_id": "420-seg-5",
+      "text": "He was a little sorry at first that he had not put on his best clothes, but he soon forgot to think about that.",
+      "estimated_reading_time": 7.199999999999999,
+      "flesch_score": 70.02,
+      "complexity_estimate": "Low",
+      "context_preserved": true,
+      "vocabulary_focus_words": [
+        "sorry",
+        "first",
+        "forgot",
+        "clothes"
+      ],
+      "processing_timestamp": "2025-08-21T13:46:36.260347",
+      "source_text_hash": "d142c72d"
+    },
+    "passage_b": {
+      "original_id": "401",
+      "segment_id": "401-seg-4",
+      "text": "\"And, as you say, it would also keep Dotty at home, and so, altogether, I think I shall have to give in.\" \"Oh, you angel mother! You blessed lady! How good you are!\" And Dolly flew around the table and gave her mother a hug that nearly suffocated her.",
+      "estimated_reading_time": 14.7,
+      "flesch_score": 80.26,
+      "complexity_estimate": "Low",
+      "context_preserved": true,
+      "vocabulary_focus_words": [
+        "altogether",
+        "give in",
+        "blessed",
+        "suffocated"
+      ],
+      "processing_timestamp": "2025-08-21T13:34:28.191089",
+      "source_text_hash": "ea650997"
+    },
+    "marginality_confidence": 0.9,
+    "complexity_difference": 10.240000000000009,
+    "reasoning": "This pair is an excellent example of a marginally decidable case. Both passages are simple narratives with low overall complexity. However, a direct comparison of the vocabulary reveals a clear, yet subtle, difference. Passage A uses exclusively high-frequency, basic words ('sorry', 'forgot', 'clothes'). Passage B, while also simple, introduces several more complex linguistic features: a low-frequency, multi-syllabic word ('suffocated'), an idiomatic phrasal verb ('give in'), and a slightly more formal adverb ('altogether'). The word 'suffocated', even used hyperbolically, requires a higher level of vocabulary knowledge than any word in Passage A. The difference is not immediately obvious from a surface-level reading but becomes clear upon careful comparison of the word choices, making it perfectly suited for the 'marginally decidable' category.",
+    "target_annotation_time": 40.0,
+    "pair_quality_score": 1.0,
+    "generation_timestamp": "2025-08-25T10:20:20.136240"
+  },
+  {
+    "pair_id": "pair-047",
+    "passage_a": {
+      "original_id": "420",
+      "segment_id": "420-seg-5",
+      "text": "He was a little sorry at first that he had not put on his best clothes, but he soon forgot to think about that.",
+      "estimated_reading_time": 7.199999999999999,
+      "flesch_score": 70.02,
+      "complexity_estimate": "Low",
+      "context_preserved": true,
+      "vocabulary_focus_words": [
+        "sorry",
+        "first",
+        "forgot",
+        "clothes"
+      ],
+      "processing_timestamp": "2025-08-21T13:46:36.260347",
+      "source_text_hash": "d142c72d"
+    },
+    "passage_b": {
+      "original_id": "406",
+      "segment_id": "406-seg-5",
+      "text": "General Joffre was out of the car before it came to a full stop, and Hal and Chester were at his heels. An orderly approached. \"My respects to General Tromp, and tell him I desire his presence immediately,\" ordered General Joffre.",
+      "estimated_reading_time": 12.299999999999999,
+      "flesch_score": 59.67,
+      "complexity_estimate": "Low-Medium",
+      "context_preserved": true,
+      "vocabulary_focus_words": [
+        "orderly",
+        "respects",
+        "desire",
+        "immediately"
+      ],
+      "processing_timestamp": "2025-08-21T13:38:29.127370",
+      "source_text_hash": "27f2005c"
+    },
+    "marginality_confidence": 0.95,
+    "complexity_difference": 10.349999999999994,
+    "reasoning": "This pair is an excellent example of a marginally decidable case. The difference in vocabulary complexity is clear but subtle, requiring a direct comparison of word choices. Passage A uses very common, high-frequency vocabulary (Tier 1 words) related to everyday experiences and feelings ('sorry', 'forgot', 'clothes'). In contrast, Passage B employs more formal, less frequent, and more specific vocabulary (Tier 2 words) associated with a formal, military context. The difference is not immediately obvious from a quick glance at the passages' length or structure, but becomes definitive when comparing the focus words. The shift from simple, concrete words in A to more abstract and formal words in B ('respects', 'desire', 'immediately') is the primary driver of the complexity difference, making it a perfect test of vocabulary assessment.",
+    "target_annotation_time": 40.0,
+    "pair_quality_score": 1.0,
+    "generation_timestamp": "2025-08-25T10:20:38.740927"
+  },
+  {
+    "pair_id": "pair-048",
+    "passage_a": {
+      "original_id": "406",
+      "segment_id": "406-seg-1",
+      "text": "Hal and Chester found ample time to take an inventory of the general's car.",
+      "estimated_reading_time": 4.2,
+      "flesch_score": 59.67,
+      "complexity_estimate": "Hard",
+      "context_preserved": true,
+      "vocabulary_focus_words": [
+        "inventory",
+        "luxuriously"
+      ],
+      "processing_timestamp": "2025-08-21T13:38:29.127370",
+      "source_text_hash": "27f2005c"
+    },
+    "passage_b": {
+      "original_id": "403",
+      "segment_id": "403-seg-3",
+      "text": "Moreover, the groom looked so very neat and clean, with his drab gaiters, drab breeches, drab jacket, snow-white tie with a smart pin in it, and clean round ruddy face, that Tom was offended and disgusted at his appearance.",
+      "estimated_reading_time": 11.700000000000001,
+      "flesch_score": 44.77,
+      "complexity_estimate": "Medium",
+      "context_preserved": true,
+      "vocabulary_focus_words": [
+        "Moreover",
+        "drab",
+        "gaiters",
+        "breeches",
+        "ruddy"
+      ],
+      "processing_timestamp": "2025-08-21T13:36:53.746761",
+      "source_text_hash": "da369ee8"
+    },
+    "marginality_confidence": 0.9,
+    "complexity_difference": 14.899999999999999,
+    "reasoning": "This pair is an excellent example of a marginally decidable case. Passage B is definitively more complex in its vocabulary, but the difference is not immediately obvious and requires careful consideration. Passage A's complexity rests on a single, moderately difficult Tier 2 word ('inventory'). In contrast, Passage B contains a cluster of challenging words, including two low-frequency, domain-specific nouns ('gaiters', 'breeches') and other less common words ('Moreover', 'drab', 'ruddy'). An annotator cannot make a decision at a glance; they must weigh the single abstract noun in A against the higher density of specific, archaic, and formal words in B. The misleading provided complexity labels ('Hard' for A, 'Medium' for B) also add a layer of cognitive friction that forces a more deliberate analysis, perfectly fitting the 'marginally decidable' criteria.",
+    "target_annotation_time": 45.0,
+    "pair_quality_score": 1.0,
+    "generation_timestamp": "2025-08-25T10:22:55.341232"
+  },
+  {
+    "pair_id": "pair-049",
+    "passage_a": {
+      "original_id": "413",
+      "segment_id": "413-seg-4",
+      "text": "His patron was Bishop Fonseca. Whatever qualities he might possess for the important work about to be devolved upon him would be developed later.",
+      "estimated_reading_time": 7.199999999999999,
+      "flesch_score": 66.89,
+      "complexity_estimate": "Medium",
+      "context_preserved": true,
+      "vocabulary_focus_words": [
+        "patron",
+        "possess",
+        "devolved"
+      ],
+      "processing_timestamp": "2025-08-21T13:43:48.809259",
+      "source_text_hash": "f73ab8d7"
+    },
+    "passage_b": {
+      "original_id": "406",
+      "segment_id": "406-seg-4",
+      "text": "For almost two hours the car whirled along at top speed, and at length pulled up in the rear of an immense body of troops, who, even to Hal and Chester, could be seen preparing for an advance.",
+      "estimated_reading_time": 11.4,
+      "flesch_score": 59.67,
+      "complexity_estimate": "Low-Medium",
+      "context_preserved": true,
+      "vocabulary_focus_words": [
+        "immense",
+        "troops",
+        "preparing",
+        "advance"
+      ],
+      "processing_timestamp": "2025-08-21T13:38:29.127370",
+      "source_text_hash": "27f2005c"
+    },
+    "marginality_confidence": 0.9,
+    "complexity_difference": 7.219999999999999,
+    "reasoning": "This pair is an excellent example of a marginally decidable case. The difference in vocabulary complexity is clear upon careful inspection but not immediately obvious. Passage A's complexity is driven by formal, abstract, and lower-frequency words ('patron', 'possess', 'devolved'), while Passage B uses more common, concrete, and descriptive vocabulary ('immense', 'troops'). The subtlety arises because Passage B's sentence is long and contains good descriptive words, which might initially mask the lower complexity of its core vocabulary. An annotator must specifically weigh the conceptual load of A's words against B's, leading to a definitive but considered judgment that A is more complex. This fits the criteria of requiring 30-60 seconds of focused thought.",
+    "target_annotation_time": 40.0,
+    "pair_quality_score": 1.0,
+    "generation_timestamp": "2025-08-25T10:23:19.594248"
+  },
+  {
+    "pair_id": "pair-050",
+    "passage_a": {
+      "original_id": "414",
+      "segment_id": "414-seg-5",
+      "text": "By the door was stationed a young officer in the uniform of the Fifth Regiment of the infantry of the line.",
+      "estimated_reading_time": 6.3,
+      "flesch_score": 59.99,
+      "complexity_estimate": "Medium",
+      "context_preserved": true,
+      "vocabulary_focus_words": [
+        "stationed",
+        "regiment",
+        "infantry"
+      ],
+      "processing_timestamp": "2025-08-21T13:44:46.745246",
+      "source_text_hash": "a6618464"
+    },
+    "passage_b": {
+      "original_id": "403",
+      "segment_id": "403-seg-3",
+      "text": "Moreover, the groom looked so very neat and clean, with his drab gaiters, drab breeches, drab jacket, snow-white tie with a smart pin in it, and clean round ruddy face, that Tom was offended and disgusted at his appearance.",
+      "estimated_reading_time": 11.700000000000001,
+      "flesch_score": 44.77,
+      "complexity_estimate": "Medium",
+      "context_preserved": true,
+      "vocabulary_focus_words": [
+        "Moreover",
+        "drab",
+        "gaiters",
+        "breeches",
+        "ruddy"
+      ],
+      "processing_timestamp": "2025-08-21T13:36:53.746761",
+      "source_text_hash": "da369ee8"
+    },
+    "marginality_confidence": 0.9,
+    "complexity_difference": 15.219999999999999,
+    "reasoning": "This pair is an excellent example of a marginally decidable case. The decision is not immediately obvious because both passages contain vocabulary that is less common in everyday language. The annotator must weigh the complexity of domain-specific military terms in Passage A ('regiment', 'infantry') against the combination of archaic clothing terms ('gaiters', 'breeches') and less frequent descriptive/transitional words in Passage B ('drab', 'ruddy', 'Moreover'). Passage B is definitively more complex due to the higher density and variety of challenging words, but arriving at this conclusion requires careful consideration of the different types of vocabulary used. The difference is subtle enough to require thought but clear enough for a consistent judgment, fitting perfectly within the 30-60 second annotation window.",
+    "target_annotation_time": 45.0,
+    "pair_quality_score": 1.0,
+    "generation_timestamp": "2025-08-25T10:23:41.632927"
+  }
+]

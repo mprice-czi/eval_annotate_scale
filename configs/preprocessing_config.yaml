@@ -22,7 +22,7 @@ segmentation:
 marginality:
   confidence_threshold: 0.6  # Minimum confidence for pair inclusion
   flesch_difference_range: [5, 25]  # Reasonable Flesch score difference for marginality
-  max_candidate_pairs: 100  # Limit for API cost management
+  max_candidate_pairs: 1000  # Increased limit now that we have intelligent pre-filtering
   target_marginal_pairs: 50  # Final output target
 
 # Pairing Strategy
@@ -45,6 +45,16 @@ quality:
   require_context_preservation: true
   min_vocabulary_focus_words: 2
   exclude_segments_with_errors: true
+
+# Statistical Pre-filtering
+statistical_filtering:
+  enabled: true  # Use ML-based pre-filtering to reduce Gemini API calls
+  max_tfidf_features: 1000  # TF-IDF vocabulary size
+  n_clusters: 6  # Number of complexity clusters for strategic sampling
+  pca_components: 10  # PCA components for dimensionality reduction
+  boundary_pairs_ratio: 0.33  # Portion of candidates from cluster boundaries
+  marginal_pairs_ratio: 0.33  # Portion from within-cluster marginal pairs
+  diverse_pairs_ratio: 0.34  # Portion from diversity sampling
   
 # Output Format
 output:
